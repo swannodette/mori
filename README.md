@@ -4,7 +4,7 @@ psjs
 A simple bridge to ClojureScript persistent data structures for JavaScript.
 
 Build
-=====
+----
 
 Install Leiningen. Install lein-cljsbuild.
 
