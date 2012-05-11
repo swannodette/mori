@@ -6,7 +6,7 @@ A simple bridge to ClojureScript's persistent data structures and supporting API
 Usage
 ----
 
-You can download the latest prebuilt version of Mori from the downloads tab.
+You can download the latest prebuilt version of Mori from the [downloads](http://github.com/swannodette/mori/downloads) tab.
 
 Caveats
 ----
