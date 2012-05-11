@@ -49,6 +49,18 @@ _.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
 // => [1, "foo", 2, "foo", 3, "foo", 4]
 ```
 
+```javascript
+mori.into_array(mori.map(function(x) { return x+1;}, mori.vector(1,2,3,4,5)))
+```
+
+Or from CoffeeScript!
+
+```coffeescript
+_ = mori
+r = _.map((x) -> x+1, _.vector(1,2,3,4,5))
+_.into_array(r)
+```
+
 Copyright (C) 2012 David Nolen
 
 Distributed under the Eclipse Public License, the same as Clojure.
