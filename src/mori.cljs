@@ -8,8 +8,8 @@
     map reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
+    partial comp
     list vector hash-map set sorted-set
-
     sum inc dec even? odd?])
   (:require [clojure.core.reducers :as reducers]))
 
@@ -77,6 +77,18 @@
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
 
+;; HOFs
+
+(def ^:export partial cljs.core/partial)
+(def ^:export comp cljs.core/comp)
+
+(defn ^:export pipeline [& args]
+  (reduce #(%2 %1) args))
+
+(defn ^:export curry [fun & args]
+  (fn [arg]
+    (apply fun (cons arg args))))
+
 ;; Useful fns
 
 (def ^:export sum cljs.core/+)
@@ -84,3 +96,4 @@
 (def ^:export dec cljs.core/dec)
 (def ^:export is-even cljs.core/even?)
 (def ^:export is-odd cljs.core/odd?)
+
