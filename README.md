@@ -1,4 +1,4 @@
-PS.js
+Mori.js
 ====
 
 A simple bridge to ClojureScript persistent data structures for JavaScript.
@@ -27,8 +27,8 @@ You can use it from your projects like so:
 ```javascript
 var sum = function(a, b) {
   return a + b;
-}
-psjs.reduce(sum, psjs.vector(1, 2, 3, 4)); // => 10
+};
+mori.reduce(sum, mori.vector(1, 2, 3, 4)); // => 10
 ```
 
 Copyright (C) 2012 David Nolen

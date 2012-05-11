@@ -1,11 +1,11 @@
-(ns psjs
+(ns mori
   (:refer-clojure :exclude
    [count empty first rest conj cons nth last assoc dissoc
     disj pop peek hash get contains? empty? reverse
     keys vals
     map reduce filter equiv
     range sort sort-by
-    to-array
+    into-array
     list vector hash-map set sorted-set]))
 
 (def ^:export count cljs.core/count)
@@ -34,7 +34,7 @@
 (def ^:export range cljs.core/range)
 (def ^:export sort cljs.core/sort)
 (def ^:export sort cljs.core/sort-by)
-(def ^:export to-array cljs.core/to-array)
+(def ^:export into-array cljs.core/into-array)
 
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
