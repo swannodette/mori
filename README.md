@@ -11,7 +11,9 @@ You can download the latest prebuilt version of Mori from the downloads tab.
 Build
 ----
 
-Install [Leiningen](https://github.com/technomancy/leiningen).
+Make a folder in the repo folder called checkouts, clone the [ClojureScript](http://github.com/clojure/clojurescript) repo into it.
+
+Install [Leiningen](http://github.com/technomancy/leiningen).
 
 Grab dependencies:
 
@@ -58,12 +60,23 @@ _.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
 // => [1, "foo", 2, "foo", 3, "foo", 4]
 ```
 
-Use it from CoffeeScript!
+Or if it's more your speed, use it from CoffeeScript!
 
 ```coffeescript
 inc = (x) -> x+1  
 r = mori.map(inc, mori.vector(1,2,3,4,5))
 mori.into_array(r)
+```
+
+Reducers
+----
+
+Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
+
+```clojure
+var m = mori
+var v = m.into(m.vector(), m.range(100000));
+m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, v)));
 ```
 
 Copyright (C) 2012 David Nolen

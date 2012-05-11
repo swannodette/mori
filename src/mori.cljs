@@ -8,7 +8,10 @@
     map reduce filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
-    list vector hash-map set sorted-set]))
+    list vector hash-map set sorted-set
+
+    sum inc dec even? odd?])
+  (:require [clojure.core.reducers :as reducers]))
 
 (def ^:export count cljs.core/count)
 (def ^:export empty cljs.core/empty)
@@ -58,8 +61,25 @@
 (def ^:export sort-by cljs.core/sort-by)
 (def ^:export into-array cljs.core/into-array)
 
+;; Reducers
+(def ^:export rmap reducers/map)
+(def ^:export rfilter reducers/filter)
+(def ^:export rremove reducers/remove)
+(def ^:export rtake reducers/take)
+(def ^:export rtake-while reducers/take-while)
+(def ^:export rdrop reducers/drop)
+(def ^:export rflatten reducers/flatten)
+
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
+
+;; Useful fns
+
+(def ^:export sum cljs.core/+)
+(def ^:export inc cljs.core/inc)
+(def ^:export dec cljs.core/dec)
+(def ^:export is-even cljs.core/even?)
+(def ^:export is-odd cljs.core/odd?)
