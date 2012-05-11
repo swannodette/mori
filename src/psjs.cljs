@@ -2,6 +2,7 @@
   (:refer-clojure :exclude
    [count empty first rest conj cons nth last assoc dissoc
     disj pop peek hash get contains? empty? reverse
+    keys vals
     map reduce filter equiv
     range sort sort-by
     to-array
@@ -25,7 +26,8 @@
 (def ^:export hash-key cljs.core/contains?)
 (def ^:export is-empty cljs.core/empty?)
 (def ^:export reverse cljs.core/reverse)
-(def ^:export map cljs.core/map)
+(def ^:export keys cljs.core/keys)
+(def ^:export vals cljs.core/vals)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export filter cljs.core/filter)
 (def ^:export equiv cljs.core/equiv)
