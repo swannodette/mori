@@ -78,7 +78,7 @@ Reducers
 
 Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
 
-```clojure
+```javascript
 var m = mori;
 var a = [];
 
