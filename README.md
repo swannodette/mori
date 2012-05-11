@@ -37,7 +37,7 @@ This will produce a file mori.js. You can include this like any other JavaScript
 Note: If you are using leiningen 2, use this for your project.clj
 ```clojure
 (defproject mori "0.1.0-SNAPSHOT"
-  :description "Persistent Data Structures for JavaScriopt"
+  :description "Persistent Data Structures for JavaScript"
   :dependencies [[org.clojure/clojure "1.4.0"]]
   :profiles {:dev 
              {:source-paths 
