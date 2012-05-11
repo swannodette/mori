@@ -1,4 +1,4 @@
-Mori.js
+Mori
 ====
 
 A simple bridge to ClojureScript persistent data structures for JavaScript.
