@@ -104,7 +104,7 @@ function time(f) {
 
 // 513ms
 time(function() {
-  m.reduce(mori.sum, 0, m.rmap(mori.inc, m.rfilter(mori.is_even, m.rmap(mul3, v))));
+  m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, m.rmap(mul3, v))));
 });
 
 // 254ms
