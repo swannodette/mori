@@ -1,0 +1,7 @@
+# psjs
+
+A simple bridge to ClojureScript persistent data structures for JavaScript.
+
+Copyright (C) 2012 David Nolen
+
+Distributed under the Eclipse Public License, the same as Clojure.
