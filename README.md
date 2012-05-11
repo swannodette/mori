@@ -34,6 +34,20 @@ lein cljsbuild once release
 
 This will produce a file mori.js. You can include this like any other JavaScript library.
 
+Note: If you are using leiningen 2, use this for your project.clj
+```clojure
+(defproject mori "0.1.0-SNAPSHOT"
+  :description "Persistent Data Structures for JavaScript"
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :profiles {:dev 
+             {:source-paths 
+              ["comp/clojurescript/src/clj"   
+               "comp/clojurescript/src/cljs"]}}
+  :cljsbuild {:builds {:release {:source-path "src"
+                                 :compiler {:optimizations :advanced
+                                            :output-to "mori.js"}}}})
+```
+
 Usage
 ----
 
