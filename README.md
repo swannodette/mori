@@ -92,15 +92,6 @@ for(var i = 0; i < 1000000; i++) {
 // make it immutable
 var v = m.into(m.vector(), a);
 
-var sum = function(s, n) {
-  return s+n;
-};
-var is_even = function(n) {
-  return n % 2 == 0;
-};
-var inc = function(n) {
-  return n+1;
-};
 var mul3 = function(n) {
   return n*3;
 }
@@ -113,12 +104,12 @@ function time(f) {
 
 // 513ms
 time(function() {
-  m.reduce(sum, 0, m.rmap(inc, m.rfilter(is_even, m.rmap(mul3, v))));
+  m.reduce(mori.sum, 0, m.rmap(mori.inc, m.rfilter(mori.is_even, m.rmap(mul3, v))));
 });
 
 // 254ms
 time(function() {
-  a.map(mul3).filter(is_even).map(inc).reduce(sum);
+  a.map(mul3).filter(mori.is_even).map(mori.inc).reduce(mori.sum);
 })
 
 // this already impressive given the level of abstraction

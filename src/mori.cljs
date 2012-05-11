@@ -91,9 +91,9 @@
 
 ;; Useful fns
 
-(def ^:export sum cljs.core/+)
-(def ^:export inc cljs.core/inc)
-(def ^:export dec cljs.core/dec)
-(def ^:export is-even cljs.core/even?)
-(def ^:export is-odd cljs.core/odd?)
+(def ^:export sum (fn [s n] (+ s n)))
+(def ^:export inc (fn [n] (+ n 1)))
+(def ^:export dec (fn [n] (- n 1)))
+(def ^:export is-even (fn [n] (zero? (mod n 2))))
+(def ^:export is-odd (fn [n] (== (mod n 2) 1)))
 
