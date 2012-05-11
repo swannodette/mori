@@ -1,4 +1,4 @@
-psjs
+PS.js
 ====
 
 A simple bridge to ClojureScript persistent data structures for JavaScript.
