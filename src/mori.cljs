@@ -1,10 +1,12 @@
 (ns mori
   (:refer-clojure :exclude
    [count empty first rest conj cons nth last assoc dissoc
-    disj pop peek hash get contains? empty? reverse
+    get-in update-in assoc-in fnil disj pop peek hash get contains? empty? reverse
+    take drop partition partition-by iterate into
+    interpose interleave concat flatten
     keys vals
-    map reduce filter equiv
-    range sort sort-by
+    map reduce filter remove some every? equiv
+    range repeat repeatedly sort sort-by
     into-array
     list vector hash-map set sorted-set]))
 
@@ -18,6 +20,10 @@
 (def ^:export last cljs.core/last)
 (def ^:export assoc cljs.core/assoc)
 (def ^:export dissoc cljs.core/dissoc)
+(def ^:export get-in cljs.core/get-in)
+(def ^:export update-in cljs.core/update-in)
+(def ^:export assoc-in cljs.core/assoc-in)
+(def ^:export fnil cljs.core/fnil)
 (def ^:export disj cljs.core/disj)
 (def ^:export pop cljs.core/pop)
 (def ^:export peek cljs.core/peek)
@@ -26,18 +32,33 @@
 (def ^:export hash-key cljs.core/contains?)
 (def ^:export is-empty cljs.core/empty?)
 (def ^:export reverse cljs.core/reverse)
+(def ^:export take cljs.core/take)
+(def ^:export drop cljs.core/drop)
+(def ^:export partition cljs.core/partition)
+(def ^:export partition-by cljs.core/partition-by)
+(def ^:export iterate cljs.core/iterate)
+(def ^:export into cljs.core/into)
+(def ^:export interpose cljs.core/interpose)
+(def ^:export interleave cljs.core/interleave)
+(def ^:export concat cljs.core/concat)
+(def ^:export flatten cljs.core/flatten)
 (def ^:export keys cljs.core/keys)
 (def ^:export vals cljs.core/vals)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export filter cljs.core/filter)
+(def ^:export remove cljs.core/remove)
+(def ^:export some cljs.core/some)
+(def ^:export every cljs.core/every?)
 (def ^:export equiv cljs.core/equiv)
 (def ^:export range cljs.core/range)
+(def ^:export repeat cljs.core/repeat)
+(def ^:export repeatedly cljs.core/repeatedly)
 (def ^:export sort cljs.core/sort)
-(def ^:export sort cljs.core/sort-by)
+(def ^:export sort-by cljs.core/sort-by)
 (def ^:export into-array cljs.core/into-array)
 
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
-(def ^:export set cljs.core/sorted-set)
+(def ^:export sorted-set cljs.core/sorted-set)
