@@ -136,7 +136,7 @@ var second = mori.comp(mori.first, mori.rest);
 
 second(mori.vector(1,2,3));
 // => 2
-
+```
 
 Copyright (C) 2012 David Nolen and contributors
 
