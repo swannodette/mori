@@ -5,7 +5,7 @@
     take drop partition partition-by iterate into
     interpose interleave concat flatten
     keys vals
-    map reduce reduce-kv filter remove some every? equiv
+    map mapcat reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
     partial comp
@@ -49,6 +49,7 @@
 (def ^:export keys cljs.core/keys)
 (def ^:export vals cljs.core/vals)
 (def ^:export map cljs.core/map)
+(def ^:export mapcat cljs.core/mapcat)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export reduce-kv cljs.core/reduce-kv)
 (def ^:export filter cljs.core/filter)
