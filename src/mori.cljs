@@ -11,8 +11,8 @@
     partial comp
     list vector hash-map set sorted-set
     sum inc dec even? odd?])
-  (:require [clojure.core.reducers :as reducers])
-  (:require [clojure.set :as set]))
+  (:require [clojure.set :as set]
+            [clojure.core.reducers :as reducers]))
 
 (def ^:export count cljs.core/count)
 (def ^:export empty cljs.core/empty)
