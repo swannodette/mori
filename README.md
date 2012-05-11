@@ -3,7 +3,7 @@ Mori
 
 A simple bridge to ClojureScript's persistent data structures and supporting APIs for vanilla JavaScript. Pull requests welcome.
 
-Usage
+Getting it
 ----
 
 You can download the latest prebuilt version of Mori from the [downloads](http://github.com/swannodette/mori/downloads) tab.
@@ -33,6 +33,9 @@ lein cljsbuild once release
 ```
 
 This will produce a file mori.js. You can include this like any other JavaScript library.
+
+Usage
+----
 
 You can use it from your projects like so:
 
