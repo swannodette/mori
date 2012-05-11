@@ -95,6 +95,49 @@ var v = m.into(m.vector(), a);
 m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, v)));
 ```
 
-Copyright (C) 2012 David Nolen
+Pipelines
+---------
+
+```javascript
+mori.pipeline(mori.vector(1,2,3),
+              function(v) { return mori.conj(v,4) },
+              function(v) { return mori.drop(2, v) });
+
+// => [3 4]
+```
+
+Currying
+--------
+
+```javascript
+mori.pipeline(mori.vector(1,2,3),
+              mori.curry(mori.conj, 4),
+              mori.curry(mori.conj, 5));
+
+// => [1 2 3 4 5]
+```
+
+Partial Application
+-------------------
+
+```javascript
+mori.pipeline(mori.vector(1,2,3),
+              mori.curry(mori.conj, 4),
+              mori.partial(mori.drop, 2));
+
+// => (3 4)
+```
+
+Function Composition
+--------------------
+
+```javascript
+var second = mori.comp(mori.first, mori.rest);
+
+second(mori.vector(1,2,3));
+// => 2
+
+
+Copyright (C) 2012 David Nolen and contributors
 
 Distributed under the Eclipse Public License, the same as Clojure.
