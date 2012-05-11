@@ -56,7 +56,7 @@ Lazy sequences!
 
 ```javascript
 var _ = mori;
-_.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
+_.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)));
 // => [1, "foo", 2, "foo", 3, "foo", 4]
 ```
 
@@ -74,7 +74,7 @@ Reducers
 Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
 
 ```clojure
-var m = mori
+var m = mori;
 var v = m.into(m.vector(), m.range(100000));
 m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, v)));
 ```
