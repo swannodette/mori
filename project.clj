@@ -1,5 +1,5 @@
 (defproject mori "0.1.0-SNAPSHOT"
-  :description "Persistent Data Structures for JavaScriopt"
+  :description "Persistent Data Structures for JavaScript"
   :dependencies [[org.clojure/clojure "1.4.0"]]
   :dev-dependencies [[lein-cljsbuild "0.1.9"]]
   :extra-classpath-dirs ["checkouts/clojurescript/src/clj"
