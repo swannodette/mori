@@ -8,6 +8,11 @@ Usage
 
 You can download the latest prebuilt version of Mori from the downloads tab.
 
+Caveats
+----
+
+Pre-pre-pre alpha. ClojureScript is constantly being improved, especially in terms of performance. That said, it's probably still already useful.
+
 Build
 ----
 
