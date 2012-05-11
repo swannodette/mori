@@ -72,8 +72,8 @@ Or if it's more your speed, use it from CoffeeScript!
 
 ```coffeescript
 inc = (x) -> x+1  
-r = mori.map(inc, mori.vector(1,2,3,4,5))
-mori.into_array(r)
+r = mori.map inc, mori.vector(1,2,3,4,5)
+mori.into_array r
 ```
 
 Reducers
