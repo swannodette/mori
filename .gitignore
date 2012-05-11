@@ -6,3 +6,5 @@
 /.lein-failures
 /checkouts
 /.lein-deps-sum
+.lein*
+mori.js
