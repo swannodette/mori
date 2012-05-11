@@ -1,0 +1,24 @@
+{
+  "name": "mori",
+  "version": "0.1.0",
+  "description": "Persistent Data Structures for JavaScript",
+  "keywords": [ "data", "structure", "persistent", "clojure", "map", "filter", "reduce" ],
+  "author": "David Nolen",
+  "homepage": "https://github.com/swannodette/mori",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swannodette/mori.git",
+    "web": "https://github.com/swannodette/mori"
+  },
+  "bugs": {
+    "url": "https://github.com/swannodette/mori/issues"
+  },
+  "main": "./mori.node.js",
+  "scripts": {
+    "build": "lein deps && lein cljsbuild once release && echo ';module.exports = this.mori;\n' | cat mori.js - > mori.node.js"
+  },
+  "licenses": [{
+    "type" : "ELP",
+    "url" : "http://www.eclipse.org/legal/epl-v10.html"
+  }]
+}
