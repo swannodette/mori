@@ -36,6 +36,11 @@ var sum = function(a, b) {
 mori.reduce(sum, mori.vector(1, 2, 3, 4)); // => 10
 ```
 
+```javascript
+var _ = mori;
+_.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
+```
+
 Copyright (C) 2012 David Nolen
 
 Distributed under the Eclipse Public License, the same as Clojure.
