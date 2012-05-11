@@ -11,7 +11,8 @@
     partial comp
     list vector hash-map set sorted-set
     sum inc dec even? odd?])
-  (:require [clojure.core.reducers :as reducers]))
+  (:require [clojure.core.reducers :as reducers])
+  (:require [clojure.set :as set]))
 
 (def ^:export count cljs.core/count)
 (def ^:export empty cljs.core/empty)
@@ -76,6 +77,13 @@
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
+
+;; Set ops
+(def ^:export union set/union)
+(def ^:export intersection set/intersection)
+(def ^:export difference set/difference)
+(def ^:export is-subset set/subset?)
+(def ^:export is-superset set/superset?)
 
 ;; HOFs
 
