@@ -61,9 +61,9 @@ _.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
 Use it from CoffeeScript!
 
 ```coffeescript
-_ = mori
-r = _.map((x) -> x+1, _.vector(1,2,3,4,5))
-_.into_array(r)
+inc = (x) -> x+1  
+r = mori.map(inc, mori.vector(1,2,3,4,5))
+mori.into_array(r)
 ```
 
 Copyright (C) 2012 David Nolen
