@@ -30,6 +30,13 @@ This will produce a file mori.js. You can include this like any other JavaScript
 You can use it from your projects like so:
 
 ```javascript
+mori.into_array(mori.map(function(x) { return x+1;}, mori.vector(1,2,3,4,5)));
+// => [2,3,4,5,6]
+```
+
+Efficient non-destructive updates!
+
+```javascript
 var v1 = mori.vector(1,2,3);
 var v2 = mori.conj(v1, 4);
 v1.toString(); // => '[1 2 3]'
@@ -43,17 +50,15 @@ var sum = function(a, b) {
 mori.reduce(sum, mori.vector(1, 2, 3, 4)); // => 10
 ```
 
+Lazy sequences!
+
 ```javascript
 var _ = mori;
 _.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)))
 // => [1, "foo", 2, "foo", 3, "foo", 4]
 ```
 
-```javascript
-mori.into_array(mori.map(function(x) { return x+1;}, mori.vector(1,2,3,4,5)))
-```
-
-Or from CoffeeScript!
+Use it from CoffeeScript!
 
 ```coffeescript
 _ = mori
