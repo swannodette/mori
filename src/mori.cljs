@@ -44,6 +44,7 @@
 (def ^:export flatten cljs.core/flatten)
 (def ^:export keys cljs.core/keys)
 (def ^:export vals cljs.core/vals)
+(def ^:export map cljs.core/map)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export filter cljs.core/filter)
 (def ^:export remove cljs.core/remove)
