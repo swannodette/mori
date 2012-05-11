@@ -8,6 +8,7 @@
     map reduce filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
+    partial comp
     list vector hash-map set sorted-set]))
 
 (def ^:export count cljs.core/count)
@@ -63,3 +64,13 @@
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
+
+(def ^:export partial cljs.core/partial)
+(def ^:export comp cljs.core/comp)
+
+(defn ^:export pipeline [& args]
+  (reduce #(%2 %1) args))
+
+(defn ^:export curry [fun & args]
+  (fn [arg]
+    (apply fun (cons arg args))))
