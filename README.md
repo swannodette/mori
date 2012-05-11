@@ -1,7 +1,7 @@
 Mori
 ====
 
-A simple bridge to ClojureScript persistent data structures for JavaScript.
+A simple bridge to ClojureScript's persistent data structures and supporting APIs for JavaScript. Pull requests welcome.
 
 Build
 ----
