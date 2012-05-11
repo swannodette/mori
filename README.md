@@ -30,6 +30,13 @@ This will produce a file mori.js. You can include this like any other JavaScript
 You can use it from your projects like so:
 
 ```javascript
+var v1 = mori.vector(1,2,3);
+var v2 = mori.conj(v1, 4);
+v1.toString(); // => '[1 2 3]'
+v2.toString(); // => '[1 2 3 4]'
+```
+
+```javascript
 var sum = function(a, b) {
   return a + b;
 };
