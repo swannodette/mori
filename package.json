@@ -4,14 +4,14 @@
   "description": "Persistent Data Structures for JavaScript",
   "keywords": [ "data", "structure", "persistent", "clojure", "map", "filter", "reduce" ],
   "author": "David Nolen",
-  "homepage": "https://github.com/swannodette/mori",
+  "homepage": "http://github.com/swannodette/mori",
   "repository": {
     "type": "git",
-    "url": "https://github.com/swannodette/mori.git",
-    "web": "https://github.com/swannodette/mori"
+    "url": "http://github.com/swannodette/mori.git",
+    "web": "http://github.com/swannodette/mori"
   },
   "bugs": {
-    "url": "https://github.com/swannodette/mori/issues"
+    "url": "http://github.com/swannodette/mori/issues"
   },
   "main": "./mori.node.js",
   "scripts": {
