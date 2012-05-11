@@ -85,14 +85,44 @@ Mori includes the new Clojure reducers framework. Zero allocation collection ope
 var m = mori;
 var a = [];
 
-for(var i = 0; i < 100000; i++) {
+for(var i = 0; i < 1000000; i++) {
   a.push(i);
 }
 
 // make it immutable
 var v = m.into(m.vector(), a);
 
-m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, v)));
+var sum = function(s, n) {
+  return s+n;
+};
+var is_even = function(n) {
+  return n % 2 == 0;
+};
+var inc = function(n) {
+  return n+1;
+};
+var mul3 = function(n) {
+  return n*3;
+}
+
+function time(f) {
+  var s = new Date();
+  var r = f();
+  console.log(((new Date())-s)+"ms");
+}
+
+// 513ms
+time(function() {
+  m.reduce(sum, 0, m.rmap(inc, m.rfilter(is_even, m.rmap(mul3, v))));
+});
+
+// 254ms
+time(function() {
+  a.map(mul3).filter(is_even).map(inc).reduce(sum);
+})
+
+// this already impressive given the level of abstraction
+// expect us to get more competitive :D
 ```
 
 Copyright (C) 2012 David Nolen
