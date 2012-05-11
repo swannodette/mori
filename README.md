@@ -6,7 +6,15 @@ A simple bridge to ClojureScript persistent data structures for JavaScript.
 Build
 ====
 
-Install lein-cljsbuild. Build with:
+Install Leiningen. Install lein-cljsbuild.
+
+Grab dependencies:
+
+```shell
+lein deps
+```
+
+Build with:
 
 ```shell
 lein cljsbuild once release
