@@ -8,3 +8,4 @@
 /.lein-deps-sum
 .lein*
 mori.js
+*.swp
