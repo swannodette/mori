@@ -4,6 +4,9 @@
   :dev-dependencies [[lein-cljsbuild "0.1.9"]]
   :extra-classpath-dirs ["checkouts/clojurescript/src/clj"
                          "checkouts/clojurescript/src/cljs"]
-  :cljsbuild {:builds {:release {:source-path "src"
+  :cljsbuild {:builds {:tmp {:source-path "src"
+                             :compiler {:optimizations :advanced
+                                        :output-to "tmp.js"}}
+                       :release {:source-path "src"
                                  :compiler {:optimizations :advanced
                                             :output-to "mori.js"}}}})
