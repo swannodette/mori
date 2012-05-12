@@ -9,7 +9,8 @@
     map mapcat reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
-    partial comp
+    partial comp juxt
+    identity constantly
     list vector hash-map set sorted-set
     sum inc dec even? odd?])
   (:require [clojure.set :as set]
@@ -100,6 +101,11 @@
   (fn [arg]
     (apply fun (cons arg args))))
 
+(def ^:export juxt cljs.core/juxt)
+(defn ^:export knit [& fns]
+  (fn [args]
+    (vec (map #(% %2) fns args))))
+
 ;; Useful fns
 
 (def ^:export sum (fn [s n] (+ s n)))
@@ -111,3 +117,6 @@
 (defn ^:export each [xs f]
   (doseq [x (seq xs)]
     (f x)))
+
+(def ^:export identity cljs.core/identity)
+(def ^:export constantly cljs.core/constantly)
