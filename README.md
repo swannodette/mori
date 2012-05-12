@@ -8,6 +8,12 @@ Getting it
 
 You can download the latest prebuilt version of Mori from the [downloads](http://github.com/swannodette/mori/downloads) tab.
 
+It's also available for Node.js via npm:
+
+```shell
+npm install mori
+```
+
 Caveats
 ----
 
