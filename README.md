@@ -134,7 +134,7 @@ time(function() {
   a.map(mul3).filter(mori.is_even).map(mori.inc).reduce(mori.sum);
 })
 
-// this already impressive given the level of abstraction
+// impressive given the level of abstraction
 // expect us to get more competitive :D
 ```
 
