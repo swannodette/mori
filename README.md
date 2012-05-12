@@ -181,6 +181,19 @@ second(mori.vector(1,2,3));
 // => 2
 ```
 
+Juxtaposition
+-------------
+
+```javascript
+var pos_and_neg = mori.juxt(mori.identity, function (v) { return -v; });
+pos_and_neg(1);
+// => [1 -1]
+
+mori.knit(mori.inc, mori.dec)(pos_and_neg(1));
+// => [2 -2]
+```
+
+
 Copyright (C) 2012 David Nolen and contributors
 
 Distributed under the Eclipse Public License, the same as Clojure.
