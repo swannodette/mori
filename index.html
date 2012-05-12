@@ -1,4 +1,4 @@
-<html>
+M<html>
     <head>
     </head>
     <body>
@@ -12,21 +12,84 @@
         </div>
         <div id="mori-content">
             <h1>Mori</h1>
+
             <p>
-                A library for using ClojureScript's Persistent Data Structures and supporting API
-                from the confort of vanilla JavaScript.
+                A library for using ClojureScript's Persistent Data Structures and
+                supporting API from the comfort of vanilla JavaScript.
             </p>
+
             <h2>Rationale</h2>
             <p>
                 JavaScript is a flexible and powerful dynamic programming language with a
-                beautiful simple associative model. However this beautiful model comes along
-                with ubiquitous mutability.
+                beautiful simple associative model at its core. However this design comes at
+                the cost of ubiquitous mutablity. Mori preserves the simple associative model
+                but adds a host of features missing from native JavaScript data structures.
             </p>
+            <ol>
+                <li>Efficient immutable associative data structures</li>
+                <li>Uniform iteration for all types</li>
+                <li>Value based equality</li>
+            </ol>
             <p>
                 Modern JavaScript engines like V8, JavaScriptCore, and
                 SpiderMonkey deliver the performance required to deliver efficient
                 peristent data structures without incurring too high a cost.
             </p>
+
+            <h2>Mori is not an island</h2>
+            <p>
+                Beyond the the core philosophy Mori makes no other assumptions about
+                how you might use it. In fact, Mori has changed some aspects of the
+                ClojureScript API in order to better accomodate usage from JavaScript
+                and CoffeeScript. For example, where it makes sense, Mori returns regular
+                JavaScript arrays so that you can use destructuring syntax where available.
+            </p>
+
+
+            <h2>How to use Mori</h2>
+            <p>
+                Mori can be used in precisely the same way that libraries like Underscore.js
+                are used. Mori of course provides not only the same functionality but it
+                delivers a rich sets of data structures. In general Mori's operators are
+                more general than the ones provided by Underscore.js - they work on nearly
+                all the native JavaScript types. In those cases where they do not work
+                you usually just need to wrap the type in <code>mori.prim_seq(...)</code>.
+            </p>
+
+            <h1>API</h1>
+
+            <h2>The Data Structures</h2>
+            <h3>mori.list</h3>
+            <h3>mori.vector</h3>
+            <h3>mori.hash_map</h3>
+            <h3>mori.set</h3>
+            <h3>mori.sorted_set</h3>
+
+            <h2>Sequences</h2>
+            <h3>mori.first</h3>
+            <h3>mori.rest</h3>
+            <h3>mori.seq</h3>
+            <h3>mori.each</h3>
+            <h3>mori.map</h3>
+            <h3>mori.filter</h3>
+            <h3>mori.reduce</h3>
+            <h3>mori.take</h3>
+            <h3>mori.drop</h3>
+            <h3>mori.interpose</h3>
+            <h3>mori.interleave</h3>
+
+            <h2>Reducer Framework</h2>
+            <h3>mori.rmap</h3>
+            <h3>mori.rfilter</h3>
+            <h3>mori.rtake</h3>
+            <h3>mori.rdrop</h3>
+
+            <h2>Helpers</h2>
+            <h3>mori.inc</h3>
+            <h3>mori.dec</h3>
+            <h3>mori.sum</h3>
+            <h3>mori.is_even</h3>
+            <h3>mori.is_odd</h3>
         </div>
     </body>
 </html>
