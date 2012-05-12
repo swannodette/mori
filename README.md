@@ -29,7 +29,7 @@ lein deps
 Build with:
 
 ```shell
-lein cljsbuild once release
+./scripts/build.sh
 ```
 
 This will produce a file mori.js. You can include this like any other JavaScript library.
