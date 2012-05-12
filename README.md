@@ -1,5 +1,7 @@
-Mori
+mori
 ====
+
+<img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
 
 A simple bridge to ClojureScript's persistent data structures and supporting APIs for vanilla JavaScript. Pull requests welcome.
 
@@ -7,6 +9,12 @@ Getting it
 ----
 
 You can download the latest prebuilt version of Mori from the [downloads](http://github.com/swannodette/mori/downloads) tab.
+
+It's also available for Node.js via npm:
+
+```shell
+npm install mori
+```
 
 Caveats
 ----
@@ -43,9 +51,9 @@ Note: If you are using leiningen 2, use this for your project.clj
              {:source-paths 
               ["comp/clojurescript/src/clj"   
                "comp/clojurescript/src/cljs"]}}
-  :cljsbuild {:builds {:release {:source-path "src"
-                                 :compiler {:optimizations :advanced
-                                            :output-to "mori.js"}}}})
+  :cljsbuild {:builds {:tmp {:source-path "src"
+                             :compiler {:optimizations :advanced
+                                        :output-to "tmp.js"}}}})
 ```
 
 Usage
@@ -126,7 +134,7 @@ time(function() {
   a.map(mul3).filter(mori.is_even).map(mori.inc).reduce(mori.sum);
 })
 
-// this already impressive given the level of abstraction
+// impressive given the level of abstraction
 // expect us to get more competitive :D
 ```
 
