@@ -120,7 +120,7 @@ var mul3 = function(n) {
 
 function time(f) {
   var s = new Date();
-  var r = f();
+  f();
   console.log(((new Date())-s)+"ms");
 }
 
