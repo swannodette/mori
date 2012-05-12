@@ -1,3 +1,5 @@
+<img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori" align="right" />
+
 Mori
 ====
 
