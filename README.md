@@ -1,7 +1,7 @@
-<img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori" align="right" />
-
 Mori
 ====
+
+<img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
 
 A simple bridge to ClojureScript's persistent data structures and supporting APIs for vanilla JavaScript. Pull requests welcome.
 
