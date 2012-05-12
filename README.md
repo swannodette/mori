@@ -51,9 +51,9 @@ Note: If you are using leiningen 2, use this for your project.clj
              {:source-paths 
               ["comp/clojurescript/src/clj"   
                "comp/clojurescript/src/cljs"]}}
-  :cljsbuild {:builds {:release {:source-path "src"
-                                 :compiler {:optimizations :advanced
-                                            :output-to "mori.js"}}}})
+  :cljsbuild {:builds {:tmp {:source-path "src"
+                             :compiler {:optimizations :advanced
+                                        :output-to "tmp.js"}}}})
 ```
 
 Usage
