@@ -62,7 +62,11 @@ Usage
 You can use it from your projects like so:
 
 ```javascript
-mori.into_array(mori.map(function(x) { return x+1;}, mori.vector(1,2,3,4,5)));
+var inc = function(n) {
+  return n+1;
+};
+
+mori.into_array(mori.map(inc, mori.vector(1,2,3,4,5)));
 // => [2,3,4,5,6]
 ```
 
@@ -131,7 +135,7 @@ time(function() {
 
 // 254ms
 time(function() {
-  a.map(mul3).filter(mori.is_even).map(mori.inc).reduce(mori.sum);
+  a.map(mul3).filter(m.is_even).map(m.inc).reduce(m.sum);
 })
 
 // impressive given the level of abstraction
