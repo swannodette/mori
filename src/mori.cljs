@@ -106,6 +106,6 @@
 (def ^:export is-even (fn [n] (zero? (mod n 2))))
 (def ^:export is-odd (fn [n] (== (mod n 2) 1)))
 
-(def ^:export each [xs f]
+(defn ^:export each [xs f]
   (doseq [x (seq xs)]
     (f x)))
