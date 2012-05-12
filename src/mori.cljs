@@ -101,10 +101,13 @@
   (fn [arg]
     (apply fun (cons arg args))))
 
-(def ^:export juxt cljs.core/juxt)
+(defn ^:export juxt [& fns]
+  (fn [& args]
+    (into-array (map #(apply % args) fns))))
+
 (defn ^:export knit [& fns]
   (fn [args]
-    (vec (map #(% %2) fns args))))
+    (into-array (map #(% %2) fns args))))
 
 ;; Useful fns
 
