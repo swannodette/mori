@@ -15,6 +15,7 @@
   },
   "main": "./mori.node.js",
   "scripts": {
+    "build": "lein deps && lein cljsbuild once release && echo ';module.exports = this.mori;\n' | cat mori.js - > mori.node.js"
     "prepublish": "lein deps && lein cljsbuild once release && echo ';module.exports = this.mori;\n' | cat mori.js - > mori.node.js"
   },
   "licenses": [{

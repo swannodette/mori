@@ -5,6 +5,7 @@
     take drop partition partition-by iterate into
     interpose interleave concat flatten
     keys vals
+    prim-seq
     map mapcat reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
@@ -48,6 +49,7 @@
 (def ^:export flatten cljs.core/flatten)
 (def ^:export keys cljs.core/keys)
 (def ^:export vals cljs.core/vals)
+(def ^:export prim-seq cljs.core/prim-seq)
 (def ^:export map cljs.core/map)
 (def ^:export mapcat cljs.core/mapcat)
 (def ^:export reduce cljs.core/reduce)
