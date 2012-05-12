@@ -4,6 +4,7 @@
             body {
               margin: 0;
               padding: 0;
+              font-family: Georgia;
             }
             
             #mori-nav {
@@ -17,16 +18,25 @@
               left: 200px;
               top: 0px;
             }
+
+            .toc-title,
+            .mori-nav ul li {
+              font-family: Helvetica;
+            }
+
+            .toc-title {
+              display: block;
+            }
         </style>
     </head>
     <body>
 
         <div id="mori-nav">
-            <a>Mori</a>
+            <a class="toc-title">Mori</a>
 
-            <a>Rationale</a>
+            <a class="toc-title">Rationale</a>
 
-            <a>Collections</a>
+            <a class="toc-title">Collections</a>
             <ul>
                 <li><a>- list</a></li>
                 <li><a>- vector</a></li>
@@ -35,7 +45,7 @@
                 <li><a>- sorted_set</a></li>
             </ul>
 
-            <a>Collection Operations</a>
+            <a class="toc-title">Collection Operations</a>
             <ul>
                 <li><a>- conj</a></li>
                 <li><a>- assoc</a></li>
