@@ -69,6 +69,7 @@
 
             <a class="toc-title">Helpers</a>
             <ul>
+                <li><a href="#prim_seq">- prim_seq</a></li>
                 <li><a href="#identity">- identity</a></li>
                 <li><a href="#sum">- sum</a></li>
                 <li><a href="#inc">- inc</a></li>
@@ -308,6 +309,21 @@ mori.rest(m); // remaining key-value pairs
             <h3 id="rdrop">rdrop</h3>
 
             <h2 id="helpers">Helpers</h2>
+
+            <h3 id="prim_seq">prim_seq</h3>
+            <p>
+                There are many array-like JavaScript objects which
+                are not actually arrays. To give these objects a uniform
+                interface you can wrap them with <code>mori.prim_seq</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+function foo() {
+  var args = mori.prim_seq(arguments);
+  var f = mori.first(args);
+}
+                </pre>
+            </div>
 
             <h3 id="identity">identity</h3>
             <p>A function which simply returns its argument</p>
