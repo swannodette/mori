@@ -246,8 +246,43 @@ mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
             <h3 id="pop">pop</h3>
 
             <h2 id="sequences">Sequences</h2>
+
             <h3 id="first">first</h3>
+            <p>
+                Returns the first element in a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.first("foobar"); // => "f"
+
+mori.first([1,2,3]); // => 1
+
+var l = mori.list(1,2,3);
+mori.first(l); // => 1
+
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.first(m); // some key-value pair as an array
+                </pre>
+            </div>
+
             <h3 id="rest">rest</h3>
+            <p>
+                Returns the remaining elements in a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.rest("foobar"); // => ("o" "o" "b" "a" "r")
+
+mori.rest([1,2,3]); // => (2 3)
+
+var l = mori.list(1,2,3);
+mori.rest(l); // => (2 3)
+
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.rest(m); // remaining key-value pairs
+                </pre>
+            </div>
+            
             <h3 id="seq">seq</h3>
             <h3 id="each">each</h3>
             <h3 id="map">map</h3>
