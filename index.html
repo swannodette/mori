@@ -193,6 +193,21 @@ mori.get(m1, m.vector(1,2)); // => 3
 
             <h2 id="collection_operations">Collection Operations</h2>
             <h3 id="conj">conj</h3>
+            <p>Add something to a collection.</p>
+            <pre class="brush: javascript">
+var l = mori.list(2,3);
+mori.conj(l, 1); // => (1 2 3)
+
+var v = mori.vector(1,2);
+mori.conj(v, 3); // => [1 2 3]
+
+var m = mori.hash_map("foo", 1);
+mori.conj(m, mori.vector("bar", 2));; // {"foo" 1 "bar" 2}
+
+var s = mori.set(["cat", "bird", "dog"]);
+mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
+            </pre>
+
             <h3 id="assoc">assoc</h3>
             <h3 id="get">get</h3>
             <h3 id="get_in">get_in</h3>
