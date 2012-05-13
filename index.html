@@ -1,82 +1,12 @@
 <html>
     <head>
-        <style>
-            body {
-              color: #33333;
-              margin: 0;
-              padding: 0;
-              font-family: Georgia;
-              background-color: #F2FBCA;
-            }
-
-            a {
-              color: #333;
-            }
-            a:visited {
-              color: #333;
-            }
-            a:hover {
-              color: #333;
-            }
-
-            #mori {
-              color: #003300;
-              margin: 0px;
-              font-size: 84px;
-            }
-            
-            #mori-nav {
-              background-color: #D0FFBA;
-              position: fixed;
-              left: 0px;
-              top: 0px;
-              bottom: 0px;
-              overflow-y: scroll;
-              width: 200px;
-              box-sizing: border-box;
-              padding: 25px 10px 10px 20px;
-            }
-
-            #mori-content {
-              position: absolute;
-              left: 200px;
-              top: 0px;
-              box-sizing: border-box;
-              padding-left: 25px;
-            }
-
-            #mori-nav ul {
-              padding: 0;
-              list-style: none;
-            }
-
-            #mori-nav ul li {
-              font-size: 12px;
-              padding: 0;
-              list-style: none;
-              font-family: Helvetica;
-            }
-
-            .toc-title {
-              font-family: helvetica, sans-serif;
-              font-size: 14px;
-              font-weight: bold;
-              display: block;
-              text-decoration: underline;
-            }
-
-            #mori-content {
-              width: 600px;
-            }
-
-            #mori-content h2 {
-              font-family: helvetica;
-            }
-            #mori-content h3 {
-              font-family: helvetica;
-              font-size: 18px;
-            }
-        </style>
+        <script type="text/javascript" src="js/xregexp-min.js"></script>
+        <script type="text/javascript" src="js/shCore.js"></script>
+        <script type="text/javascript" src="js/shBrushClojure.js"></script>
+        <script type="text/javascript" src="js/shBrushJScript.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/base.css" />
+        <link rel="stylesheet" type="text/css" href="css/shCore.css" />
+        <link rel="stylesheet" type="text/css" href="css/shThemeMarginalia.css" />
         <script type="text/javascript" src="http://use.typekit.com/rvk4jgw.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
@@ -222,6 +152,10 @@
                 <code>mori.nth</code> will be linear in the size of
                 the list.
             </p>
+            <pre class="brush: javascript">
+var l = mori.list(2, 3);
+mori.cons(l, 1).toString; // => (1 2 3)
+            </pre>
                 
             <h3 id="vector">vector</h3>
             <p>
@@ -230,6 +164,13 @@
                 access. You will probaly use <code>mori.vector</code> much
                 more often than <code>mori.list</code>
             </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector(1,2,3,4);
+v.toString(); // => "[1 2 3 4]"
+mori.nth(v, 0); // => 1
+            </pre>
+            </div>
             
             <h3 id="hash_map">hash_map</h3>
             <p>
@@ -238,6 +179,14 @@
                 use only immutable values for your keys - numbers, strings or
                 a Mori collection.
             </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m0 = mori.hash_map("foo", 1, "bar", 2);
+mori.get(m0, "bar"); // => 2
+var m1 = mori.assoc(m0, m.vector(1,2), 3);
+mori.get(m1, m.vector(1,2)); // => 3
+            </pre>
+            </div>
 
             <h3 id="set">set</h3>
             <h3 id="sorted_set">sorted_set</h3>
@@ -290,5 +239,9 @@
             <h3 id="is_even">is_even</h3>
             <h3 id="is_odd">is_odd</h3>
         </div>
+        <script>
+            SyntaxHighlighter.defaults["gutter"] = false;
+            SyntaxHighlighter.all();
+        </script>
     </body>
 </html>

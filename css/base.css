@@ -1,0 +1,84 @@
+body {
+    color: #33333;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia;
+    background-color: #F2FBCA;
+}
+
+a {
+    color: #333;
+}
+a:visited {
+    color: #333;
+}
+a:hover {
+    color: #333;
+}
+
+#mori {
+    color: #003300;
+    margin: 0px;
+    font-size: 84px;
+}
+
+#mori-nav {
+    background-color: #D0FFBA;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 25px 10px 10px 20px;
+}
+
+#mori-content {
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    box-sizing: border-box;
+    padding-left: 25px;
+}
+
+#mori-nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+#mori-nav ul li {
+    font-size: 12px;
+    padding: 0;
+    list-style: none;
+    font-family: Helvetica;
+}
+
+.toc-title {
+    font-family: helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    text-decoration: underline;
+}
+
+#mori-content {
+    width: 600px;
+}
+
+#mori-content h2 {
+    font-family: helvetica;
+}
+#mori-content h3 {
+    font-family: helvetica;
+    font-size: 18px;
+}
+
+.example {
+    padding: 2px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.code {
+    font-size: 14px;
+}
