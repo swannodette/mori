@@ -69,6 +69,7 @@
 
             <a class="toc-title">Helpers</a>
             <ul>
+                <li><a href="#identity">- identity</a></li>
                 <li><a href="#sum">- sum</a></li>
                 <li><a href="#inc">- inc</a></li>
                 <li><a href="#dec">- dec</a></li>
@@ -79,6 +80,7 @@
                 <li><a href="#pipeline">- pipeline</a></li>
                 <li><a href="#partial">- partial</a></li>
                 <li><a href="#curry">- curry</a></li>
+                <li><a href="#curry">- fnil</a></li>
             </ul>
 
             <a class="toc-title">Zippers</a>
@@ -306,9 +308,47 @@ mori.rest(m); // remaining key-value pairs
             <h3 id="rdrop">rdrop</h3>
 
             <h2 id="helpers">Helpers</h2>
+
+            <h3 id="identity">identity</h3>
+            <p>A function which simply returns its argument</p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.identity(5); // => 5
+                </pre>
+            </div>
+
             <h3 id="inc">inc</h3>
+            <p>
+                Adds one to its argument.
+            </p>
+            <div class="example">
+                <pre cass="brush: javascript">
+mori.inc(1); // => 2
+                </pre>
+            </div>
+
             <h3 id="dec">dec</h3>
+            <p>
+                Subtracts one from its argument.
+            </p>
+            <div class="example">
+                <pre cass="brush: javascript">
+mori.dec(1); // => 0
+                </pre>
+            </div>
+
             <h3 id="sum">sum</h3>
+            <p>
+                Add it's two arguments together. Useful with <code>mori.reduce</code>.
+            </p>
+            <div class="example">
+                <pre cass="brush: javascript">
+mori.sum(1,2); // => 3
+
+mori.reduce(mori.sum, 0, mori.range(10)); // 45
+                </pre>
+            </div>
+            
             <h3 id="is_even">is_even</h3>
             <h3 id="is_odd">is_odd</h3>
         </div>
