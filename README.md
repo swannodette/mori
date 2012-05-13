@@ -34,10 +34,16 @@ Grab dependencies:
 lein deps
 ```
 
-Build with:
+On a UNIX-like system build with:
 
 ```shell
 ./scripts/build.sh
+```
+
+On Windows:
+
+```shell
+./scripts/build.ps1
 ```
 
 This will produce a file mori.js. You can include this like any other JavaScript library.
