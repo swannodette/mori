@@ -172,9 +172,9 @@
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var l = mori.list(2, 3);
+var l = mori.list(2,3);
 
-mori.cons(l, 1).toString; // => (1 2 3)
+mori.cons(l, 1); // => (1 2 3)
                 </pre>
             </div>
                 
@@ -188,8 +188,6 @@ mori.cons(l, 1).toString; // => (1 2 3)
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector(1,2,3,4);
-
-v.toString(); // => "[1 2 3 4]"
 mori.nth(v, 0); // => 1
                 </pre>
             </div>
