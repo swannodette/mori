@@ -9,3 +9,4 @@
 .lein*
 mori.js
 *.swp
+_site
