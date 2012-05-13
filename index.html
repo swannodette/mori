@@ -45,6 +45,15 @@
                 <li><a href="#pop">- pop</a></li>
             </ul>
 
+            <a class="toc-title">Set Operations</a>
+            <ul>
+                <li><a href="#union">- union</a></li>
+                <li><a href="#intersection">- intersection</a></li>
+                <li><a href="#difference">- difference</a></li>
+                <li><a href="#is_subset">- is_subset</a></li>
+                <li><a href="#is_superset">- is_superset</a></li>
+            </ul>
+
             <a class="toc-title">Sequences</a>
             <ul>
                 <li><a href="#first">- first</a></li>
@@ -117,7 +126,7 @@
                 peristent data structures well.
             </p>
 
-            <h2>Mori is not an island</h2>
+            <h3>Mori is not an island</h3>
             <p>
                 Beyond the the core philosophy Mori makes no other
                 assumptions about how you might use it. In fact, Mori
@@ -130,7 +139,7 @@
             </p>
 
 
-            <h2>How to use Mori</h2>
+            <h3>Using Mori</h3>
             <p>
                 Mori can be used in precisely the same way that
                 libraries like Underscore.js are used. Mori of course
@@ -143,7 +152,7 @@
                 in <code>mori.prim_seq(...)</code>.
             </p>
 
-            <h2>Note on notation</h2>
+            <h3>Note on notation</h3>
             <p>
                 The follow examples are in JavaScript. However,
                 for simplicty's sake we show results of operations
@@ -211,8 +220,25 @@ var m1 = mori.assoc(m0, m.vector(1,2), 3);
 mori.get(m1, m.vector(1,2)); // => 3
                 </pre>
             </div>
+            <p>
+                Note that internally Mori can treat strings as functions. This
+                means that Underscore.js's <code>pluck</code> is unnecessary.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var bob = mori.hash_map("first", "Bob", "last", "Smith");
+var mary = mori.hash_map("first", "Mary", "last", "Jane");
+
+mori.map("first", [bob, mary]); // ("Bob" "Mary")
+                </pre>
+            </div>
 
             <h3 id="set">set</h3>
+            <p>
+                A collection of unique items. There are several operations
+                unique to sets which do not apply to the other collections.
+            </p>
+            
             <h3 id="sorted_set">sorted_set</h3>
 
             <h2 id="collection_operations">Collection Operations</h2>
