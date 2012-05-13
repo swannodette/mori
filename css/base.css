@@ -81,4 +81,8 @@ a:hover {
 }
 .code {
     font-size: 14px;
+    overflow-y: hidden;
+}
+#mori-content .syntaxhighlighter {
+    overflow-y: hidden !important;
 }
