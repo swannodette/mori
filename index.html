@@ -152,10 +152,13 @@
                 <code>mori.nth</code> will be linear in the size of
                 the list.
             </p>
-            <pre class="brush: javascript">
+            <div class="example">
+                <pre class="brush: javascript">
 var l = mori.list(2, 3);
+
 mori.cons(l, 1).toString; // => (1 2 3)
-            </pre>
+                </pre>
+            </div>
                 
             <h3 id="vector">vector</h3>
             <p>
@@ -167,9 +170,10 @@ mori.cons(l, 1).toString; // => (1 2 3)
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector(1,2,3,4);
+
 v.toString(); // => "[1 2 3 4]"
 mori.nth(v, 0); // => 1
-            </pre>
+                </pre>
             </div>
             
             <h3 id="hash_map">hash_map</h3>
@@ -183,9 +187,10 @@ mori.nth(v, 0); // => 1
                 <pre class="brush: javascript">
 var m0 = mori.hash_map("foo", 1, "bar", 2);
 mori.get(m0, "bar"); // => 2
+
 var m1 = mori.assoc(m0, m.vector(1,2), 3);
 mori.get(m1, m.vector(1,2)); // => 3
-            </pre>
+                </pre>
             </div>
 
             <h3 id="set">set</h3>
@@ -194,7 +199,8 @@ mori.get(m1, m.vector(1,2)); // => 3
             <h2 id="collection_operations">Collection Operations</h2>
             <h3 id="conj">conj</h3>
             <p>Add something to a collection.</p>
-            <pre class="brush: javascript">
+            <div class="example">
+                <pre class="brush: javascript">
 var l = mori.list(2,3);
 mori.conj(l, 1); // => (1 2 3)
 
@@ -206,7 +212,8 @@ mori.conj(m, mori.vector("bar", 2));; // {"foo" 1 "bar" 2}
 
 var s = mori.set(["cat", "bird", "dog"]);
 mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
-            </pre>
+                </pre>
+            </div>
 
             <h3 id="assoc">assoc</h3>
             <h3 id="get">get</h3>
