@@ -45,7 +45,7 @@
                 <li><a href="#nth">- nth</a></li>
                 <li><a href="#assoc_in">- assoc_in</a></li>
                 <li><a href="#update_in">- update_in</a></li>
-                <li><a href="#size">- size</a></li>
+                <li><a href="#count">- count</a></li>
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
             </ul>
@@ -364,7 +364,23 @@ mori.find(m, "quux") // null
             <h3 id="nth">nth</h3>
             <h3 id="assoc_in">assoc_in</h3>
             <h3 id="update_in">update_in</h3>
-            <h3 id="size">size</h3>
+            <h3 id="count">count</h3>
+            <p> Returns the length of the collection </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list("foo", "bar", "baz")
+mori.count(l) // 3
+
+var v = mori.vector("foo", "bar", "baz")
+mori.count(v) // 3
+
+var s = mori.set(["foo", "bar", "baz"])
+mori.count(s) // 3
+
+var m = mori.hash_map("foo", 1, "bar", 2)
+mori.count(m) // 2
+                </pre>
+            </div>
             <h3 id="peek">peek</h3>
             <h3 id="pop">pop</h3>
 
