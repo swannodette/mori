@@ -332,6 +332,22 @@ mori.get_in(m2, ["quux", "bar"]) // 2
                 </pre>
             </div>
             <h3 id="has_key">has_key</h3>
+            <p> Returns true if the collection has the given key/index. Otherwise, returns false </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz")
+mori.has_key(v, 1) // true
+mori.has_key(v, 9) // false
+
+var m = mori.hash_map("foo", 1, "bar", 2)
+mori.has_key(m, "foo") // true
+mori.has_key(m, "quux") // false
+
+var s = mori.set(["foo", "bar", "baz"])
+mori.has_key(s, 1) // true
+mori.has_key(s, 9) // false
+                </pre>
+            </div>
             <h3 id="find">find</h3>
             <h3 id="nth">nth</h3>
             <h3 id="assoc_in">assoc_in</h3>
