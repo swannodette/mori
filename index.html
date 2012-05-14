@@ -393,6 +393,16 @@ mori.peek(v) // "baz"
                 </pre>
             </div>
             <h3 id="pop">pop</h3>
+            <p> Returns either a list with the first item removed or a vector with the last item removed </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list("foo", "bar", "baz")
+mori.pop(l) // ("bar" "baz")
+
+var v = mori.vector("foo", "bar", "baz")
+mori.pop(v) // ["foo" "bar"]
+                </pre>
+            </div>
 
             <h2 id="sequences">Sequences</h2>
 
