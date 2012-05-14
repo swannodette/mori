@@ -225,9 +225,13 @@ mori.nth(v, 0); // => 1
             <div class="example">
                 <pre class="brush: javascript">
 var m0 = mori.hash_map("foo", 1, "bar", 2);
+// m0 = {"foo" 1, "bar" 2}
+
 mori.get(m0, "bar"); // => 2
 
 var m1 = mori.assoc(m0, m.vector(1,2), 3);
+// m1 = {"foo" 1, "bar" 2, [1 2] 3}
+
 mori.get(m1, m.vector(1,2)); // => 3
                 </pre>
             </div>
