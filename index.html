@@ -239,13 +239,16 @@ mori.get(m1, m.vector(1,2)); // => 3
             <p>
                 Note that internally Mori can treat strings as functions. This
                 means that Underscore.js's <code>pluck</code> is unnecessary.
+
+                For example in CoffeeScript:
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var bob = mori.hash_map("first", "Bob", "last", "Smith");
-var mary = mori.hash_map("first", "Mary", "last", "Jane");
+m = mori
+bob = m.hash_map "first", "Bob", "last", "Smith"
+mary = m.hash_map "first", "Mary", "last", "Jane"
 
-mori.map("first", [bob, mary]); // ("Bob" "Mary")
+m.map "first", [bob, mary] // ("Bob" "Mary")
                 </pre>
             </div>
 
