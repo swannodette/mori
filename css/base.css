@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Helvetica, Arial, sans-serif;
-    background-color: #F2FBCA;
+    background-color: white;
 }
 
 a {
@@ -18,12 +18,13 @@ a:hover {
 
 #mori {
     color: #003300;
-    margin: 0px;
+    margin: 0px 0px 0px -5px;
     font-size: 84px;
 }
 
 #mori-nav {
-    background-color: #D0FFBA;
+    background-color: #efffef;
+    border-right: 1px solid #ccc;
     position: fixed;
     left: 0px;
     top: 0px;
@@ -67,16 +68,18 @@ a:hover {
 }
 
 #mori-content h2 {
+    color: #030;
     font-family: helvetica, arial, sans-serif;
 }
 #mori-content h3 {
+    color: #030;
     font-family: helvetica, arial, sans-serif;
     font-size: 18px;
 }
 
 .example {
     padding: 2px 10px;
-    border: 1px solid #696;
+    border: 1px solid #bcb;
     box-sizing: border-box;
 }
 .code {
