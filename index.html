@@ -312,10 +312,10 @@ var v = mori.vector(1,2);
 mori.conj(v, 3); // => [1 2 3]
 
 var m = mori.hash_map("foo", 1);
-mori.conj(m, mori.vector("bar", 2));; // {"foo" 1 "bar" 2}
+mori.conj(m, mori.vector("bar", 2));; // => {"foo" 1 "bar" 2}
 
 var s = mori.set(["cat", "bird", "dog"]);
-mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
+mori.conj(s, "zebra"); // => #{"cat" "bird" "dog" "zebra"}
                 </pre>
             </div>
 
@@ -329,54 +329,59 @@ mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var v = mori.vector("foo", "bar", "baz")
-mori.assoc(v, 1, "quux") // ["foo" "quux" "baz"]
+var v = mori.vector("foo", "bar", "baz");
+mori.assoc(v, 1, "quux"); // => ["foo" "quux" "baz"]
 
 var m = mori.hash_map("foo", 1);
-mori.assoc(m, "bar", 2) // {"foo" 1 "bar" 2}
-mori.assoc(m, "foo", 6) // {"foo" 6}
+mori.assoc(m, "bar", 2); // => {"foo" 1 "bar" 2}
+mori.assoc(m, "foo", 6); // => {"foo" 6}
                 </pre>
             </div>
 
-            <h3 id="get">get</h3>
-            <p> Retrieve a value from a collection </p>
+            <h3 id="get">
+                get
+                <span class="sig">mori.get(coll, key, [not-found])</span>
+            </h3>
+            <p>Retrieve a value from a collection </p>
             <div class="example">
                 <pre class="brush: javascript">
-var v = mori.vector("foo", "bar", "baz")
-mori.get(v, 1) // "bar"
+var v = mori.vector("foo", "bar", "baz");
+mori.get(v, 1); // "bar"
 
-var m = mori.hash_map("foo", 1, "bar", 2)
-mori.get(m, "foo") // 1
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.get(m, "foo"); // => 1
+mori.get(m, "baz", "nope"); // => "nope"
+
                 </pre>
             </div>
             <h3 id="get_in">get_in</h3>
             <p> Retrieve a value from a nested collection </p>
             <div class="example">
                 <pre class="brush: javascript">
-var v = mori.vector("foo", "bar", "baz")
-var v2 = mori.vector("quux", v)
-mori.get_in(v2, [1, 2]) // "baz"
+var v = mori.vector("foo", "bar", "baz");
+var v2 = mori.vector("quux", v);
+mori.get_in(v2, [1, 2]); // => "baz"
 
-var m = mori.hash_map("foo", 1, "bar", 2)
-var m2 = mori.hash_map("baz", 3, "quux", m)
-mori.get_in(m2, ["quux", "bar"]) // 2
+var m = mori.hash_map("foo", 1, "bar", 2);
+var m2 = mori.hash_map("baz", 3, "quux", m);
+mori.get_in(m2, ["quux", "bar"]); // => 2
                 </pre>
             </div>
             <h3 id="has_key">has_key</h3>
             <p> Returns true if the collection has the given key/index. Otherwise, returns false </p>
             <div class="example">
                 <pre class="brush: javascript">
-var v = mori.vector("foo", "bar", "baz")
-mori.has_key(v, 1) // true
-mori.has_key(v, 9) // false
+var v = mori.vector("foo", "bar", "baz");
+mori.has_key(v, 1); // => true
+mori.has_key(v, 9); // => false
 
-var m = mori.hash_map("foo", 1, "bar", 2)
-mori.has_key(m, "foo") // true
-mori.has_key(m, "quux") // false
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.has_key(m, "foo"); // => true
+mori.has_key(m, "quux"); // => false
 
-var s = mori.set(["foo", "bar", "baz"])
-mori.has_key(s, 1) // true
-mori.has_key(s, 9) // false
+var s = mori.set(["foo", "bar", "baz"]);
+mori.has_key(s, 1); // => true
+mori.has_key(s, 9); // => false
                 </pre>
             </div>
             <h3 id="find">find</h3>
