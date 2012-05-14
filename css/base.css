@@ -2,7 +2,7 @@ body {
     color: #33333;
     margin: 0;
     padding: 0;
-    font-family: Georgia;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: #F2FBCA;
 }
 
@@ -51,7 +51,7 @@ a:hover {
     font-size: 12px;
     padding: 0;
     list-style: none;
-    font-family: Helvetica;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .toc-title {
@@ -67,10 +67,10 @@ a:hover {
 }
 
 #mori-content h2 {
-    font-family: helvetica;
+    font-family: helvetica, arial, sans-serif;
 }
 #mori-content h3 {
-    font-family: helvetica;
+    font-family: helvetica, arial, sans-serif;
     font-size: 18px;
 }
 
