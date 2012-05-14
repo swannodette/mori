@@ -69,8 +69,8 @@ a:hover {
 
 #mori-content p,
 #mori-content ul li {
-    font-size: 14px;
-    line-height: 1.4em;
+    font-size: 13px;
+    line-height: 1.5em;
 }
 
 #mori-content h2 {
@@ -89,7 +89,7 @@ a:hover {
     box-sizing: border-box;
 }
 .code {
-    font-size: 14px;
+    font-size: 13px;
     overflow-y: hidden;
 }
 #mori-content .syntaxhighlighter {
