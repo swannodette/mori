@@ -185,7 +185,10 @@ m = mori;
 
             <h2 id="collections">Collections</h2>
 
-            <h3 id="list">list</h3>
+            <h3 id="list">
+                list
+                <span class="sig">mori.list(arg0, arg1, ...)</span>
+            </h3>
             <p>
                 Constructs an immutable list. Lists support efficient
                 addition at the head of the list. It's important to
@@ -201,7 +204,10 @@ mori.cons(l, 1); // => (1 2 3)
                 </pre>
             </div>
                 
-            <h3 id="vector">vector</h3>
+            <h3 id="vector">
+                vector
+                <span class="sig">mori.vector(arg0, arg1, ...)</span>
+            </h3>
             <p>
                 Constructs an immutable vector. Vectors support efficient
                 addition at the end. They also support efficient random
@@ -215,7 +221,10 @@ mori.nth(v, 0); // => 1
                 </pre>
             </div>
             
-            <h3 id="hash_map">hash_map</h3>
+            <h3 id="hash_map">
+                hash_map
+                <span class="sig">mori.hash_map(key0, val0, key1, val1, ...)</span>
+            </h3>
             <p>
                 Constructs an immutable hash map. Unlike JavaScript
                 objects Mori PersistentHashMap support complex
@@ -252,10 +261,15 @@ m.map "first", [bob, mary] // ("Bob" "Mary")
                 </pre>
             </div>
 
-            <h3 id="set">set</h3>
+            <h3 id="set">
+                set
+                <span class="sig">mori.set(seqable)</span>
+            </h3>
             <p>
-                A collection of unique items. There are several operations
-                unique to sets which do not apply to the other collections.
+                Constructs a collection of unique items. You may pass
+                in any seqable type - this includes JavaScript arrays
+                and strings. There are several operations unique to
+                sets which do not apply to the other collections.
             </p>
             <div class="example">
                 <pre class="brush: clojure">
@@ -266,7 +280,10 @@ s.conj("zebra"); // => #{"bird" "cat" "dog" "zebra"}
                 </pre>
             </div>
             
-            <h3 id="sorted_set">sorted_set</h3>
+            <h3 id="sorted_set">
+                sorted_set
+                <span class="sig">mori.sorted_set(arg0, arg1, ...)</span>
+            </h3>
             <p>
                 Like set but keeps its elements ordered.
             </p>
@@ -277,8 +294,15 @@ mori.seq(mori.set([3,2,1,3])); // (1 2 3)
             </div>
 
             <h2 id="collection_operations">Collection Operations</h2>
-            <h3 id="conj">conj</h3>
-            <p>Add something to a collection.</p>
+
+            <h3 id="conj">
+                conj
+                <span class="sig">mori.conj(coll, arg0, arg1, ...)</span>
+            </h3>
+            <p>
+                Add something to a collection. The behavior depends on
+                the type of the collection.
+            </p>
             <div class="example">
                 <pre class="brush: javascript">
 var l = mori.list(2,3);
@@ -295,7 +319,15 @@ mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
                 </pre>
             </div>
 
-            <h3 id="assoc">assoc</h3>
+            <h3 id="assoc">
+                assoc
+                <span class="sig">mori.assoc(coll, key0, val0, key1, val1, ...)</span>
+            </h3>
+            <p>
+                Associate an new key-value pair in an associative collection. Works
+                on vectors and maps.
+            </p>
+            
             <h3 id="get">get</h3>
             <h3 id="get_in">get_in</h3>
             <h3 id="has_key">has_key</h3>

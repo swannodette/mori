@@ -30,14 +30,14 @@ a:hover {
     top: 0px;
     bottom: 0px;
     overflow-y: scroll;
-    width: 200px;
+    width: 220px;
     box-sizing: border-box;
     padding: 35px 10px 10px 20px;
 }
 
 #mori-content {
     position: absolute;
-    left: 200px;
+    left: 220px;
     top: 0px;
     box-sizing: border-box;
     padding-left: 25px;
@@ -64,7 +64,7 @@ a:hover {
 }
 
 #mori-content {
-    width: 600px;
+    width: 650px;
 }
 
 #mori-content p,
@@ -94,4 +94,11 @@ a:hover {
 }
 #mori-content .syntaxhighlighter {
     overflow-y: hidden !important;
+}
+h3 .sig {
+    color: #666;
+    font-family: courier, mono;
+    font-weight: normal;
+    font-size: 14px;
+    margin-left: 10px;
 }
