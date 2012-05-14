@@ -296,8 +296,41 @@ mori.conj(s, "zebra"); // #{"cat" "bird" "dog" "zebra"}
             </div>
 
             <h3 id="assoc">assoc</h3>
+            <p>Update the value at a key or index within a collection</p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz")
+mori.assoc(v, 1, "quux") // ["foo" "quux" "baz"]
+
+var m = mori.hash_map("foo", 1);
+mori.assoc(m, "bar", 2) // {"foo" 1 "bar" 2}
+mori.assoc(m, "foo", 6) // {"foo" 6}
+                </pre>
+            </div>
             <h3 id="get">get</h3>
+            <p> Retrieve a value from a collection </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz")
+mori.get(v, 1) // "bar"
+
+var m = mori.hash_map("foo", 1, "bar", 2)
+mori.get(m, "foo") // 1
+                </pre>
+            </div>
             <h3 id="get_in">get_in</h3>
+            <p> Retrieve a value from a nested collection </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz")
+var v2 = mori.vector("quux", v)
+mori.get_in(v2, [1, 2]) // "baz"
+
+var m = mori.hash_map("foo", 1, "bar", 2)
+var m2 = mori.hash_map("baz", 3, "quux", m)
+mori.get_in(m2, ["quux", "bar"]) // 2
+                </pre>
+            </div>
             <h3 id="has_key">has_key</h3>
             <h3 id="find">find</h3>
             <h3 id="nth">nth</h3>
