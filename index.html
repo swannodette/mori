@@ -382,6 +382,16 @@ mori.count(m) // 2
                 </pre>
             </div>
             <h3 id="peek">peek</h3>
+            <p> Returns either the first item of a list or the last item of a vector </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list("foo", "bar", "baz")
+mori.peek(l) // "foo"
+
+var v = mori.vector("foo", "bar", "baz")
+mori.peek(v) // "baz"
+                </pre>
+            </div>
             <h3 id="pop">pop</h3>
 
             <h2 id="sequences">Sequences</h2>
