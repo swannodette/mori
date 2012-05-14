@@ -67,6 +67,12 @@ a:hover {
     width: 600px;
 }
 
+#mori-content p,
+#mori-content ul li {
+    font-size: 14px;
+    line-height: 1.4em;
+}
+
 #mori-content h2 {
     color: #030;
     font-family: helvetica, arial, sans-serif;

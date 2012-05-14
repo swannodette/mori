@@ -17,6 +17,11 @@
             <a href="#mori" class="toc-title">Mori</a>
             <br/>
             <a href="#rationale" class="toc-title">Rationale</a>
+            <ul>
+               <li><a href="#island">- Mori is not an island</a></li>
+                <li><a href="#usage">- Using Mori</a></li>
+                <li><a href="#notation">- Note on notation</a></li>
+            </ul>
             <br/>
 
             <a href="#collection" class="toc-title">Collections</a>
@@ -126,7 +131,7 @@
                 peristent data structures well.
             </p>
 
-            <h3>Mori is not an island</h3>
+            <h3 id="island">Mori is not an island</h3>
             <p>
                 Beyond the the core philosophy Mori makes no other
                 assumptions about how you might use it. In fact, Mori
@@ -136,10 +141,18 @@
                 CoffeeScript. For example, where it makes sense, Mori
                 returns regular JavaScript arrays so that you can use
                 destructuring syntax where available.
+
+                The following example is in CoffeeScript:
             </p>
+            <div class="example">
+                <pre class="brush: javascript">
+m = mori;
+[a, b] = m.juxt(m.inc, m.dec)(1); // a = 2, b = 0
+                </pre>
+            </div>
 
 
-            <h3>Using Mori</h3>
+            <h3 id="usage">Using Mori</h3>
             <p>
                 Mori can be used in precisely the same way that
                 libraries like Underscore.js are used. Mori of course
@@ -152,7 +165,7 @@
                 in <code>mori.prim_seq(...)</code>.
             </p>
 
-            <h3>Note on notation</h3>
+            <h3 id="notation">Note on notation</h3>
             <p>
                 The follow examples are in JavaScript. However,
                 for simplicty's sake we show results of operations
@@ -169,8 +182,6 @@
 #{"cat" "bird" "dog"}  ;; set / sorted-set
                 </pre>
             </div>
-
-            <h1 id="api">API</h1>
 
             <h2 id="collections">Collections</h2>
 
