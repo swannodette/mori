@@ -349,6 +349,18 @@ mori.has_key(s, 9) // false
                 </pre>
             </div>
             <h3 id="find">find</h3>
+            <p> Returns the key value pair for a given key. Return's null if that key isn't present </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz")
+mori.find(v, 2) // [2 "baz"]
+mori.find(v, 9) // null
+
+var m = mori.hash_map("foo", 1, "bar", 2)
+mori.find(m, "foo") // [ "foo" 1 ]
+mori.find(m, "quux") // null
+                </pre>
+            </div>
             <h3 id="nth">nth</h3>
             <h3 id="assoc_in">assoc_in</h3>
             <h3 id="update_in">update_in</h3>
