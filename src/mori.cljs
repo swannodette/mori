@@ -1,6 +1,6 @@
 (ns mori
   (:refer-clojure :exclude
-   [count empty first rest conj cons nth last assoc dissoc
+   [count empty first rest conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get contains? empty? reverse
     take drop partition partition-by iterate into
     interpose interleave concat flatten
@@ -22,6 +22,7 @@
 (def ^:export rest cljs.core/rest)
 (def ^:export conj cljs.core/conj)
 (def ^:export cons cljs.core/cons)
+(def ^:export find cljs.core/find)
 (def ^:export nth cljs.core/nth)
 (def ^:export last cljs.core/last)
 (def ^:export assoc cljs.core/assoc)
