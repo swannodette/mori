@@ -537,9 +537,12 @@ var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
 
             <h2 id="sequences">Sequences</h2>
 
-            <h3 id="first">first</h3>
+            <h3 id="first">
+                first
+                <span class="sig">mori.first(seqable)</span>
+            </h3>
             <p>
-                Returns the first element in a collection.
+                Returns the first element in a seqable object.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -555,7 +558,10 @@ mori.first(m); // some key-value pair as an array
                 </pre>
             </div>
 
-            <h3 id="rest">rest</h3>
+            <h3 id="rest">
+                rest
+                <span class="sig">mori.rest(seqable)</span>
+            </h3>
             <p>
                 Returns the remaining elements in a collection.
             </p>
@@ -573,23 +579,87 @@ mori.rest(m); // remaining key-value pairs
                 </pre>
             </div>
             
-            <h3 id="seq">seq</h3>
-            <h3 id="each">each</h3>
-            <h3 id="map">map</h3>
-            <h3 id="filter">filter</h3>
-            <h3 id="remove">remove</h3>
-            <h3 id="reduce">reduce</h3>
-            <h3 id="take">take</h3>
+            <h3 id="seq">
+                seq
+                <span class="sig">mori.seq(seqable)</span>
+            </h3>
+
+            <h3 id="each">
+                each
+                <span class="sig">mori.each(seqable)</span>
+            </h3>
+
+            <h3 id="map">
+                map
+                <span class="sig">mori.map(fn, coll0, coll1, ...)</span>
+            </h3>
+
+            <h3 id="filter">
+                filter
+                <span class="sig">mori.filter(pred, coll)</span>
+            </h3>
+
+            <h3 id="remove">
+                remove
+                <span class="sig">mori.remove(pred, coll)</span>
+            </h3>
+
+            <h3 id="reduce">
+                reduce
+                <span class="sig">mori.reduce(fn, [intial], coll)</span>
+            </h3>
+
+            <h3 id="take">
+                take
+                <span class="sig">mori.take(n, coll)</span>
+            </h3>
+            
             <h3 id="take_while">take_while</h3>
-            <h3 id="drop">drop</h3>
-            <h3 id="drop_while">drop_while</h3>
-            <h3 id="interpose">interpose</h3>
-            <h3 id="interleave">interleave</h3>
-            <h3 id="iterate">iterate</h3>
-            <h3 id="repeat">repeat</h3>
-            <h3 id="repeatedly">repeatedly</h3>
-            <h3 id="partition">partition</h3>
-            <h3 id="group_by">group_by</h3>
+
+            <h3 id="drop">
+                drop
+                <span class="sig">mori.drop(n, coll)</span>
+            </h3>
+
+            <h3 id="drop_while">
+                drop_while
+                <span class="sig">mori.interleave(pred, coll)</span>
+            </h3>
+
+            <h3 id="interpose">
+                interpose
+                <span class="sig">mori.interleave(x, coll)</span>
+            </h3>
+            
+            <h3 id="interleave">
+                interleave
+                <span class="sig">mori.interleave(coll0, coll1, ...)</span>
+            </h3>
+            
+            <h3 id="iterate">
+                iterate
+                <span class="sig">mori.interate(fn)</span>
+            </h3>
+            
+            <h3 id="repeat">
+                repeat
+                <span class="sig">mori.repeat(x)</span>
+            </h3>
+            
+            <h3 id="repeatedly">
+                repeatedly
+                <span class="sig">mori.repeatedly(fn)</span>
+            </h3>
+            
+            <h3 id="partition">
+                partition
+                <span class="sig">mori.partition(coll, step, [pad])</span>
+            </h3>
+
+            <h3 id="group_by">
+                group_by
+                <span class="sig">mori.group_by(coll, fn)</span>
+            </h3>
 
             <h2 id="reducers">Reducer Framework</h2>
             <h3 id="rmap">rmap</h3>
@@ -599,11 +669,16 @@ mori.rest(m); // remaining key-value pairs
 
             <h2 id="helpers">Helpers</h2>
 
-            <h3 id="prim_seq">prim_seq</h3>
+            <h3 id="prim_seq">
+                prim_seq
+                <span class="sig">mori.prim_seq(seqable, [index])</span>
+            </h3>
             <p>
                 There are many array-like JavaScript objects which
                 are not actually arrays. To give these objects a uniform
                 interface you can wrap them with <code>mori.prim_seq</code>.
+                The optional argument <code>index</code> may be used to
+                specify an offset.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -614,7 +689,10 @@ function foo() {
                 </pre>
             </div>
 
-            <h3 id="identity">identity</h3>
+            <h3 id="identity">
+                identity
+                <span class="sig">mori.identity(x)</span>
+            </h3>
             <p>A function which simply returns its argument</p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -622,7 +700,10 @@ mori.identity(5); // => 5
                 </pre>
             </div>
 
-            <h3 id="inc">inc</h3>
+            <h3 id="inc">
+                inc
+                <span class="sig">mori.inc(n)</span>
+            </h3>
             <p>
                 Adds one to its argument.
             </p>
@@ -632,7 +713,10 @@ mori.inc(1); // => 2
                 </pre>
             </div>
 
-            <h3 id="dec">dec</h3>
+            <h3 id="dec">
+                dec
+                <span class="sig">mori.dec(n)</span>
+            </h3>
             <p>
                 Subtracts one from its argument.
             </p>
@@ -642,9 +726,12 @@ mori.dec(1); // => 0
                 </pre>
             </div>
 
-            <h3 id="sum">sum</h3>
+            <h3 id="sum">
+                sum
+                <span class="sig">mori.sum(a, b)</span>
+            </h3>
             <p>
-                Add it's two arguments together. Useful with <code>mori.reduce</code>.
+                Add its two arguments together. Useful with <code>mori.reduce</code>.
             </p>
             <div class="example">
                 <pre cass="brush: javascript">
@@ -654,8 +741,21 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45
                 </pre>
             </div>
             
-            <h3 id="is_even">is_even</h3>
-            <h3 id="is_odd">is_odd</h3>
+            <h3 id="is_even">
+                is_even
+                <span class="sig">mori.is_even(n)</span>
+            </h3>
+            <p>
+                Returns true if the argument is divisible by 2.
+            </p>
+            
+            <h3 id="is_odd">
+                is_odd
+                <span class="sig">mori.is_odd(n)</span>
+            </h3>
+            <p>
+                Returns true if the argument is not divisible by 2.
+            </p>
         </div>
         <script>
             SyntaxHighlighter.defaults["gutter"] = false;
