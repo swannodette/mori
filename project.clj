@@ -7,6 +7,9 @@
   :cljsbuild {:builds {:tmp {:source-path "src"
                              :compiler {:optimizations :advanced
                                         :output-to "tmp.js"}}
+                       :dev {:source-path "src"
+                             :compiler {:optimizations :whitespace
+                                        :output-to "mori.js"}}
                        :release {:source-path "src"
                                  :compiler {:optimizations :advanced
-                                            :output-to "mori.js"}}}})
+                                            :output-to "mori-min.js"}}}})
