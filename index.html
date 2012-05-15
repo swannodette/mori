@@ -21,7 +21,7 @@
             <ul>
                <li><a href="#island">- Mori is not an island</a></li>
                 <li><a href="#usage">- Using Mori</a></li>
-                <li><a href="#notation">- Note on notation</a></li>
+                <li><a href="#notation">- Notation</a></li>
             </ul>
 
             <a href="#collection" class="toc-title">Collections</a>
@@ -166,7 +166,15 @@ m = mori;
                 in <code>mori.prim_seq(...)</code>.
             </p>
 
-            <h3 id="notation">Note on notation</h3>
+            <h3 id="notation">Notation</h3>
+            <p>
+                Each entry is annotated with the signature with an accompanying
+                description and some relevant examples. Optional parameters appear
+                as <code>[option]</code> in thhe signature. Sometimes the signature
+                or description will mention <em>seqable</em>. This simply means
+                any type that can be coerced into a sequence. This include all
+                Mori collections as well as JavaScript Arrays and Strings.
+            </p>
             <p>
                 All the examples are in JavaScript or CoffeeScript. However,
                 for simplicity's sake we show the <i>results</i> of operations
@@ -356,8 +364,13 @@ mori.get(m, "baz", "nope"); // => "nope"
                 </pre>
             </div>
 
-            <h3 id="get_in">get_in</h3>
-            <p> Retrieve a value from a nested collection </p>
+            <h3 id="get_in">
+                get_in
+                <span class="sig">mori.get_in(coll, keys, [not-found])</span>
+            </h3>
+            <p>
+                Retrieve a value from a nested collection. <code>keys</code> may be any seqable object.
+            </p>
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector("foo", "bar", "baz");
@@ -401,11 +414,22 @@ mori.find(m, "foo") // [ "foo" 1 ]
 mori.find(m, "quux") // null
                 </pre>
             </div>
-            <h3 id="nth">nth</h3>
-            <h3 id="assoc_in">assoc_in</h3>
-            <h3 id="update_in">update_in</h3>
 
-            <h3 id="count">count</h3>
+            <h3 id="nth">
+                nth
+            </h3>
+
+            <h3 id="assoc_in">
+                assoc_in
+            </h3>
+
+            <h3 id="update_in">
+                update_in
+            </h3>
+
+            <h3 id="count">
+                count
+            </h3>
             <p> Returns the length of the collection </p>
             <div class="example">
                 <pre class="brush: javascript">
