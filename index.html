@@ -434,7 +434,7 @@ mori.find(m, "quux") // null
                 which are not sequential like sets and hash-map, the
                 collection will be coerced into a sequence first.
             </p>
-            <div calss="example">
+            <div class="example">
                 <pre class="brush: javascript">
 var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
 mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
@@ -449,7 +449,7 @@ mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
                 Convenience function for assoc'ing nested associative
                 data structures. <code>keys</code> may be any seqable.
             </p>
-            <div calss="example">
+            <div class="example">
                 <pre class="brush: javascript">
 var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
 mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
@@ -460,7 +460,7 @@ mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
                 update_in
                 <span class="sig">mori.update_in(coll, keys, function)</span>
             </h3>
-            <div calss="example">
+            <div class="example">
                 <pre class="brush: javascript">
 var h = mori.hash_map("foo", mori.vector(1, 2, 3)]);
 mori.update_in(h, ["foo", 1], mori.inc); // => {"foo" [1 3 3]}
