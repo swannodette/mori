@@ -48,6 +48,7 @@
                 <li><a href="#count">- count</a></li>
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
+                <li><a href="#pop">- zipmap</a></li>
             </ul>
 
             <a class="toc-title">Set Operations</a>
@@ -354,6 +355,7 @@ mori.get(m, "baz", "nope"); // => "nope"
 
                 </pre>
             </div>
+
             <h3 id="get_in">get_in</h3>
             <p> Retrieve a value from a nested collection </p>
             <div class="example">
@@ -367,6 +369,7 @@ var m2 = mori.hash_map("baz", 3, "quux", m);
 mori.get_in(m2, ["quux", "bar"]); // => 2
                 </pre>
             </div>
+
             <h3 id="has_key">has_key</h3>
             <p> Returns true if the collection has the given key/index. Otherwise, returns false </p>
             <div class="example">
@@ -384,6 +387,7 @@ mori.has_key(s, 1); // => true
 mori.has_key(s, 9); // => false
                 </pre>
             </div>
+
             <h3 id="find">find</h3>
             <p> Returns the key value pair for a given key. Return's null if that key isn't present </p>
             <div class="example">
@@ -400,6 +404,7 @@ mori.find(m, "quux") // null
             <h3 id="nth">nth</h3>
             <h3 id="assoc_in">assoc_in</h3>
             <h3 id="update_in">update_in</h3>
+
             <h3 id="count">count</h3>
             <p> Returns the length of the collection </p>
             <div class="example">
@@ -417,6 +422,7 @@ var m = mori.hash_map("foo", 1, "bar", 2)
 mori.count(m) // 2
                 </pre>
             </div>
+
             <h3 id="peek">peek</h3>
             <p> Returns either the first item of a list or the last item of a vector </p>
             <div class="example">
@@ -428,6 +434,7 @@ var v = mori.vector("foo", "bar", "baz")
 mori.peek(v) // "baz"
                 </pre>
             </div>
+
             <h3 id="pop">pop</h3>
             <p> Returns either a list with the first item removed or a vector with the last item removed </p>
             <div class="example">
@@ -437,6 +444,23 @@ mori.pop(l) // ("bar" "baz")
 
 var v = mori.vector("foo", "bar", "baz")
 mori.pop(v) // ["foo" "bar"]
+                </pre>
+            </div>
+
+            <h3 id="zipmap">
+                zipmap
+                <span class="sig">mori.zipmap(seqable0, seqable1)</span>
+            </h3>
+            <p>
+                Takes two seqable objects and constructs a hash map. The first seqable provides the keys
+                the second seqable the values.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var keys = ["foo", "bar", "baz"];
+var vals = [1, 2, 3];
+
+var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
                 </pre>
             </div>
 
