@@ -383,7 +383,10 @@ mori.get_in(m2, ["quux", "bar"]); // => 2
                 </pre>
             </div>
 
-            <h3 id="has_key">has_key</h3>
+            <h3 id="has_key">
+                has_key
+                <span class="sig">mori.has_key(coll, key)</span>
+            </h3>
             <p> Returns true if the collection has the given key/index. Otherwise, returns false </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -401,34 +404,72 @@ mori.has_key(s, 9); // => false
                 </pre>
             </div>
 
-            <h3 id="find">find</h3>
-            <p> Returns the key value pair for a given key. Return's null if that key isn't present </p>
+            <h3 id="find">
+                find
+                <span class="sig">mori.find(coll, key)</span>
+            </h3>
+            <p>
+                Returns the key value pair as an array for a given key. Return's null if that key isn't present.
+            </p>
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector("foo", "bar", "baz")
-mori.find(v, 2) // [2 "baz"]
+mori.find(v, 2) // => [2, "baz"]
 mori.find(v, 9) // null
 
 var m = mori.hash_map("foo", 1, "bar", 2)
-mori.find(m, "foo") // [ "foo" 1 ]
+mori.find(m, "foo") // => ["foo", 1]
 mori.find(m, "quux") // null
                 </pre>
             </div>
 
             <h3 id="nth">
                 nth
+                <span class="sig">mori.nth(coll, index)</span>
             </h3>
+            <p>
+                Get the value at the specified index. Complexity
+                depends on the collection. <code>nth</code> is essentially
+                constant on vector, but linear on lists. For collections
+                which are not sequential like sets and hash-map, the
+                collection will be coerced into a sequence first.
+            </p>
+            <div calss="example">
+                <pre class="brush: javascript">
+var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
+mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
+                </pre>
+            </div>
 
             <h3 id="assoc_in">
                 assoc_in
+                <span class="sig">mori.assoc_in(coll, keys, val)</span>
             </h3>
+            <p>
+                Convenience function for assoc'ing nested associative
+                data structures. <code>keys</code> may be any seqable.
+            </p>
+            <div calss="example">
+                <pre class="brush: javascript">
+var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
+mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
+                </pre>
+            </div>
 
             <h3 id="update_in">
                 update_in
+                <span class="sig">mori.update_in(coll, keys, function)</span>
             </h3>
+            <div calss="example">
+                <pre class="brush: javascript">
+var h = mori.hash_map("foo", mori.vector(1, 2, 3)]);
+mori.update_in(h, ["foo", 1], mori.inc); // => {"foo" [1 3 3]}
+                </pre>
+            </div>
 
             <h3 id="count">
                 count
+                <span class="sig">mori.count(coll)</span>
             </h3>
             <p> Returns the length of the collection </p>
             <div class="example">
@@ -447,7 +488,10 @@ mori.count(m) // 2
                 </pre>
             </div>
 
-            <h3 id="peek">peek</h3>
+            <h3 id="peek">
+                peek
+                <span class="sig">mori.peek(coll)</span>
+            </h3>
             <p> Returns either the first item of a list or the last item of a vector </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -459,7 +503,10 @@ mori.peek(v) // "baz"
                 </pre>
             </div>
 
-            <h3 id="pop">pop</h3>
+            <h3 id="pop">
+                pop
+                <span class="sig">mori.pop(coll)</span>
+            </h3>
             <p> Returns either a list with the first item removed or a vector with the last item removed </p>
             <div class="example">
                 <pre class="brush: javascript">
