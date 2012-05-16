@@ -714,11 +714,11 @@ mori.each(xs, function(n) {
 
             <h3 id="map">
                 map
-                <span class="sig">mori.map(fn, coll0, coll1, ...)</span>
+                <span class="sig">mori.map(f, coll0, coll1, ...)</span>
             </h3>
             <p>
                 Return a lazy sequence representing that represents
-                the original collection with <code>fn</code> applied to
+                the original collection with <code>f</code> applied to
                 each element. Note that map can take multiple collections
                 This obviates the need for Underscore.js's zip.
             </p>
@@ -776,10 +776,10 @@ mori.remove(mori.is_even, a0); // => (1 3 5 7 9)
 
             <h3 id="reduce">
                 reduce
-                <span class="sig">mori.reduce(fn, [intial], coll)</span>
+                <span class="sig">mori.reduce(f, [intial], coll)</span>
             </h3>
             <p>
-                Accumulate a collection into a single value. <code>fn</code> fn
+                Accumulate a collection into a single value. <code>f</code>
                 should be a function of two arguments, the first will be the
                 accumulator the second will be next value in the sequence.
             </p>
@@ -880,20 +880,50 @@ mori.interpose("foo", a) // => (1 "foo" 2 "foo" 3)
                 interleave
                 <span class="sig">mori.interleave(coll0, coll1, ...)</span>
             </h3>
+            <p>
+                Interleave two or more collections. The size the resulting
+                lazy sequence is determined by the smalled collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var ns = [1,2,3];
+var as = ["a", "b", "c"];
+
+mori.interleave(ns, as) // => (1 "a" 2 "b" 3 "c")
+                </pre>
+            </div>
             
             <h3 id="iterate">
                 iterate
-                <span class="sig">mori.interate(fn)</span>
+                <span class="sig">mori.iterate(f, x)</span>
             </h3>
+            <p>
+                Creats a lazy sequences of x, f(x), f(f(x)), ...
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.iterate(mor.inc, 0); // => (0 1 2 3 4 5 ...)
+                </pre>
+            </div>
             
             <h3 id="repeat">
                 repeat
-                <span class="sig">mori.repeat(x)</span>
+                <span class="sig">mori.repeat([n], x)</span>
             </h3>
+            <p>
+                Return a lazy of sequence of the value repeated.
+                If given <code>n</code>, the value will only be
+                repeated n times.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.repeat(5, "foo"); // => ("foo" "foo" "foo" "foo" "foo")
+                </pre>
+            </div>
             
             <h3 id="repeatedly">
                 repeatedly
-                <span class="sig">mori.repeatedly(fn)</span>
+                <span class="sig">mori.repeatedly(f)</span>
             </h3>
             
             <h3 id="partition">
@@ -903,7 +933,7 @@ mori.interpose("foo", a) // => (1 "foo" 2 "foo" 3)
 
             <h3 id="group_by">
                 group_by
-                <span class="sig">mori.group_by(coll, fn)</span>
+                <span class="sig">mori.group_by(coll, f)</span>
             </h3>
 
             <h2 id="reducers">Reducer Framework</h2>
@@ -1001,7 +1031,7 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
 
             <h3 id="juxt">
                 juxt
-                <span class="sig">mori.juxt(fn0, fn1, ...)</span>
+                <span class="sig">mori.juxt(f0, f1, ...)</span>
             </h3>
 
             <h3 id="knit">
