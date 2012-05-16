@@ -167,12 +167,15 @@ m = mori;
 
             <h3 id="notation">Notation</h3>
             <p>
-                Each entry is annotated with the signature with an accompanying
-                description and some relevant examples. Optional parameters appear
-                as <code>[option]</code> in thhe signature. Sometimes the signature
-                or description will mention <b>seqable</b>. This simply means
-                any type that can be coerced into a sequence. This include all
-                Mori collections as well as JavaScript Arrays and Strings.
+                Each entry is annotated with the signature with an
+                accompanying description and some relevant
+                examples. Optional parameters appear
+                as <code>[option]</code> in thhe signature. Sometimes
+                the signature or description will mention <b>coll</b>
+                for collection. In general collections can be
+                converted in to sequences for manipulation via the
+                various sequence operations. This include all Mori
+                collections as well as JavaScript Arrays and Strings.
             </p>
             <p>
                 All the examples are in JavaScript or CoffeeScript. However,
@@ -635,10 +638,10 @@ mori.is_superset(s0, s1); // => true
             
             <h3 id="first">
                 first
-                <span class="sig">mori.first(seqable)</span>
+                <span class="sig">mori.first(coll)</span>
             </h3>
             <p>
-                Returns the first element in a seqable object.
+                Returns the first element in a collection.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -656,7 +659,7 @@ mori.first(m); // some key-value pair as an array
 
             <h3 id="rest">
                 rest
-                <span class="sig">mori.rest(seqable)</span>
+                <span class="sig">mori.rest(coll)</span>
             </h3>
             <p>
                 Returns the remaining elements in a collection.
@@ -677,11 +680,11 @@ mori.rest(m); // remaining key-value pairs
             
             <h3 id="seq">
                 seq
-                <span class="sig">mori.seq(seqable)</span>
+                <span class="sig">mori.seq(coll)</span>
             </h3>
             <p>
-                Takes a seqable object and returns a real sequence or null
-                if the seqable is logically empty.
+                Converts a collection whether Mori or JavaScript primitive
+                into a sequence.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -693,10 +696,10 @@ mori.seq(mori.list()); // => null
 
             <h3 id="each">
                 each
-                <span class="sig">mori.each(seqable)</span>
+                <span class="sig">mori.each(coll)</span>
             </h3>
             <p>
-                Iterate over a seqable object. For side effects.
+                Iterate over a collection. For side effects.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -715,9 +718,9 @@ mori.each(xs, function(n) {
             </h3>
             <p>
                 Return a lazy sequence representing that represents
-                the original seqable with <code>fn</code> applied to
-                each element. Note that map can take multiple seqable
-                objects. This obviates the need for Underscore.js's zip.
+                the original collection with <code>fn</code> applied to
+                each element. Note that map can take multiple collections
+                This obviates the need for Underscore.js's zip.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -738,7 +741,7 @@ mori.map(mori.vector, a0, a1, a2); // => ([1 4 7] [2 5 8] [3 6 9])
             </h3>
             <p>
                 Return a lazy sequence representing with the original
-                seqable filtered of elements which did not return a truthy
+                collection filtered of elements which did not return a truthy
                 value for <code>pred</code>. Note that Mori has a stricter
                 notion of truth than JavaScript. Only false, undefined, and null
                 are considered false values.
@@ -757,7 +760,7 @@ mori.filter(mori.is_even, a0); // => (0 2 4 6 8)
             </h3>
             <p>
                 The inverse of filter. Return a lazy sequence representing with the original
-                seqable filtered of elements which returned a truthy
+                collction filtered of elements which returned a truthy
                 value for <code>pred</code>. Note that Mori has a stricter
                 notion of truth than JavaScript. Only false, undefined, and null
                 are considered false values.
@@ -776,7 +779,7 @@ mori.remove(mori.is_even, a0); // => (1 3 5 7 9)
                 <span class="sig">mori.reduce(fn, [intial], coll)</span>
             </h3>
             <p>
-                Accumulate a seqable into a single value. <code>fn</code> fn
+                Accumulate a collection into a single value. <code>fn</code> fn
                 should be a function of two arguments, the first will be the
                 accumulator the second will be next value in the sequence.
             </p>
@@ -793,7 +796,7 @@ mori.reduce(mori.sum, 0, r); // => 45
                 <span class="sig">mori.take(n, coll)</span>
             </h3>
             <p>
-                Takes n elements from a seqable. Note that the seqable
+                Takes n elements from a colletion. Note that <code>coll</code>
                 could be an infinite sequence. This function returns
                 a lazy sequence.
             </p>
@@ -810,8 +813,11 @@ mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
                 <span class="sig">mori.take_while(pred, coll)</span>
             </h3>
             <p>
-                Takes elements from a seqable while the pred returns
-                true. The following example is in CoffeeScript:
+                Takes elements from a collection while the pred returns
+                true. Returns a lazy sequence.
+            </p>
+            <p>
+                The following example is in CoffeeScript:
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -824,16 +830,51 @@ mori.take_while ((n) -> n < 5), r // => (0 1 2 3 4)
                 drop
                 <span class="sig">mori.drop(n, coll)</span>
             </h3>
+            <p>
+                Drop n elements from a collection. Returns
+                a lazy sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [0,1,2,3,4,5,6,7,8,9]
+mori.drop(5, a); // => (5 6 7 8 9)
+                </pre>
+            </div>
+
 
             <h3 id="drop_while">
                 drop_while
                 <span class="sig">mori.interleave(pred, coll)</span>
             </h3>
+            <p>
+                Drop elements from a collection as long as <code>pred</code>
+                return true. Returns a lazy sequence.
+            </p>
+            <p>
+                The following example is in CoffeeScript:
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+a = [0,1,2,3,4,5,6,7,8,9]
+
+mori.drop_while ((n) -> n<5), a // => (5 6 7 8 9)
+                </pre>
+            </div>
 
             <h3 id="interpose">
                 interpose
-                <span class="sig">mori.interleave(x, coll)</span>
+                <span class="sig">mori.interpose(x, coll)</span>
             </h3>
+            <p>
+                Interpose a value between all elements of a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [1,2,3]
+
+mori.interpose("foo", a) // => (1 "foo" 2 "foo" 3)
+                </pre>
+            </div>
             
             <h3 id="interleave">
                 interleave
