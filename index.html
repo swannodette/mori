@@ -923,18 +923,50 @@ mori.repeat(5, "foo"); // => ("foo" "foo" "foo" "foo" "foo")
             
             <h3 id="repeatedly">
                 repeatedly
-                <span class="sig">mori.repeatedly(f)</span>
+                <span class="sig">mori.repeatedly([n], f)</span>
             </h3>
+            <p>
+                Return a lazy of sequence of calling <code>f</code>, a
+                function which takes no arguments (presumably for side effects).
+                If given <code>n</code>, the function will only be
+                repeated n times.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.repeatedly(5, #(.random js/Math)); // => (... 5 random floating point numbers ...)
+                </pre>
+            </div>
+            
             
             <h3 id="partition">
                 partition
-                <span class="sig">mori.partition(coll, step, [pad])</span>
+                <span class="sig">mori.partition(n, [step], [pad], coll)</span>
             </h3>
+            <p>
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+                </pre>
+            </div>
 
             <h3 id="group_by">
                 group_by
-                <span class="sig">mori.group_by(coll, f)</span>
+                <span class="sig">mori.group_by(f, coll)</span>
             </h3>
+            <p>
+                Returns a map of the items grouped by the result of applying
+                <code>f</code> to the element.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+function even_odd(n) {
+  return mori.is_even(n) ? "even" : "odd";
+}
+
+var r = mori.range(10);
+mori.group_by(even_odd, r); // => {"even" (0 2 4 6 8) "odd" (1 3 5 7 9)}
+                </pre>
+            </div>
 
             <h2 id="reducers">Reducer Framework</h2>
             <h3 id="rmap">rmap</h3>
