@@ -540,21 +540,63 @@ var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
                 disj
                 <span class="sig">mori.disj(set)</span>
             </h3>
+            <p>
+                Removes an element from a set.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s = mori.set(["cat", "dog", "bird"]); // => #{"cat" "bird" "dog"}
+s.disj("bird"); // => #{"dog" "cat"}
+                </pre>
+            </div>
 
             <h3 id="union">
                 union
                 <span class="sig">mori.union(set0, set1, ...)</span>
             </h3>
+            <p>
+                Returns the union of two sets.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s0 = mori.set(["cat", "dog"]);
+var s1 = mori.set(["zebra", "lion"]);
+
+mori.union(s0, s1); // => #{"lion" "cat" "dog" "zebra"}
+                </pre>
+            </div>
 
             <h3 id="intersection">
                 intersection
                 <span class="sig">mori.intersection(set0, set1, ...)</span>
             </h3>
+            <p>
+                Returns the intersection of two sets.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s0 = mori.set(["cat", "dog", "mouse"]);
+var s1 = mori.set(["dog", "cat", "bird"]);
+
+mori.intersection(s0, s1); // => #{"cat" "dog"}
+                </pre>
+            </div>
 
             <h3 id="difference">
                 difference
                 <span class="sig">mori.difference(set0, set1, ...)</span>
             </h3>
+            <p>
+                Returns the difference of two sets.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s0 = mori.set(["cat", "dog", "mouse"]);
+var s1 = mori.set(["dog", "cat", "bird"]);
+
+mori.difference(s0, s1); // => #{"mouse" "bird"}
+                </pre>
+            </div>
 
             <h3 id="is_subset">is_subset</h3>
             
