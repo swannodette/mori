@@ -598,9 +598,38 @@ mori.difference(s0, s1); // => #{"mouse" "bird"}
                 </pre>
             </div>
 
-            <h3 id="is_subset">is_subset</h3>
-            
-            <h3 id="is_superset">is_superset</h3>
+            <h3 id="is_subset">
+                is_subset
+                <span class="sig">mori.is_subset(seta, setb)</span>
+            </h3>
+            <p>
+                Returns true if <code>seta</code> is a subset of <code>setb</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s0 = mori.set(["dog", "cat"]);
+var s1 = mori.set(["cat", "dog", "bird"]);
+
+mori.is_subset(s0, s1); // => true
+                </pre>
+            </div>
+
+            <h3 id="is_superset">
+                is_superset
+                <span class="sig">mori.is_superset(seta, setb)</span>
+            </h3>
+            <p>
+                Returns true if <code>seta</code> is a supset of <code>setb</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s0 = mori.set(["cat", "dog", "bird"]);
+var s1 = mori.set(["dog", "cat"]);
+
+mori.is_superset(s0, s1); // => true
+                </pre>
+            </div>
+
 
             <h2 id="sequences">Sequences</h2>
             
