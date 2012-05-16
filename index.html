@@ -676,7 +676,7 @@ mori.map(mori.vector, a0, a1, a2); // => ([1 4 7] [2 5 8] [3 6 9])
                 <pre class="brush: javascript">
 var a = [0,1,2,3,4,5,7,7,9];
 
-mfori.filter(mori.is_even, a0); // => (0 2 4 6 8)
+mori.filter(mori.is_even, a0); // => (0 2 4 6 8)
                 </pre>
             </div>
 
@@ -695,7 +695,7 @@ mfori.filter(mori.is_even, a0); // => (0 2 4 6 8)
                 <pre class="brush: javascript">
 var a = [0,1,2,3,4,5,6,7,9];
 
-mfori.remove(mori.is_even, a0); // => (1 3 5 7 9)
+mori.remove(mori.is_even, a0); // => (1 3 5 7 9)
                 </pre>
             </div>
 
@@ -704,13 +704,50 @@ mfori.remove(mori.is_even, a0); // => (1 3 5 7 9)
                 reduce
                 <span class="sig">mori.reduce(fn, [intial], coll)</span>
             </h3>
+            <p>
+                Accumulate a seqable into a single value. <code>fn</code> fn
+                should be a function of two arguments, the first will be the
+                accumulator the second will be next value in the sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = mori.range(10);
+
+mori.reduce(mori.sum, 0, r); // => 45
+                </pre>
+            </div>
 
             <h3 id="take">
                 take
                 <span class="sig">mori.take(n, coll)</span>
             </h3>
+            <p>
+                Takes n elements from a seqable. Note that the seqable
+                could be an infinite sequence. This function returns
+                a lazy sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = mori.range(); // infinite sequence
+
+mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
+                </pre>
+            </div>
             
-            <h3 id="take_while">take_while</h3>
+            <h3 id="take_while">
+                take_while
+                <span class="sig">mori.take_while(pred, coll)</span>
+            </h3>
+            <p>
+                Takes elements from a seqable while the pred returns
+                true. The following example is in CoffeeScript:
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+a = [0,1,2,3,4,5,6,7,8,9]
+mori.take_while ((n) -> n < 5), r // => (0 1 2 3 4)
+                </pre>
+            </div>
 
             <h3 id="drop">
                 drop
