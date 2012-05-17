@@ -1067,6 +1067,23 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
                 juxt
                 <span class="sig">mori.juxt(f0, f1, ...)</span>
             </h3>
+            <p>
+                Takes a series of functions and creates a single function
+                which represents their "juxtaposition". When this function
+                is called, will return the result of each function applied
+                to the arguments in a JavaScript array.
+            </p>
+            <p>
+                The following example is in CoffeeScript:
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+f = mori.juxt "last", "first"
+p = mori.hash_map "first", "Bob", "last", "Smith"
+
+f(p).join ", " // => "Smith, Bob"
+                </pre>
+            </div>
 
             <h3 id="knit">
                 knit
