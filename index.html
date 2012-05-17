@@ -1086,8 +1086,26 @@ f(p).join ", " // => "Smith, Bob"
             </div>
 
             <h3 id="knit">
-                knit
+                knit 
+                <span class="sig">more.knit(f0, f2, ...)</span>
             </h3>
+            <p>
+                This allows you to create functions that work on a heterogenous
+                collection and return a new collecton of the same
+                arity. It is an relative
+                of <a href="#juxt"><code>juxt</code></a>. Like <code>juxt</code>
+                it takes a series of functions and returns a new
+                function. Unlike <code>juxt</code> the resulting
+                function takes a sequence. The functions and sequence
+                are zipped together and invoked.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var f = mori.knit(function (s) { return s.toLowerCase(); }, 
+                  function (s) { return s.toUpperCase(); });
+f(["FoO", "bAr"]); // => ["foo", "BAR"]
+                </pre>
+            </div>
 
             <h3 id="pipeline">
                 pipeline
