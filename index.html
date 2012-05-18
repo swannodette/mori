@@ -915,9 +915,15 @@ mori.iterate(mor.inc, 0); // => (0 1 2 3 4 5 ...)
                 If given <code>n</code>, the value will only be
                 repeated n times.
             </p>
+            <p>
+                The following example is in CoffeeScript:
+            </p>
             <div class="example">
                 <pre class="brush: javascript">
-mori.repeat(5, "foo"); // => ("foo" "foo" "foo" "foo" "foo")
+m    = mori
+foos = m.repeat("foo")
+
+m.zipmap [1,2,3], foos // => {1 "foo", 2 "foo", 3 "foo"}
                 </pre>
             </div>
             
@@ -1091,10 +1097,6 @@ f(p).join ", " // => "Smith, Bob"
 
             <h3 id="pipeline">
                 pipeline
-            </h3>
-
-            <h3 id="partial">
-                partial
             </h3>
 
             <h3 id="partial">
