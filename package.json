@@ -3,7 +3,7 @@
   "version": "0.2.0-snapshot",
   "description": "Persistent Data Structures for JavaScript",
   "homepage": "https://github.com/swannodette/mori",
-  "author": "David Nolen",
+  "author": "David Nolen (https://github.com/swannodette)",
   "keywords": [
     "data",
     "structure",
@@ -13,6 +13,9 @@
     "map",
     "filter",
     "reduce"
+  ],
+  "contributors": [
+    "David Nolen (https://github.com/swannodette)"
   ],
   "bugs": {
     "url": "https://github.com/swannodette/mori/issues"
