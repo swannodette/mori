@@ -19,4 +19,5 @@
         :id "release",
         :compiler
         {:output-to "mori-min.js",
-         :optimizations :advanced}}]})
+         :optimizations :advanced
+         :pretty-print false}}]})
