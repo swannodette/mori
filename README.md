@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/swannodette/mori.png?branch=master)](https://travis-ci.org/swannodette/mori)
+
 mori
 ====
 
