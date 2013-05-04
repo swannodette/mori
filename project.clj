@@ -1,15 +1,22 @@
 (defproject mori "0.1.0-SNAPSHOT"
   :description "Persistent Data Structures for JavaScript"
-  :dependencies [[org.clojure/clojure "1.4.0"]]
-  :dev-dependencies [[lein-cljsbuild "0.1.9"]]
-  :extra-classpath-dirs ["checkouts/clojurescript/src/clj"
-                         "checkouts/clojurescript/src/cljs"]
-  :cljsbuild {:builds {:tmp {:source-path "src"
-                             :compiler {:optimizations :advanced
-                                        :output-to "tmp.js"}}
-                       :dev {:source-path "src"
-                             :compiler {:optimizations :whitespace
-                                        :output-to "mori.js"}}
-                       :release {:source-path "src"
-                                 :compiler {:optimizations :advanced
-                                            :output-to "mori-min.js"}}}})
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojurescript "0.0-1798"]]
+  :plugins [[lein-cljsbuild "0.3.0"]]
+  :cljsbuild
+  {:builds
+    [{:source-paths ["src"],
+       :id "tmp",
+       :compiler
+       {:output-to "tmp.js",
+        :optimizations :advanced}}
+      {:source-paths ["src"],
+        :id "dev",
+        :compiler
+        {:output-to "mori.js",
+         :optimizations :whitespace}}
+      {:source-paths ["src"],
+        :id "release",
+        :compiler
+        {:output-to "mori-min.js",
+         :optimizations :advanced}}]})
