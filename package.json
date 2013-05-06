@@ -39,14 +39,14 @@
     "jasmine-node": "1.7.0"
   },
   "scripts": {
-    "build": "npm run-script build-node",
-    "build-clean": "npm run-script build-node-clean",
+    "build": "./scripts/build.sh",
+    "build-clean": "./scripts/build_clean.sh",
     "build-node": "./scripts/build_node.sh",
     "build-node-clean": "rm -f mori.node.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node",
-    "build-web": "./scripts/build.sh",
+    "build-web": "./scripts/build_web.sh",
     "build-web-clean": "rm -f mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-web",
-    "clean": "rm -f mori.node.js mori.js && ./bin/lein_prefer cljsbuild clean",
-    "prepublish": "rm -f mori.node.js mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node && npm run-script build-web",
+    "clean": "./scripts/clean.sh",
+    "prepublish": "npm run-script build-clean",
     "test": "jasmine-node spec"
   },
   "directories": {

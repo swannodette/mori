@@ -41,6 +41,4 @@ chmod +x $LEIN_PREFER
 
 fi
 
-echo "lein path: "$LEIN_PREFER
-
 $LEIN_PREFER $@

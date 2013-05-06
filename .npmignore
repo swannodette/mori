@@ -8,8 +8,8 @@
 /checkouts
 /.lein-deps-sum
 .lein*
-mori-dev.js
-mori-rel.js
+mori_dev.js
+mori_rel.js
 tmp.js
 *.swp
 .#*

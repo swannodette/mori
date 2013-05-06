@@ -5,10 +5,10 @@
 
 echo "Finalizing mori.node.js"
 
-(cat mori-rel.js; echo ";module.exports = this.mori;\n") > mori.node.js
+(cat mori_rel.js; echo ";module.exports = this.mori;\n") > mori.node.js
 
-echo "Deleting mori-rel.js"
+echo "Deleting mori_rel.js"
 
-rm mori-rel.js
+rm mori_rel.js
 
 echo "Build finished."

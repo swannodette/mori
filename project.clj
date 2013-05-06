@@ -13,11 +13,11 @@
       {:source-paths ["src"],
         :id "dev",
         :compiler
-        {:output-to "mori-dev.js",
+        {:output-to "mori_dev.js",
          :optimizations :whitespace}}
       {:source-paths ["src"],
         :id "release",
         :compiler
-        {:output-to "mori-rel.js",
+        {:output-to "mori_rel.js",
          :optimizations :advanced
          :pretty-print false}}]})
