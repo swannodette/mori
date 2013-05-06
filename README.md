@@ -41,9 +41,9 @@ Build
 
 ### Prerequisites
 
-You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) SDK, if it's not already installed on your system.
+You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) SDK, if it's not already installed on your system.
 
-On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path, or if your version predates `2.0.0`.
+On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path or if your `lein` version predates `2.0.0`.
 
 ### Clone the repo
 
@@ -58,16 +58,16 @@ cd mori
 ./scripts/build.sh
 ```
 
+### Alternatively using npm
+
+```shell
+npm run-script build
+```
+
 ### On Windows
 
 ```shell
 ./scripts/build.ps1
-```
-
-### Using npm
-
-```shell
-npm run-script build
 ```
 
 The build process will generate two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.

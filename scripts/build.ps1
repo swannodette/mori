@@ -10,5 +10,5 @@ lein cljsbuild once release
 ni "mori.node.js" -type file -force
 $reljs = Get-Content mori_rel.js
 ac "mori.node.js" $reljs
-ac "mori.node.js" ";module.exports = this.mori;`n"
+ac "mori.node.js" ";module.exports = this.mori;"
 rm mori_rel.js
