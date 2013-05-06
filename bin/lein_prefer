@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LEIN_PREFER=`which lein`
+LEIN_PREFER=`which leinz`
 
 if [[ -z $LEIN_PREFER ]]; then
 

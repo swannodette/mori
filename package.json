@@ -46,7 +46,7 @@
     "build-web": "./scripts/build.sh",
     "build-web-clean": "rm -f mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-web",
     "clean": "rm -f mori.node.js mori.js && ./bin/lein_prefer cljsbuild clean",
-    "prepublish": "rm -f mori.node.js mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node && npm run-script build-web && npm test",
+    "prepublish": "rm -f mori.node.js mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node && npm run-script build-web",
     "test": "jasmine-node spec"
   },
   "directories": {
