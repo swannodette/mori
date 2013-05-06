@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+LEIN_PREFER=`which lein`
+LEIN2=`which lein2`
+
+if [[ ! -z $LEIN2 ]]; then
+
+LEIN_PREFER=$LEIN2
+
+fi
+
+if [[ ! -z $LEIN_PREFER ]]; then
+
+LEIN_VER=`$LEIN_PREFER version`
+
+fi
+
+LEIN_VER1_PATTERN="^Leiningen\ 1\."
+
+if [[ -z $LEIN_PREFER || $LEIN_VER =~ $LEIN_VER1_PATTERN ]]; then
+
+export LEIN_HOME=`pwd`"/bin/.lein"
+
+if [[ ! -d $LEIN_HOME ]]; then
+
+mkdir $LEIN_HOME
+
+fi
+
+LEIN_PREFER=`pwd`"/bin/lein"
+
+fi
+
+if [[ ! -f $LEIN_PREFER ]]; then
+
+echo "Leiningen v2 not found, downloading..."
+
+./bin/get_lein.js
+
+chmod +x $LEIN_PREFER
+
+fi
+
+$LEIN_PREFER $@
