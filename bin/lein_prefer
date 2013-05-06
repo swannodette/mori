@@ -4,8 +4,6 @@ LEIN_PREFER=`which lein`
 
 if [[ -z $LEIN_PREFER || `$LEIN_PREFER version` == "Leiningen 1"* ]]; then
 
-#if [[ -z $LEIN_PREFER ]]; then
-
 export LEIN_HOME=`pwd`"/bin/.lein"
 
 if [[ ! -d $LEIN_HOME ]]; then
