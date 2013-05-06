@@ -10,11 +10,13 @@ A simple bridge to ClojureScript's persistent data structures and [supporting AP
 Getting it
 ----
 
-It's [available](https://npmjs.org/package/mori) for Node.js via npm:
+There's an old release [available](https://npmjs.org/package/mori) for Node.js via npm:
 
 ```shell
 npm install mori
 ```
+
+We're working on pushing a more up-to-date release to npm shortly.
 
 The installed package contains two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.
 
