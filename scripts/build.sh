@@ -1,7 +1,7 @@
 #!/bin/sh
 
-./bin/lein deps
-./bin/lein cljsbuild once tmp
+./bin/lein_prefer deps
+./bin/lein_prefer cljsbuild once tmp
 
 echo "Finalizing mori.js"
 
