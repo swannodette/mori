@@ -164,3 +164,25 @@ describe("Juxtaposition", function () {
     });
 
 });
+
+describe("Conversion utilities", function () {
+
+    it("demonstrates conversion from clojurescript values to javascript objects, and vice versa", function () {
+
+        var js_obj  = { a: 1, b: "two" },
+            js_arr  = [1, 2, 3],
+            clj_map = mori.hash_map("a", 1, "b", "two"),
+            clj_vec = mori.vector(1, 2, 3);
+
+
+        expect(mori.equals(mori.js_to_clj(js_obj), clj_map)).toBe(true);
+
+        expect(mori.equals(mori.js_to_clj(js_arr), clj_vec)).toBe(true);
+
+        expect(mori.clj_to_js(clj_map)).toEqual(js_obj);
+
+        expect(mori.clj_to_js(clj_vec)).toEqual(js_arr);
+
+    });
+
+});

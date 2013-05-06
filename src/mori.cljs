@@ -125,3 +125,6 @@
 
 (def ^:export identity cljs.core/identity)
 (def ^:export constantly cljs.core/constantly)
+
+(def ^:export clj-to-js cljs.core/clj->js)
+(def ^:export js-to-clj cljs.core/js->clj)
