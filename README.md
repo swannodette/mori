@@ -153,9 +153,6 @@ time(function() {
 time(function() {
   a.map(mul3).map(m.inc).map(m.inc).map(m.inc)
 })
-
-// impressive given the level of abstraction
-// expect us to get more competitive :D
 ```
 
 Pipelines
