@@ -28,4 +28,6 @@ fi
 
 echo "lein path: "$LEIN_PREFER
 
+$LEIN_PREFER version
+
 $LEIN_PREFER $@
