@@ -1,20 +1,35 @@
+[![Build Status](https://secure.travis-ci.org/swannodette/mori.png?branch=master)](https://travis-ci.org/swannodette/mori)
+
 mori
 ====
 
 <img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
 
-A simple bridge to ClojureScript's persistent data structures and supporting APIs for vanilla JavaScript. Pull requests welcome.
+A simple bridge to ClojureScript's persistent data structures and [supporting APIs](http://swannodette.github.io/mori/) for vanilla JavaScript. Pull requests welcome.
 
 Getting it
 ----
 
-You can download the latest prebuilt version of Mori from the [downloads](http://github.com/swannodette/mori/downloads) tab.
-
-It's also available for Node.js via npm:
+It's [available](https://npmjs.org/package/mori) for Node.js via npm:
 
 ```shell
 npm install mori
 ```
+
+The installed package contains two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.
+
+Load `mori` in your Node.js programs as you would any other module:
+
+```javascript
+var mori = require("mori");
+```
+
+In a browser, you can load mori with a script tag, as you would any other JavaScript library:
+
+```html
+<script src="mori.js" type="text/javascript"></script>
+```
+
 
 Caveats
 ----
@@ -24,43 +39,38 @@ Pre-pre-pre alpha. ClojureScript is constantly being improved, especially in ter
 Build
 ----
 
-Make a folder in the repo folder called checkouts, clone the [ClojureScript](http://github.com/clojure/clojurescript) repo into it.
+### Prerequisites
 
-Install [Leiningen](http://github.com/technomancy/leiningen).
+You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) SDK, if it's not already installed on your system.
 
-Grab dependencies:
+On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path or if your `lein` version predates `2.0.0`.
+
+### Clone the repo
 
 ```shell
-lein deps
+git clone https://github.com/swannodette/mori.git
+cd mori
 ```
 
-On a UNIX-like system build with:
+### On a UNIX-like system build with
 
 ```shell
 ./scripts/build.sh
 ```
 
-On Windows:
+### Alternatively using npm
+
+```shell
+npm run-script build
+```
+
+### On Windows
 
 ```shell
 ./scripts/build.ps1
 ```
 
-This will produce a file mori.js. You can include this like any other JavaScript library.
-
-Note: If you are using leiningen 2, use this for your project.clj
-```clojure
-(defproject mori "0.1.0-SNAPSHOT"
-  :description "Persistent Data Structures for JavaScript"
-  :dependencies [[org.clojure/clojure "1.4.0"]]
-  :profiles {:dev 
-             {:source-paths 
-              ["comp/clojurescript/src/clj"   
-               "comp/clojurescript/src/cljs"]}}
-  :cljsbuild {:builds {:tmp {:source-path "src"
-                             :compiler {:optimizations :advanced
-                                        :output-to "tmp.js"}}}})
-```
+The build process will generate two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.
 
 Usage
 ----
@@ -206,4 +216,4 @@ mori.knit(mori.inc, mori.dec)(pos_and_neg(1));
 
 Copyright (C) 2012 David Nolen and contributors
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the [Eclipse Public License](https://raw.github.com/swannodette/mori/master/epl-v10.html), the same as Clojure.

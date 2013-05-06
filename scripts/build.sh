@@ -1,4 +1,4 @@
-lein cljsbuild clean
-lein cljsbuild once tmp
-(echo "(function() {"; cat tmp.js; echo "}).call(this);") > mori.js
-rm tmp.js
+#!/bin/sh
+
+./scripts/build_node.sh
+./scripts/build_web.sh

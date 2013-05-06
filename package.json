@@ -1,25 +1,55 @@
 {
   "name": "mori",
-  "version": "0.1.0",
+  "version": "0.2.0-snapshot",
   "description": "Persistent Data Structures for JavaScript",
-  "keywords": [ "data", "structure", "persistent", "clojure", "map", "filter", "reduce" ],
-  "author": "David Nolen",
-  "homepage": "http://github.com/swannodette/mori",
+  "homepage": "https://github.com/swannodette/mori",
+  "author": "David Nolen (https://github.com/swannodette)",
+  "keywords": [
+    "data",
+    "structure",
+    "persistent",
+    "clojure",
+    "clojurescript",
+    "map",
+    "filter",
+    "reduce"
+  ],
+  "contributors": [
+    "David Nolen (https://github.com/swannodette)"
+  ],
+  "bugs": {
+    "url": "https://github.com/swannodette/mori/issues"
+  },
+  "licenses": [
+    {
+      "type": "EPL",
+      "url": "https://raw.github.com/swannodette/mori/master/epl-v10.html"
+    }
+  ],
+  "main": "./mori.node.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/swannodette/mori.git",
-    "web": "http://github.com/swannodette/mori"
+    "url": "git://github.com/swannodette/mori.git"
   },
-  "bugs": {
-    "url": "http://github.com/swannodette/mori/issues"
+  "engines": {
+      "node": ">=0.10.0"
   },
-  "main": "./mori.node.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-node": "1.7.0"
+  },
   "scripts": {
-    "build": "lein deps && lein cljsbuild once release && echo ';module.exports = this.mori;\n' | cat mori.js - > mori.node.js",
-    "prepublish": "lein deps && lein cljsbuild once release && echo ';module.exports = this.mori;\n' | cat mori.js - > mori.node.js"
+    "build": "./scripts/build.sh",
+    "build-clean": "./scripts/build_clean.sh",
+    "build-node": "./scripts/build_node.sh",
+    "build-node-clean": "rm -f mori.node.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node",
+    "build-web": "./scripts/build_web.sh",
+    "build-web-clean": "rm -f mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-web",
+    "clean": "./scripts/clean.sh",
+    "prepublish": "npm run-script build-clean",
+    "test": "jasmine-node spec"
   },
-  "licenses": [{
-    "type" : "ELP",
-    "url" : "http://www.eclipse.org/legal/epl-v10.html"
-  }]
+  "directories": {
+      "test": "./spec"
+  }
 }
