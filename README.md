@@ -10,7 +10,7 @@ A simple bridge to ClojureScript's persistent data structures and [supporting AP
 Getting it
 ----
 
-It's available for Node.js via npm:
+It's [available](https://npmjs.org/package/mori) for Node.js via npm:
 
 ```shell
 npm install mori
