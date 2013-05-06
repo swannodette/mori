@@ -144,14 +144,14 @@ function time(f) {
   console.log(((new Date())-s)+"ms");
 }
 
-// 513ms
+// 250ms on 1.7ghz Macbook Air
 time(function() {
-  m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, m.rmap(mul3, v))));
+  m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
 });
 
-// 254ms
+// 630sm
 time(function() {
-  a.map(mul3).filter(m.is_even).map(m.inc).reduce(m.sum);
+  a.map(mul3).map(m.inc).map(m.inc).map(m.inc)
 })
 
 // impressive given the level of abstraction
