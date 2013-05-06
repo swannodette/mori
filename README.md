@@ -149,7 +149,7 @@ time(function() {
   m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
 });
 
-// 630sm
+// 630ms
 time(function() {
   a.map(mul3).map(m.inc).map(m.inc).map(m.inc)
 })
