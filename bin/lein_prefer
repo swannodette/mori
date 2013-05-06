@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 LEIN_PREFER=`which lein`
 
@@ -18,7 +18,7 @@ LEIN_PREFER=`pwd`"/bin/lein"
 
 fi
 
-if [[ ! -e $LEIN_PREFER ]]
+if [[ ! -d $LEIN_PREFER ]]
 then
 
 echo "Leiningen not found, downloading..."
