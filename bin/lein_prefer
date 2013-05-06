@@ -2,13 +2,11 @@
 
 LEIN_PREFER=`which lein`
 
-if [[ -z $LEIN_PREFER ]]
-then
+if [[ -z $LEIN_PREFER ]]; then
 
 export LEIN_HOME=`pwd`"/bin/.lein"
 
-if [[ ! -d $LEIN_HOME ]]
-then
+if [[ ! -d $LEIN_HOME ]]; then
 
 mkdir $LEIN_HOME
 
@@ -18,8 +16,7 @@ LEIN_PREFER=`pwd`"/bin/lein"
 
 fi
 
-if [[ ! -d $LEIN_PREFER ]]
-then
+if [[ ! -f $LEIN_PREFER ]]; then
 
 echo "Leiningen not found, downloading..."
 
@@ -29,6 +26,6 @@ chmod +x $LEIN_PREFER
 
 fi
 
-echo "lein path: "$LEIN_PREFER"\n"
+echo "lein path: "$LEIN_PREFER
 
 $LEIN_PREFER $@
