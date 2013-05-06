@@ -6,6 +6,7 @@
 /native
 /.lein-failures
 /checkouts
+/bin/lein
 /.lein-deps-sum
 .lein*
 mori*.js

@@ -1,0 +1,34 @@
+#!/bin/sh
+
+LEIN_PREFER=`which lein`
+
+if [[ -z $LEIN_PREFER ]]
+then
+
+export LEIN_HOME=`pwd`"/bin/.lein"
+
+if [[ ! -d $LEIN_HOME ]]
+then
+
+mkdir $LEIN_HOME
+
+fi
+
+LEIN_PREFER=`pwd`"/bin/lein"
+
+fi
+
+if [[ ! -e $LEIN_PREFER ]]
+then
+
+echo "Leiningen not found, downloading..."
+
+./bin/get_lein.js
+
+chmod +x $LEIN_PREFER
+
+fi
+
+echo "lein path: "$LEIN_PREFER"\n"
+
+$LEIN_PREFER $@
