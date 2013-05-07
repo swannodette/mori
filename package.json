@@ -26,7 +26,7 @@
       "url": "https://raw.github.com/swannodette/mori/master/epl-v10.html"
     }
   ],
-  "main": "./mori.node.js",
+  "main": "./mori.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/swannodette/mori.git"

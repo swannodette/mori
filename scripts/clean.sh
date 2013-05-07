@@ -1,5 +1,5 @@
 #!/bin/sh
 
-rm -f mori.node.js mori.js
+rm -f mori.js
 
 ./bin/lein_prefer cljsbuild clean

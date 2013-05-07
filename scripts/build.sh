@@ -5,11 +5,7 @@
 
 echo "Finalizing mori.js"
 
-(echo "(function() {"; cat mori.bare.js; echo "}).call(this);") > mori.js
-
-echo "Finalizing mori.node.js"
-
-(cat mori.bare.js; echo ";module.exports = this.mori;") > mori.node.js
+(cat support/wrapper.beg.txt; cat mori.bare.js; cat support/wrapper.end.txt) > mori.js
 
 echo "Deleting mori.bare.js"
 

@@ -1,11 +1,11 @@
+lein deps
 lein cljsbuild clean
 lein cljsbuild once release
 $moribarejs = Get-Content mori.bare.js
+$wrapperbeg = Get-Content support/wrapper.beg.txt
+$wrapperend = Get-Content support/wrapper.end.txt
 ni "mori.js" -type file -force
-ac "mori.js" "(function() {"
+ac "mori.js" $wrapperbeg
 ac "mori.js" $moribarejs
-ac "mori.js" "}).call(this);"
-ni "mori.node.js" -type file -force
-ac "mori.node.js" $moribarejs
-ac "mori.node.js" ";module.exports = this.mori;"
+ac "mori.js" $wrapperend
 rm mori.bare.js

@@ -20,6 +20,7 @@ bin
 scripts
 spec
 src
+support
 .npmignore
 .travis.yml
 project.clj
