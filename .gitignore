@@ -11,6 +11,7 @@
 .lein*
 mori*.js
 !/spec/mori*.js
+!/support/scripts/mori.js
 *.swp
 .#*
 _site
