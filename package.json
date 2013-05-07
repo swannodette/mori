@@ -32,7 +32,7 @@
     "url": "git://github.com/swannodette/mori.git"
   },
   "engines": {
-      "node": ">=0.10.0"
+      "node": ">=0.8.22"
   },
   "dependencies": {},
   "devDependencies": {
