@@ -6,18 +6,13 @@
   :cljsbuild
   {:builds
     [{:source-paths ["src"],
-      :id "tmp",
-      :compiler
-      {:output-to "tmp.js",
-       :optimizations :advanced}}
-     {:source-paths ["src"],
       :id "dev",
       :compiler
-      {:output-to "mori_dev.js",
+      {:output-to "mori.dev.js",
        :optimizations :whitespace}}
      {:source-paths ["src"],
       :id "release",
       :compiler
-      {:output-to "mori_rel.js",
+      {:output-to "mori.bare.js",
        :optimizations :advanced
        :pretty-print false}}]})
