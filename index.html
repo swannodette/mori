@@ -66,7 +66,8 @@
                 <li><a href="#first">- first</a></li>
                 <li><a href="#rest">- rest</a></li>
                 <li><a href="#seq">- seq</a></li>
-                <li><a href="#seq">- each</a></li>
+                <li><a href="#into_array">- into_array</a></li>
+                <li><a href="#each">- each</a></li>
                 <li><a href="#map">- map</a></li>
                 <li><a href="#filter">- filter</a></li>
                 <li><a href="#remove">- remove</a></li>
@@ -690,6 +691,20 @@ mori.rest(m); // remaining key-value pairs
                 <pre class="brush: javascript">
 mori.seq("foo"); // => ("f" "o" "o")
 mori.seq(mori.list()); // => null
+                </pre>
+            </div>
+
+            <h3 id="into_array">
+                into_array
+                <span class="sig">mori.into_array(seq)</span>
+            </h3>
+            <p>
+                Converts a seqable collection, including Mori seqs back into a JavaScript array. Non-lazy.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var lazy = mori.map(mori.inc, [1,2,3]);
+mori.into_array(lazy); // => [2,3,4]
                 </pre>
             </div>
 
