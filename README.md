@@ -214,6 +214,6 @@ mori.knit(mori.inc, mori.dec)(pos_and_neg(1));
 ```
 
 
-Copyright (C) 2012 David Nolen and contributors
+Copyright (C) 2013 David Nolen and contributors
 
 Distributed under the [Eclipse Public License](https://raw.github.com/swannodette/mori/master/epl-v10.html), the same as Clojure.
