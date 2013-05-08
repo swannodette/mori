@@ -950,9 +950,22 @@ mori.repeatedly(5, #(.random js/Math));
                 <span class="sig">mori.partition(n, [step], [pad], coll)</span>
             </h3>
             <p>
+                Partition a seqable collection into a groups of n items. An optional step
+                parameter may be provided to specify the amount of overlap. Additional a pad
+                element can be provided when the final group of items is too small.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
+var m   = mori,
+    arr = [0,1,2,3,4,5,6,7,8,9],
+    ps  = m.partition(2, arr);
+
+m.into_array(m.map(m.into_array, ps));
+// => [[0,1],[2,3],[4,5],[6,7],[8,9]]
+
+ps = m.partition(2, 1, arr);
+m.into_array(m.map(m.into_array, ps));
+// => [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9]]
                 </pre>
             </div>
 
