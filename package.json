@@ -26,13 +26,13 @@
       "url": "https://raw.github.com/swannodette/mori/master/epl-v10.html"
     }
   ],
-  "main": "./mori.node.js",
+  "main": "./mori.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/swannodette/mori.git"
   },
   "engines": {
-      "node": ">=0.10.0"
+      "node": ">=0.8.22"
   },
   "dependencies": {},
   "devDependencies": {
@@ -41,10 +41,6 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "build-clean": "./scripts/build_clean.sh",
-    "build-node": "./scripts/build_node.sh",
-    "build-node-clean": "rm -f mori.node.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-node",
-    "build-web": "./scripts/build_web.sh",
-    "build-web-clean": "rm -f mori.js && ./bin/lein_prefer cljsbuild clean && npm run-script build-web",
     "clean": "./scripts/clean.sh",
     "prepublish": "npm run-script build-clean",
     "test": "jasmine-node spec"

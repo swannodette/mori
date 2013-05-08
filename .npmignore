@@ -8,9 +8,8 @@
 /checkouts
 /.lein-deps-sum
 .lein*
-mori_dev.js
-mori_rel.js
-tmp.js
+mori.bare.js
+mori.dev.js
 *.swp
 .#*
 _site
@@ -21,6 +20,7 @@ bin
 scripts
 spec
 src
+support
 .npmignore
 .travis.yml
 project.clj

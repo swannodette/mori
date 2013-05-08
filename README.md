@@ -18,7 +18,7 @@ npm install mori
 
 We're working on pushing a more up-to-date release to npm shortly.
 
-The installed package contains two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.
+The installed package contains a single optimized JavaScript file `mori.js`.
 
 Load `mori` in your Node.js programs as you would any other module:
 
@@ -32,6 +32,7 @@ In a browser, you can load mori with a script tag, as you would any other JavaSc
 <script src="mori.js" type="text/javascript"></script>
 ```
 
+You can also load it as an AMD module, e.g. with [RequireJS](http://requirejs.org/).
 
 Caveats
 ----
@@ -72,7 +73,7 @@ npm run-script build
 ./scripts/build.ps1
 ```
 
-The build process will generate two JavaScript files: `mori.node.js` and `mori.js`. The first is used by Node.js, the second may be used in a Web browser or other JavaScript environments in the usual way.
+The build process will generate an optimized JavaScript file `mori.js`, which is suitable for use with Node.js, or in a Web browser or other JavaScript environments. You can also load it as an AMD module.
 
 Usage
 ----

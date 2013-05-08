@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mori script tag load test</title>
+    <script src="scripts/mori.js"></script>
+    <script>
+      if (mori) {
+        console.log("mori loaded using a script tag!");
+
+        var x = mori.vector(1,2,3),
+        y = mori.conj(x,4);
+      
+        console.log(mori.into_array(x)); // => [1, 2, 3]
+        console.log(mori.into_array(y)); // => [1, 2, 3, 4]
+      }
+    </script>
+  </head>
+  <body>
+    <h1>mori script tag load test</h1>
+    <p>Check the browser console for errors and output.</p>
+  </body>
+</html>

@@ -1,14 +1,11 @@
+lein deps
 lein cljsbuild clean
-lein cljsbuild once tmp
-ni "mori.js" -type file -force
-ac "mori.js" "(function() {"
-$tmpjs = Get-Content tmp.js
-ac "mori.js" $tmpjs
-ac "mori.js" "}).call(this);"
-rm tmp.js
 lein cljsbuild once release
-ni "mori.node.js" -type file -force
-$reljs = Get-Content mori_rel.js
-ac "mori.node.js" $reljs
-ac "mori.node.js" ";module.exports = this.mori;"
-rm mori_rel.js
+$moribarejs = Get-Content mori.bare.js
+$wrapperbeg = Get-Content support/wrapper.beg.txt
+$wrapperend = Get-Content support/wrapper.end.txt
+ni "mori.js" -type file -force
+ac "mori.js" $wrapperbeg
+ac "mori.js" $moribarejs
+ac "mori.js" $wrapperend
+rm mori.bare.js
