@@ -26,12 +26,12 @@
                 <li><a href="#notation">- Notation</a></li>
             </ul>
 
-            <a href="#collection" class="toc-title">Fundamentals</a>
+            <a href="#fundamentals" class="toc-title">Fundamentals</a>
             <ul>
                 <li><a href="#equals">- equals</a></li>
             </ul>
 
-            <a href="#collection" class="toc-title">Collections</a>
+            <a href="#collections" class="toc-title">Collections</a>
             <ul>
                 <li><a href="#list">- list</a></li>
                 <li><a href="#vector">- vector</a></li>
@@ -323,7 +323,7 @@ mori.seq(mori.set([3,2,1,3])); // (1 2 3)
                 </pre>
             </div>
 
-            <h2 id="collection_operations">Fundamentals</h2>
+            <h2 id="fundamentals">Fundamentals</h2>
 
             <h3 id="equals">
                 equals
@@ -1231,11 +1231,34 @@ f(5); // => [1,2,3,5]
             <p>
                 Curry arguments to a function.
             </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var _ = mori;
+    f = _.curry(_.conj, 4);
+
+f(_.vector(1,2,3)); // => [1,2,3,4]
+                </pre>
+            </div>
 
             <h3 id="fnil">
                 fnil
-                <span class="sig">mori.fnil(f0, f1, ...)</span>
+                <span class="sig">mori.fnil(f0, f, x, y, ...)</span>
             </h3>
+            <p>
+                Takes a function f and returns a new function that upon
+                receiving an argument, if null, will be replaced with x. fnil
+                may take up to three arguments.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var _ = mori;
+var f = function(x) {
+  return _.update_in(x, ["count"], _.fnil(_.inc, 0));
+};
+
+f(_.hash_map()); // => {"count", 1}
+                </pre>
+            </div>
 
         </div>
         <script>
