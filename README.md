@@ -1,14 +1,12 @@
 [![Build Status](https://secure.travis-ci.org/swannodette/mori.png?branch=master)](https://travis-ci.org/swannodette/mori)
 
-mori
-====
+# mori
 
 <img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
 
 A simple bridge to ClojureScript's persistent data structures and [supporting APIs](http://swannodette.github.io/mori/) for vanilla JavaScript. Pull requests welcome.
 
-Getting it
-----
+## Getting it
 
 There's an old release [available](https://npmjs.org/package/mori) for Node.js via npm:
 
@@ -34,13 +32,11 @@ In a browser, you can load mori with a script tag, as you would any other JavaSc
 
 You can also load it as an AMD module, e.g. with [RequireJS](http://requirejs.org/).
 
-Caveats
-----
+## Caveats
 
 Pre-pre-pre alpha. ClojureScript is constantly being improved, especially in terms of performance. That said, it's probably still already useful.
 
-Build
-----
+## Build
 
 ### Prerequisites
 
@@ -75,8 +71,7 @@ npm run-script build
 
 The build process will generate an optimized JavaScript file `mori.js`, which is suitable for use with Node.js, or in a Web browser or other JavaScript environments. You can also load it as an AMD module.
 
-Usage
-----
+## Usage
 
 You can use it from your projects like so:
 
@@ -121,8 +116,13 @@ r = mori.map inc, mori.vector(1,2,3,4,5)
 mori.into_array r
 ```
 
-Reducers
-----
+### Documentation
+
+You can find extensive [documentation and examples](http://swannodette.github.io/mori/) here.
+
+## More Examples
+
+### Reducers
 
 Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
 
@@ -158,8 +158,7 @@ time(function() {
 })
 ```
 
-Pipelines
----------
+### Pipelines
 
 ```javascript
 mori.pipeline(mori.vector(1,2,3),
@@ -169,8 +168,7 @@ mori.pipeline(mori.vector(1,2,3),
 // => [3 4]
 ```
 
-Currying
---------
+### Currying
 
 ```javascript
 mori.pipeline(mori.vector(1,2,3),
@@ -180,8 +178,7 @@ mori.pipeline(mori.vector(1,2,3),
 // => [1 2 3 4 5]
 ```
 
-Partial Application
--------------------
+### Partial Application
 
 ```javascript
 mori.pipeline(mori.vector(1,2,3),
@@ -191,8 +188,7 @@ mori.pipeline(mori.vector(1,2,3),
 // => (3 4)
 ```
 
-Function Composition
---------------------
+### Function Composition
 
 ```javascript
 var second = mori.comp(mori.first, mori.rest);
@@ -201,8 +197,7 @@ second(mori.vector(1,2,3));
 // => 2
 ```
 
-Juxtaposition
--------------
+### Juxtaposition
 
 ```javascript
 var pos_and_neg = mori.juxt(mori.identity, function (v) { return -v; });
