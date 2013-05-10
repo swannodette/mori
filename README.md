@@ -32,10 +32,6 @@ In a browser, you can load mori with a script tag, as you would any other JavaSc
 
 You can also load it as an AMD module, e.g. with [RequireJS](http://requirejs.org/).
 
-## Caveats
-
-Pre-pre-pre alpha. ClojureScript is constantly being improved, especially in terms of performance. That said, it's probably still already useful.
-
 ## Build
 
 ### Prerequisites
