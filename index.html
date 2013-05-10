@@ -1167,7 +1167,7 @@ f(p).join ", " // => "Smith, Bob"
 
             <h3 id="knit">
                 knit 
-                <span class="sig">more.knit(f0, f1, ...)</span>
+                <span class="sig">mori.knit(f0, f1, ...)</span>
             </h3>
             <p>
                 This allows you to create functions that work on a heterogenous
@@ -1189,18 +1189,52 @@ f(["FoO", "bAr"]); // => ["foo", "BAR"]
 
             <h3 id="pipeline">
                 pipeline
+                <span class="sig">mori.knit(x, f0, f1, ...)</span>
             </h3>
+            <p>
+                Allows threading a value through a series of functions.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var _ = mori;
+
+_.pipeline(
+  _.vector(1,2,3),
+  _.curry(_.conj, 4),
+  _.curre(_.conj, 5)
+); // => [1,2,3,4,5]
+                </pre>
+            </div>
 
             <h3 id="partial">
                 partial
+                <span class="sig">mori.partial(f, x, y, ...)</span>
             </h3>
+            <p>
+                Partial application. Will return a new function in which
+                the provided arguments have been partially applied.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var _ = mori;
+var f = _.partial(_.conj, _.vector(1,2,3));
+
+f(4); // => [1,2,3,4]
+f(5); // => [1,2,3,5]
+                </pre>
+            </div>
 
             <h3 id="curry">
                 curry
+                <span class="sig">mori.curry(f0, x, y, ...)</span>
             </h3>
+            <p>
+                Curry arguments to a function.
+            </p>
 
             <h3 id="fnil">
                 fnil
+                <span class="sig">mori.fnil(f0, f1, ...)</span>
             </h3>
 
         </div>
