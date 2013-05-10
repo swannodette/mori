@@ -1066,7 +1066,8 @@ mori.group_by(even_odd, r); // => {"even" (0 2 4 6 8) "odd" (1 3 5 7 9)}
                 are not actually arrays. To give these objects a uniform
                 interface you can wrap them with <code>mori.prim_seq</code>.
                 The optional argument <code>index</code> may be used to
-                specify an offset.
+                specify an offset. Note this is not necesary for arrays or
+                strings.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -1096,7 +1097,7 @@ mori.identity(5); // => 5
                 Adds one to its argument.
             </p>
             <div class="example">
-                <pre cass="brush: javascript">
+                <pre class="brush: javascript">
 mori.inc(1); // => 2</pre>
             </div>
 
@@ -1108,7 +1109,7 @@ mori.inc(1); // => 2</pre>
                 Subtracts one from its argument.
             </p>
             <div class="example">
-                <pre cass="brush: javascript">
+                <pre class="brush: javascript">
 mori.dec(1); // => 0</pre>
             </div>
 
@@ -1120,7 +1121,7 @@ mori.dec(1); // => 0</pre>
                 Add its two arguments together. Useful with <code>mori.reduce</code>.
             </p>
             <div class="example">
-                <pre cass="brush: javascript">
+                <pre class="brush: javascript">
 mori.sum(1,2); // => 3
 
 mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
