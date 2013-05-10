@@ -97,7 +97,7 @@ a:hover {
 }
 h3 .sig {
     color: #666;
-    font-family: courier, mono;
+    font-family: "Inconsolata", courier, mono;
     font-weight: normal;
     font-size: 14px;
     margin-left: 10px;

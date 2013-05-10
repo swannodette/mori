@@ -45,6 +45,7 @@
   width: auto !important;
   box-sizing: content-box !important;
   font-family: "Inconsolata", "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-size: 14px;
   font-weight: normal !important;
   font-style: normal !important;
   min-height: inherit !important;
