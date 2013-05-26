@@ -9,7 +9,8 @@
       :id "dev",
       :compiler
       {:output-to "mori.dev.js",
-       :optimizations :whitespace}}
+       :optimizations :simple
+       :pretty-print true}}
      {:source-paths ["src"],
       :id "release",
       :compiler
