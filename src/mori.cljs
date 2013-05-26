@@ -129,3 +129,117 @@
 
 (def ^:export clj-to-js cljs.core/clj->js)
 (def ^:export js-to-clj cljs.core/js->clj)
+
+;; =============================================================================
+;; Node.js Inspection support
+
+(set! (.. cljs.core.LazySeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.IndexedSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.RSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentTreeMapSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.NodeSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.ArrayNodeSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.List -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.Cons -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.EmptyList -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentVector -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.ChunkedCons -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.ChunkedSeq -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.Subvec -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.BlackNode -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.RedNode -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.ObjMap -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentArrayMap -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentHashMap -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentTreeMap -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentHashSet -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.PersistentTreeSet -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
+(set! (.. cljs.core.Range -prototype -inspect)
+  (fn []
+    (this-as coll
+      (.toString coll))))
+
