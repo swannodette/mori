@@ -13,6 +13,7 @@
     identity constantly
     list vector hash-map zipmap set sorted-set
     sum inc dec even? odd?])
+  (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
             [clojure.core.reducers :as reducers]))
 
@@ -133,113 +134,27 @@
 ;; =============================================================================
 ;; Node.js Inspection support
 
-(set! (.. cljs.core.LazySeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.IndexedSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.RSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentTreeMapSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.NodeSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.ArrayNodeSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.List -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.Cons -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.EmptyList -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentVector -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.ChunkedCons -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.ChunkedSeq -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.Subvec -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.BlackNode -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.RedNode -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.ObjMap -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentArrayMap -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentHashMap -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentTreeMap -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentHashSet -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.PersistentTreeSet -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
-
-(set! (.. cljs.core.Range -prototype -inspect)
-  (fn []
-    (this-as coll
-      (.toString coll))))
+(make-inspectable
+  cljs.core.LazySeq
+  cljs.core.IndexedSeq
+  cljs.core.RSeq
+  cljs.core.PersistentTreeMapSeq
+  cljs.core.NodeSeq
+  cljs.core.ArrayNodeSeq
+  cljs.core.List
+  cljs.core.Cons
+  cljs.core.EmptyList
+  cljs.core.PersistentVector
+  cljs.core.ChunkedCons
+  cljs.core.ChunkedSeq
+  cljs.core.Subvec
+  cljs.core.BlackNode
+  cljs.core.RedNode
+  cljs.core.ObjMap
+  cljs.core.PersistentArrayMap
+  cljs.core.PersistentHashMap
+  cljs.core.PersistentTreeMap
+  cljs.core.PersistentHashSet
+  cljs.core.PersistentTreeSet
+  cljs.core.Range)
 
