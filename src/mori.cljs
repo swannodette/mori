@@ -11,7 +11,7 @@
     into-array
     partial comp juxt
     identity constantly
-    list vector hash-map zipmap set sorted-set
+    list vector array-map hash-map zipmap set sorted-set
     sum inc dec even? odd?])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
@@ -81,6 +81,7 @@
 
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
+(def ^:export array-map cljs.core/array-map)
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export zipmap cljs.core/zipmap)
 (def ^:export set cljs.core/set)
