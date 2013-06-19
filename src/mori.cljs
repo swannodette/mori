@@ -132,6 +132,18 @@
 (def ^:export clj-to-js cljs.core/clj->js)
 (def ^:export js-to-clj cljs.core/js->clj)
 
+;; -----------------------------------------------------------------------------
+;; Transisents
+
+(def ^:export mutable cljs.core/transient)
+(def ^:export freeze cljs.core/persistent!)
+
+(def ^:export mconj cljs.core/conj!)
+(def ^:export massoc cljs.core/assoc!)
+(def ^:export mdissoc cljs.core/dissoc!)
+(def ^:export mpop cljs.core/pop!)
+(def ^:export mdisj cljs.core/disj!)
+
 ;; =============================================================================
 ;; Node.js Inspection support
 
