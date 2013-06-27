@@ -38,6 +38,7 @@
                 <li><a href="#hash_map">- hash_map</a></li>
                 <li><a href="#set">- set</a></li>
                 <li><a href="#sorted_set">- sorted_set</a></li>
+                <li><a href="#range">- range</a></li>
             </ul>
 
             <a class="toc-title">Collection Operations</a>
@@ -326,6 +327,21 @@ s.conj("zebra"); // => #{"bird" "cat" "dog" "zebra"}
             <div class="example">
                 <pre class="brush: clojure">
 mori.seq(mori.set([3,2,1,3])); // (1 2 3)
+                </pre>
+            </div>
+
+            <h3 id="range">
+                range
+                <span class="sig">mori.range(start, [end], [step])</span>
+            </h3>
+            <p>
+                Construct a lazy range of values. If not given a end
+                will produce an infinite lazy sequences. A step may
+                be specified.
+            </p>
+            <div class="example">
+                <pre class="brush: clojure">
+var r = mori.range(1, 10); // => (1 2 3 4 5 6 7 8 9)
                 </pre>
             </div>
 
