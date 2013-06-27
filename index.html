@@ -56,6 +56,7 @@
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
                 <li><a href="#zipmap">- zipmap</a></li>
+                <li><a href="#reverse">- reverse</a></li>
             </ul>
 
             <a class="toc-title">Vector Operations</a>
@@ -601,8 +602,22 @@ var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
                 </pre>
             </div>
 
+            <h3 id="reverse">
+                reverse
+                <span class="sig">mori.reverse(coll)</span>
+            </h3>
+            <p>
+                Returns a reversed sequence of a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vecotr("foo", "bar", "baz");
+mori.reverse(v); // => ["baz", "bar", "foo"]
+                </pre>
+            </div>
 
-            <h2 id="collection_operations">Vector Operations</h2>
+
+            <h2 id="vector_operations">Vector Operations</h2>
             <h3 id="subvec">
                 subvec
                 <span class="sig">mori.subvec(vector, start, [end])</span>
@@ -618,7 +633,7 @@ s.subvec(1,2); // => ["dog", "bird"]
             </div>
 
 
-            <h2 id="collection_operations">Set Operations</h2>
+            <h2 id="set_operations">Set Operations</h2>
 
             <h3 id="disj">
                 disj
