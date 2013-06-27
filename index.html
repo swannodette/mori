@@ -55,7 +55,12 @@
                 <li><a href="#count">- count</a></li>
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
-                <li><a href="#pop">- zipmap</a></li>
+                <li><a href="#zipmap">- zipmap</a></li>
+            </ul>
+
+            <a class="toc-title">Vector Operations</a>
+            <ul>
+                <li><a href="#disj">- subvec</a></li>
             </ul>
 
             <a class="toc-title">Set Operations</a>
@@ -595,6 +600,23 @@ var vals = [1, 2, 3];
 var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
                 </pre>
             </div>
+
+
+            <h2 id="collection_operations">Vector Operations</h2>
+            <h3 id="subvec">
+                subvec
+                <span class="sig">mori.subvec(vector, start, [end])</span>
+            </h3>
+            <p>
+                Returns a subsection of a vector in constant time.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var s = mori.vector("cat", "dog", "bird", "zebra");
+s.subvec(1,2); // => ["dog", "bird"]
+                </pre>
+            </div>
+
 
             <h2 id="collection_operations">Set Operations</h2>
 
