@@ -2,7 +2,7 @@
   (:refer-clojure :exclude
    [count empty first rest seq conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get contains? empty? reverse
-    take drop partition partition-by iterate into
+    take drop partition partition-by iterate into subvec
     interpose interleave concat flatten
     keys vals
     prim-seq
@@ -47,6 +47,7 @@
 (def ^:export partition-by cljs.core/partition-by)
 (def ^:export iterate cljs.core/iterate)
 (def ^:export into cljs.core/into)
+(def ^:export subvec cljs.core/subvec)
 (def ^:export interpose cljs.core/interpose)
 (def ^:export interleave cljs.core/interleave)
 (def ^:export concat cljs.core/concat)
