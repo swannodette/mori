@@ -394,6 +394,20 @@ mori.assoc(m, "foo", 6); // => {"foo" 6}
                 </pre>
             </div>
 
+            <h3 id="dissoc">
+                dissoc
+                <span class="sig">mori.dissoc(coll, key0, key1, ...)</span>
+            </h3>
+            <p>
+                Removes keys from an associative collection. Works on maps.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
+mori.dissoc(m, "bar", "baz"); // => {"foo" 1}
+                </pre>
+            </div>
+
             <h3 id="get">
                 get
                 <span class="sig">mori.get(coll, key, [not-found])</span>
