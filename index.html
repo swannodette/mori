@@ -540,8 +540,8 @@ mori.find(m, "quux") // null
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
-mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
+var v = mori.vector("foo", "bar", "baz");
+mori.nth(v, 1); // => "bar"
                 </pre>
             </div>
 
