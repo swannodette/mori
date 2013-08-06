@@ -1214,7 +1214,7 @@ m.into_array(m.map(m.into_array, ps));
 var v = mori.vector("foo", "bar", "baz", "grapefruit");
 var f = function(s) { return s[0]; }
 
-mori.partition_by(f, v); // => [["foo"], ["bar", "baz"], ["grapefruit"]]
+mori.partition_by(f, v); // => (("foo") ("bar" "baz") ("grapefruit"))
                 </pre>
             </div>
 
