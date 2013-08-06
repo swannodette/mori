@@ -101,6 +101,7 @@
                 <li><a href="#repeat">- repeat</a></li>
                 <li><a href="#repeatedly">- repeatedly</a></li>
                 <li><a href="#partition">- partition</a></li>
+                <li><a href="#partition_by">- partition_by</a></li>
                 <li><a href="#group_by">- group_by</a></li>
             </ul>
 
@@ -1179,7 +1180,24 @@ m.into_array(m.map(m.into_array, ps));
                 </pre>
             </div>
 
-            <h3 id="group_by">
+             <h3 id="partition_by">
+                partition_by
+                <span class="sig">mori.partition_by(f, coll)</span>
+            </h3>
+            <p>
+                Partition a seqable collection with a new group being started
+                whenever the value of the function <code>f</code> changes.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz", "grapefruit");
+var f = function(s) { return s[0]; }
+
+mori.partition_by(f, v); // => [["foo"], ["bar", "baz"], ["grapefruit"]]
+                </pre>
+            </div>
+
+           <h3 id="group_by">
                 group_by
                 <span class="sig">mori.group_by(f, coll)</span>
             </h3>
