@@ -45,6 +45,7 @@
             <a class="toc-title">Collection Operations</a>
             <ul>
                 <li><a href="#conj">- conj</a></li>
+                <li><a href="#into">- into</a></li>
                 <li><a href="#assoc">- assoc</a></li>
                 <li><a href="#dissoc">- dissoc</a></li>
                 <li><a href="#empty">- empty</a></li>
@@ -419,6 +420,26 @@ mori.conj(m, mori.vector("bar", 2));; // => {"foo" 1 "bar" 2}
 
 var s = mori.set(["cat", "bird", "dog"]);
 mori.conj(s, "zebra"); // => #{"cat" "bird" "dog" "zebra"}
+                </pre>
+            </div>
+
+            <h3 id="into">
+                into
+                <span class="sig">mori.into(coll, from)</span>
+            </h3>
+            <p>
+                Add all the items in the second collection to the first one as
+                if calling <code>mori.conj</code> repeatedly.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list(2,3);
+var v = mori.vector(1,2);
+
+mori.into(l, v); // => (2 1 2 3)
+mori.into(l, l); // => (3 2 2 3)
+mori.into(v, l); // => (1 2 2 3)
+mori.into(v, v); // => (1 2 1 2)
                 </pre>
             </div>
 
