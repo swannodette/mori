@@ -52,6 +52,7 @@
                 <li><a href="#has_key">- has_key</a></li>
                 <li><a href="#find">- find</a></li>
                 <li><a href="#nth">- nth</a></li>
+                <li><a href="#last">- last</a></li>
                 <li><a href="#assoc_in">- assoc_in</a></li>
                 <li><a href="#update_in">- update_in</a></li>
                 <li><a href="#count">- count</a></li>
@@ -541,6 +542,20 @@ mori.find(m, "quux") // null
                 <pre class="brush: javascript">
 var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
 mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
+                </pre>
+            </div>
+
+            <h3 id="last">
+                last
+                <span class="sig">mori.last(coll)</span>
+            </h3>
+            <p>
+                Get the last value in a collection, in linear time.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz");
+mori.last(v); // => "baz"
                 </pre>
             </div>
 
