@@ -29,6 +29,7 @@
             <a href="#fundamentals" class="toc-title">Fundamentals</a>
             <ul>
                 <li><a href="#equals">- equals</a></li>
+                <li><a href="#hash">- hash</a></li>
             </ul>
 
             <a href="#collections" class="toc-title">Collections</a>
@@ -247,6 +248,24 @@ mori.equals(v, l0); // => true
 var m0 = mori.js_to_clj({foo: 1});
 var m1 = mori.js_to_clj({foo: 1}); 
 mori.equals(m0, m1); // => true
+                </pre>
+            </div>
+
+            <h3 id="hash">
+                hash
+                <span class="sig">mori.hash(x)</span>
+            </h3>
+            <p>
+                Returns the hash code for a value. Values for
+                which <code>mori.equals</code> returns true have identical
+                hash codes.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list(1, 2, 3);
+var v = mori.vector(1, 2, 3);
+
+mori.hash(l) == mori.hash(v); // => true
                 </pre>
             </div>
 
