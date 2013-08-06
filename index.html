@@ -57,6 +57,7 @@
                 <li><a href="#assoc_in">- assoc_in</a></li>
                 <li><a href="#update_in">- update_in</a></li>
                 <li><a href="#count">- count</a></li>
+                <li><a href="#is_empty">- is_empty</a></li>
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
                 <li><a href="#zipmap">- zipmap</a></li>
@@ -622,6 +623,21 @@ mori.count(s) // 3
 
 var m = mori.hash_map("foo", 1, "bar", 2)
 mori.count(m) // 2
+                </pre>
+            </div>
+
+            <h3 id="is_empty">
+                is_empty
+                <span class="sig">mori.is_empty(coll)</span>
+            </h3>
+            <p> Returns true if the collection is empty.</p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list("foo", "bar", "baz");
+mori.is_empty(l); // => false
+
+var v = mori.vector();
+mori.is_empty(v); // => true
                 </pre>
             </div>
 
