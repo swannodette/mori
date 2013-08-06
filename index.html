@@ -46,6 +46,7 @@
                 <li><a href="#conj">- conj</a></li>
                 <li><a href="#assoc">- assoc</a></li>
                 <li><a href="#dissoc">- dissoc</a></li>
+                <li><a href="#empty">- empty</a></li>
                 <li><a href="#get">- get</a></li>
                 <li><a href="#get_in">- get_in</a></li>
                 <li><a href="#has_key">- has_key</a></li>
@@ -428,6 +429,23 @@ mori.assoc(m, "foo", 6); // => {"foo" 6}
                 <pre class="brush: javascript">
 var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
 mori.dissoc(m, "bar", "baz"); // => {"foo" 1}
+                </pre>
+            </div>
+
+            <h3 id="empty">
+                empty
+                <span class="sig">mori.empty(coll)</span>
+            </h3>
+            <p>
+                Remove everything from a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
+mori.empty(m); // => {}
+
+var v = mori.vector("foo", "bar", "baz");
+mori.empty(v); // => []
                 </pre>
             </div>
 
