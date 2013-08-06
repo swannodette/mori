@@ -92,6 +92,7 @@
                 <li><a href="#drop_while">- drop_while</a></li>
                 <li><a href="#interpose">- interpose</a></li>
                 <li><a href="#interleave">- interleave</a></li>
+                <li><a href="#iterate">- iterate</a></li>
                 <li><a href="#repeat">- repeat</a></li>
                 <li><a href="#repeatedly">- repeatedly</a></li>
                 <li><a href="#partition">- partition</a></li>
@@ -102,9 +103,9 @@
             <ul>
                 <li><a href="#prim_seq">- prim_seq</a></li>
                 <li><a href="#identity">- identity</a></li>
-                <li><a href="#sum">- sum</a></li>
                 <li><a href="#inc">- inc</a></li>
                 <li><a href="#dec">- dec</a></li>
+                <li><a href="#sum">- sum</a></li>
                 <li><a href="#is_even">- is_even</a></li>
                 <li><a href="#is_odd">- is_odd</a></li>
                 <li><a href="#juxt">- juxt</a></li>
@@ -217,6 +218,32 @@ m = mori;
 {"foo" 1, "bar" 2}     ;; hash map
 
 #{"cat" "bird" "dog"}  ;; set / sorted-set
+                </pre>
+            </div>
+
+            <h2 id="fundamentals">Fundamentals</h2>
+
+            <h3 id="equals">
+                equals
+                <span class="sig">mori.equals(x, y)</span>
+            </h3>
+            <p>
+                Test whether two values are equal. Works on all Mori collections.
+                Note that two seqable values will be tested on deep equality of their
+                contents.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l0 = mori.list(1,2,3);
+var l1 = mori.list(1,2,3);
+mori.equals(l0, l1); // => true
+
+var v = mori.vector(1,2,3);
+mori.equals(v, l0); // => true
+
+var m0 = mori.js_to_clj({foo: 1});
+var m1 = mori.js_to_clj({foo: 1}); 
+mori.equals(m0, m1); // => true
                 </pre>
             </div>
 
@@ -342,32 +369,6 @@ mori.seq(mori.set([3,2,1,3])); // (1 2 3)
             <div class="example">
                 <pre class="brush: clojure">
 var r = mori.range(1, 10); // => (1 2 3 4 5 6 7 8 9)
-                </pre>
-            </div>
-
-            <h2 id="fundamentals">Fundamentals</h2>
-
-            <h3 id="equals">
-                equals
-                <span class="sig">mori.equals(x, y)</span>
-            </h3>
-            <p>
-                Test whether two values are equal. Works on all Mori collections.
-                Note that two seqable values will be tested on deep equality of their
-                contents.
-            </p>
-            <div class="example">
-                <pre class="brush: javascript">
-var l0 = mori.list(1,2,3);
-var l1 = mori.list(1,2,3);
-mori.equals(l0, l1); // => true
-
-var v = mori.vector(1,2,3);
-mori.equals(v, l0); // => true
-
-var m0 = mori.js_to_clj({foo: 1});
-var m1 = mori.js_to_clj({foo: 1}); 
-mori.equals(m0, m1); // => true
                 </pre>
             </div>
 
