@@ -81,6 +81,7 @@
                 <li><a href="#first">- first</a></li>
                 <li><a href="#rest">- rest</a></li>
                 <li><a href="#seq">- seq</a></li>
+                <li><a href="#cons">- cons</a></li>
                 <li><a href="#into_array">- into_array</a></li>
                 <li><a href="#each">- each</a></li>
                 <li><a href="#map">- map</a></li>
@@ -821,6 +822,20 @@ mori.rest(m); // remaining key-value pairs
                 <pre class="brush: javascript">
 mori.seq("foo"); // => ("f" "o" "o")
 mori.seq(mori.list()); // => null
+                </pre>
+            </div>
+
+            <h3 id="cons">
+                cons
+                <span class="sig">mori.cons(val, coll)</span>
+            </h3>
+            <p>
+                Converts a collection to a sequence and adds a value to the front.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector(2, 3);
+mori.cons(1, v); // => (1 2 3)
                 </pre>
             </div>
 
