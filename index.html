@@ -97,6 +97,7 @@
                 <li><a href="#into_array">- into_array</a></li>
                 <li><a href="#each">- each</a></li>
                 <li><a href="#map">- map</a></li>
+                <li><a href="#mapcat">- mapcat</a></li>
                 <li><a href="#filter">- filter</a></li>
                 <li><a href="#remove">- remove</a></li>
                 <li><a href="#reduce">- reduce</a></li>
@@ -1036,6 +1037,26 @@ var a1 = [4,5,6];
 var a2 = [7,8,9];
 
 mori.map(mori.vector, a0, a1, a2); // => ([1 4 7] [2 5 8] [3 6 9])
+                </pre>
+            </div>
+
+            <h3 id="mapcat">
+                mapcat
+                <span class="sig">mori.mapcat(f, coll0, coll1, ...)</span>
+            </h3>
+            <p>
+                Applies <code>f</code>, which must return a collection, to
+                each element of the original collection(s) and concatenates
+                the results into a single sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = mori.seq("abc");
+var b = mori.seq("123");
+var f = function(x, y) { return mori.list(x, x + y); };
+
+mori.mapcat(f, a, b); // => ("a", "a1", "b", "b2", "c", "c3")
+mori.reduce(mori.concat, mori.map(f, a, b)); // => ("a", "a1", "b", "b2", "c", "c3")
                 </pre>
             </div>
 
