@@ -70,6 +70,11 @@
                 <li><a href="#subvec">- subvec</a></li>
             </ul>
 
+            <a class="toc-title">Hash Map Operations</a>
+            <ul>
+                <li><a href="#keys">- keys</a></li>
+            </ul>
+
             <a class="toc-title">Set Operations</a>
             <ul>
                 <li><a href="#disj">- disj</a></li>
@@ -739,6 +744,23 @@ mori.reverse(v); // => ["baz", "bar", "foo"]
                 <pre class="brush: javascript">
 var s = mori.vector("cat", "dog", "bird", "zebra");
 s.subvec(1,2); // => ["dog", "bird"]
+                </pre>
+            </div>
+
+
+            <h2 id="set_operations">Hash Map Operations</h2>
+
+            <h3 id="keys">
+                keys
+                <span class="sig">mori.keys(map)</span>
+            </h3>
+            <p>
+                Returns the keys of a hash map as a sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.into_array(mori.keys(m)); // => [ "foo", "bar" ]
                 </pre>
             </div>
 
