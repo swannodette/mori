@@ -101,6 +101,7 @@
                 <li><a href="#filter">- filter</a></li>
                 <li><a href="#remove">- remove</a></li>
                 <li><a href="#reduce">- reduce</a></li>
+                <li><a href="#reduce_kv">- reduce_kv</a></li>
                 <li><a href="#take">- take</a></li>
                 <li><a href="#take_while">- take_while</a></li>
                 <li><a href="#drop">- drop</a></li>
@@ -1113,6 +1114,26 @@ mori.remove(mori.is_even, a0); // => (1 3 5 7 9)
 var a = mori.range(10);
 
 mori.reduce(mori.sum, 0, r); // => 45
+                </pre>
+            </div>
+
+            <h3 id="reduce_kv">
+                reduce_kv
+                <span class="sig">mori.reduce_kv(f, [initial], map)</span>
+            </h3>
+            <p>
+                A variant of <code>reduce</code> for map-like collections,
+                specifically hash maps and vectors.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var f = function(acc, key, val) { return acc + "(" + key + ":" + val + ")"; };
+
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.reduce_kv(f, "", m); // => "(foo:1)(bar:2)"
+
+var v = mori.vector(5, 7);
+mori.reduce_kv(f, "", v); // => "(0:5)(1:7)"
                 </pre>
             </div>
 
