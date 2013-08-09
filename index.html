@@ -73,6 +73,7 @@
             <a class="toc-title">Hash Map Operations</a>
             <ul>
                 <li><a href="#keys">- keys</a></li>
+                <li><a href="#vals">- vals</a></li>
             </ul>
 
             <a class="toc-title">Set Operations</a>
@@ -761,6 +762,20 @@ s.subvec(1,2); // => ["dog", "bird"]
                 <pre class="brush: javascript">
 var m = mori.hash_map("foo", 1, "bar", 2);
 mori.into_array(mori.keys(m)); // => [ "foo", "bar" ]
+                </pre>
+            </div>
+
+            <h3 id="vals">
+                vals
+                <span class="sig">mori.values(map)</span>
+            </h3>
+            <p>
+                Returns the values of a hash map as a sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.into_array(mori.vals(m)); // => [ 1, 2 ]
                 </pre>
             </div>
 
