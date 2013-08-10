@@ -129,6 +129,7 @@
                 <li><a href="#sum">- sum</a></li>
                 <li><a href="#is_even">- is_even</a></li>
                 <li><a href="#is_odd">- is_odd</a></li>
+                <li><a href="#comp">- comp</a></li>
                 <li><a href="#juxt">- juxt</a></li>
                 <li><a href="#knit">- knit</a></li>
                 <li><a href="#pipeline">- pipeline</a></li>
@@ -1534,6 +1535,20 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
             <p>
                 Returns true if the argument is not divisible by 2.
             </p>
+
+            <h3 id="comp">
+                comp
+                <span class="sig">mori.comp(f, g)</span>
+            </h3>
+            <p>
+                Function composition. The result of <code>mori.comp(f,
+                g)(x)</code> is the same as <code>f(g(x))</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.map(mori.comp(mori.is_odd, mori.inc), [1, 2, 3]); // => (false true false)
+                </pre>
+            </div>
 
             <h3 id="juxt">
                 juxt
