@@ -124,6 +124,7 @@
             <ul>
                 <li><a href="#prim_seq">- prim_seq</a></li>
                 <li><a href="#identity">- identity</a></li>
+                <li><a href="#constantly">- constantly</a></li>
                 <li><a href="#inc">- inc</a></li>
                 <li><a href="#dec">- dec</a></li>
                 <li><a href="#sum">- sum</a></li>
@@ -1479,6 +1480,18 @@ function foo() {
             <div class="example">
                 <pre class="brush: javascript">
 mori.identity(5); // => 5
+                </pre>
+            </div>
+
+            <h3 id="constantly">
+                constantly
+                <span class="sig">mori.constantly(x)</span>
+            </h3>
+            <p>Makes a function that takes any number of arguments and
+            simply returns <code>x</code>.</p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.map(mori.constantly("foo"), mori.range(4)); // => ("foo" "foo" "foo" "foo")
                 </pre>
             </div>
 
