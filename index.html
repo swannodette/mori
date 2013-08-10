@@ -108,6 +108,7 @@
                 <li><a href="#drop_while">- drop_while</a></li>
                 <li><a href="#some">- some</a></li>
                 <li><a href="#every">- every</a></li>
+                <li><a href="#sort">- sort</a></li>
                 <li><a href="#interpose">- interpose</a></li>
                 <li><a href="#interleave">- interleave</a></li>
                 <li><a href="#iterate">- iterate</a></li>
@@ -1250,6 +1251,24 @@ var g = function(x) { return mori.is_even(x) || mori.is_odd(x); };
 
 mori.every(f, a); // => false
 mori.every(g, a); // => true
+                </pre>
+            </div>
+            
+            <h3 id="sort">
+                sort
+                <span class="sig">mori.sort([cmp], coll)</span>
+            </h3>
+            <p>
+              Sorts the collection and returns a sequence. The comparison
+              function to be used can be given as the first argument.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [4,6,2,7,1,0,9,5,8,3]
+var f = function(a, b) { return b - a; };
+
+mori.sort(a); // => (0 1 2 3 4 5 6 7 8 9)
+mori.sort(f, a); // => (9 8 7 6 5 4 3 2 1 0)
                 </pre>
             </div>
             
