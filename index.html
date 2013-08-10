@@ -107,6 +107,7 @@
                 <li><a href="#drop">- drop</a></li>
                 <li><a href="#drop_while">- drop_while</a></li>
                 <li><a href="#some">- some</a></li>
+                <li><a href="#every">- every</a></li>
                 <li><a href="#interpose">- interpose</a></li>
                 <li><a href="#interleave">- interleave</a></li>
                 <li><a href="#iterate">- iterate</a></li>
@@ -1228,6 +1229,27 @@ var a = [1,2,3,4,5,6,7,8,9];
 var f = function(x) { return x % 5 == 0 && x * x; };
 
 mori.some(f, a); // => 25
+                </pre>
+            </div>
+            
+            <h3 id="every">
+                every
+                <span class="sig">mori.every(pred, coll)</span>
+            </h3>
+            <p>
+                Returns true if the result of applying the
+                function <code>pred</code> to an element of the collection is 
+                never <code>false</code>, <code>null</code>
+                or <code>undefined</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [1,2,3,4,5,6,7,8,9];
+var f = function(x) { return mori.is_even(x); };
+var g = function(x) { return mori.is_even(x) || mori.is_odd(x); };
+
+mori.every(f, a); // => false
+mori.every(g, a); // => true
                 </pre>
             </div>
             
