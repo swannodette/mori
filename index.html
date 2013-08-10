@@ -1159,8 +1159,10 @@ mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
                 <span class="sig">mori.take_while(pred, coll)</span>
             </h3>
             <p>
-                Takes elements from a collection while the pred returns
-                true. Returns a lazy sequence.
+                Takes elements from a collection as long as the
+                function <code>pred</code> returns a value other
+                than <code>false</code>, <code>null</code>
+                or <code>undefined</code>. Returns a lazy sequence.
             </p>
             <p>
                 The following example is in CoffeeScript:
@@ -1193,8 +1195,10 @@ mori.drop(5, a); // => (5 6 7 8 9)
                 <span class="sig">mori.interleave(pred, coll)</span>
             </h3>
             <p>
-                Drop elements from a collection as long as <code>pred</code>
-                return true. Returns a lazy sequence.
+                Drops elements from a collection as long as the
+                function <code>pred</code> returns a value other
+                than <code>false</code>, <code>null</code>
+                or <code>undefined</code>. Returns a lazy sequence.
             </p>
             <p>
                 The following example is in CoffeeScript:
