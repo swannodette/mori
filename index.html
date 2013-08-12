@@ -29,6 +29,7 @@
             <a href="#fundamentals" class="toc-title">Fundamentals</a>
             <ul>
                 <li><a href="#equals">- equals</a></li>
+                <li><a href="#hash">- hash</a></li>
             </ul>
 
             <a href="#collections" class="toc-title">Collections</a>
@@ -44,16 +45,20 @@
             <a class="toc-title">Collection Operations</a>
             <ul>
                 <li><a href="#conj">- conj</a></li>
+                <li><a href="#into">- into</a></li>
                 <li><a href="#assoc">- assoc</a></li>
                 <li><a href="#dissoc">- dissoc</a></li>
+                <li><a href="#empty">- empty</a></li>
                 <li><a href="#get">- get</a></li>
                 <li><a href="#get_in">- get_in</a></li>
                 <li><a href="#has_key">- has_key</a></li>
                 <li><a href="#find">- find</a></li>
                 <li><a href="#nth">- nth</a></li>
+                <li><a href="#last">- last</a></li>
                 <li><a href="#assoc_in">- assoc_in</a></li>
                 <li><a href="#update_in">- update_in</a></li>
                 <li><a href="#count">- count</a></li>
+                <li><a href="#is_empty">- is_empty</a></li>
                 <li><a href="#peek">- peek</a></li>
                 <li><a href="#pop">- pop</a></li>
                 <li><a href="#zipmap">- zipmap</a></li>
@@ -62,7 +67,13 @@
 
             <a class="toc-title">Vector Operations</a>
             <ul>
-                <li><a href="#disj">- subvec</a></li>
+                <li><a href="#subvec">- subvec</a></li>
+            </ul>
+
+            <a class="toc-title">Hash Map Operations</a>
+            <ul>
+                <li><a href="#keys">- keys</a></li>
+                <li><a href="#vals">- vals</a></li>
             </ul>
 
             <a class="toc-title">Set Operations</a>
@@ -80,21 +91,32 @@
                 <li><a href="#first">- first</a></li>
                 <li><a href="#rest">- rest</a></li>
                 <li><a href="#seq">- seq</a></li>
+                <li><a href="#cons">- cons</a></li>
+                <li><a href="#concat">- concat</a></li>
+                <li><a href="#flatten">- flatten</a></li>
                 <li><a href="#into_array">- into_array</a></li>
                 <li><a href="#each">- each</a></li>
                 <li><a href="#map">- map</a></li>
+                <li><a href="#mapcat">- mapcat</a></li>
                 <li><a href="#filter">- filter</a></li>
                 <li><a href="#remove">- remove</a></li>
                 <li><a href="#reduce">- reduce</a></li>
+                <li><a href="#reduce_kv">- reduce_kv</a></li>
                 <li><a href="#take">- take</a></li>
                 <li><a href="#take_while">- take_while</a></li>
                 <li><a href="#drop">- drop</a></li>
                 <li><a href="#drop_while">- drop_while</a></li>
+                <li><a href="#some">- some</a></li>
+                <li><a href="#every">- every</a></li>
+                <li><a href="#sort">- sort</a></li>
+                <li><a href="#sort_by">- sort_by</a></li>
                 <li><a href="#interpose">- interpose</a></li>
                 <li><a href="#interleave">- interleave</a></li>
+                <li><a href="#iterate">- iterate</a></li>
                 <li><a href="#repeat">- repeat</a></li>
                 <li><a href="#repeatedly">- repeatedly</a></li>
                 <li><a href="#partition">- partition</a></li>
+                <li><a href="#partition_by">- partition_by</a></li>
                 <li><a href="#group_by">- group_by</a></li>
             </ul>
 
@@ -102,11 +124,13 @@
             <ul>
                 <li><a href="#prim_seq">- prim_seq</a></li>
                 <li><a href="#identity">- identity</a></li>
-                <li><a href="#sum">- sum</a></li>
+                <li><a href="#constantly">- constantly</a></li>
                 <li><a href="#inc">- inc</a></li>
                 <li><a href="#dec">- dec</a></li>
+                <li><a href="#sum">- sum</a></li>
                 <li><a href="#is_even">- is_even</a></li>
                 <li><a href="#is_odd">- is_odd</a></li>
+                <li><a href="#comp">- comp</a></li>
                 <li><a href="#juxt">- juxt</a></li>
                 <li><a href="#knit">- knit</a></li>
                 <li><a href="#pipeline">- pipeline</a></li>
@@ -220,6 +244,50 @@ m = mori;
                 </pre>
             </div>
 
+            <h2 id="fundamentals">Fundamentals</h2>
+
+            <h3 id="equals">
+                equals
+                <span class="sig">mori.equals(x, y)</span>
+            </h3>
+            <p>
+                Test whether two values are equal. Works on all Mori collections.
+                Note that two seqable values will be tested on deep equality of their
+                contents.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l0 = mori.list(1,2,3);
+var l1 = mori.list(1,2,3);
+mori.equals(l0, l1); // => true
+
+var v = mori.vector(1,2,3);
+mori.equals(v, l0); // => true
+
+var m0 = mori.js_to_clj({foo: 1});
+var m1 = mori.js_to_clj({foo: 1}); 
+mori.equals(m0, m1); // => true
+                </pre>
+            </div>
+
+            <h3 id="hash">
+                hash
+                <span class="sig">mori.hash(x)</span>
+            </h3>
+            <p>
+                Returns the hash code for a value. Values for
+                which <code>mori.equals</code> returns true have identical
+                hash codes.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list(1, 2, 3);
+var v = mori.vector(1, 2, 3);
+
+mori.hash(l) == mori.hash(v); // => true
+                </pre>
+            </div>
+
             <h2 id="collections">Collections</h2>
 
             <h3 id="list">
@@ -237,7 +305,7 @@ m = mori;
                 <pre class="brush: javascript">
 var l = mori.list(2,3);
 
-mori.cons(l, 1); // => (1 2 3)
+mori.cons(1, l); // => (1 2 3)
                 </pre>
             </div>
                 
@@ -345,32 +413,6 @@ var r = mori.range(1, 10); // => (1 2 3 4 5 6 7 8 9)
                 </pre>
             </div>
 
-            <h2 id="fundamentals">Fundamentals</h2>
-
-            <h3 id="equals">
-                equals
-                <span class="sig">mori.equals(x, y)</span>
-            </h3>
-            <p>
-                Test whether two values are equal. Works on all Mori collections.
-                Note that two seqable values will be tested on deep equality of their
-                contents.
-            </p>
-            <div class="example">
-                <pre class="brush: javascript">
-var l0 = mori.list(1,2,3);
-var l1 = mori.list(1,2,3);
-mori.equals(l0, l1); // => true
-
-var v = mori.vector(1,2,3);
-mori.equals(v, l0); // => true
-
-var m0 = mori.js_to_clj({foo: 1});
-var m1 = mori.js_to_clj({foo: 1}); 
-mori.equals(m0, m1); // => true
-                </pre>
-            </div>
-
             <h2 id="collection_operations">Collection Operations</h2>
 
             <h3 id="conj">
@@ -394,6 +436,26 @@ mori.conj(m, mori.vector("bar", 2));; // => {"foo" 1 "bar" 2}
 
 var s = mori.set(["cat", "bird", "dog"]);
 mori.conj(s, "zebra"); // => #{"cat" "bird" "dog" "zebra"}
+                </pre>
+            </div>
+
+            <h3 id="into">
+                into
+                <span class="sig">mori.into(coll, from)</span>
+            </h3>
+            <p>
+                Add all the items in the second collection to the first one as
+                if calling <code>mori.conj</code> repeatedly.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list(2,3);
+var v = mori.vector(1,2);
+
+mori.into(l, v); // => (2 1 2 3)
+mori.into(l, l); // => (3 2 2 3)
+mori.into(v, l); // => (1 2 2 3)
+mori.into(v, v); // => (1 2 1 2)
                 </pre>
             </div>
 
@@ -427,6 +489,23 @@ mori.assoc(m, "foo", 6); // => {"foo" 6}
                 <pre class="brush: javascript">
 var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
 mori.dissoc(m, "bar", "baz"); // => {"foo" 1}
+                </pre>
+            </div>
+
+            <h3 id="empty">
+                empty
+                <span class="sig">mori.empty(coll)</span>
+            </h3>
+            <p>
+                Remove everything from a collection.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
+mori.empty(m); // => {}
+
+var v = mori.vector("foo", "bar", "baz");
+mori.empty(v); // => []
                 </pre>
             </div>
 
@@ -519,8 +598,22 @@ mori.find(m, "quux") // null
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
-mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
+var v = mori.vector("foo", "bar", "baz");
+mori.nth(v, 1); // => "bar"
+                </pre>
+            </div>
+
+            <h3 id="last">
+                last
+                <span class="sig">mori.last(coll)</span>
+            </h3>
+            <p>
+                Get the last value in a collection, in linear time.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz");
+mori.last(v); // => "baz"
                 </pre>
             </div>
 
@@ -568,6 +661,21 @@ mori.count(s) // 3
 
 var m = mori.hash_map("foo", 1, "bar", 2)
 mori.count(m) // 2
+                </pre>
+            </div>
+
+            <h3 id="is_empty">
+                is_empty
+                <span class="sig">mori.is_empty(coll)</span>
+            </h3>
+            <p> Returns true if the collection is empty.</p>
+            <div class="example">
+                <pre class="brush: javascript">
+var l = mori.list("foo", "bar", "baz");
+mori.is_empty(l); // => false
+
+var v = mori.vector();
+mori.is_empty(v); // => true
                 </pre>
             </div>
 
@@ -645,6 +753,37 @@ mori.reverse(v); // => ["baz", "bar", "foo"]
                 <pre class="brush: javascript">
 var s = mori.vector("cat", "dog", "bird", "zebra");
 s.subvec(1,2); // => ["dog", "bird"]
+                </pre>
+            </div>
+
+
+            <h2 id="set_operations">Hash Map Operations</h2>
+
+            <h3 id="keys">
+                keys
+                <span class="sig">mori.keys(map)</span>
+            </h3>
+            <p>
+                Returns the keys of a hash map as a sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.into_array(mori.keys(m)); // => [ "foo", "bar" ]
+                </pre>
+            </div>
+
+            <h3 id="vals">
+                vals
+                <span class="sig">mori.values(map)</span>
+            </h3>
+            <p>
+                Returns the values of a hash map as a sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.into_array(mori.vals(m)); // => [ 1, 2 ]
                 </pre>
             </div>
 
@@ -805,6 +944,53 @@ mori.seq(mori.list()); // => null
                 </pre>
             </div>
 
+            <h3 id="cons">
+                cons
+                <span class="sig">mori.cons(val, coll)</span>
+            </h3>
+            <p>
+                Converts a collection into a sequence and adds a value to the
+                front.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector(2, 3);
+mori.cons(1, v); // => (1 2 3)
+                </pre>
+            </div>
+
+            <h3 id="concat">
+                concat
+                <span class="sig">mori.concat(coll0, coll1, ...)</span>
+            </h3>
+            <p>
+                Converts its arguments into sequences and concatenates them.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var r = mori.range(3);
+var a = [3, 4, 5];
+var l = mori.list(6, 7);
+var v = mori.vector(8, 9);
+mori.concat(r, a, l, v); // => (0 1 2 3 4 5 6 7 8 9)
+                </pre>
+            </div>
+
+            <h3 id="flatten">
+                flatten
+                <span class="sig">mori.flatten(coll)</span>
+            </h3>
+            <p>
+                Converts an arbitrarily nested collection into a flat
+                sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.js_to_clj([[1, 2], 3, [4], [[5, 6], 7]]);
+mori.flatten(v); // => (1 2 3 4 5 6 7)
+                </pre>
+            </div>
+
             <h3 id="into_array">
                 into_array
                 <span class="sig">mori.into_array(seq)</span>
@@ -858,6 +1044,26 @@ var a1 = [4,5,6];
 var a2 = [7,8,9];
 
 mori.map(mori.vector, a0, a1, a2); // => ([1 4 7] [2 5 8] [3 6 9])
+                </pre>
+            </div>
+
+            <h3 id="mapcat">
+                mapcat
+                <span class="sig">mori.mapcat(f, coll0, coll1, ...)</span>
+            </h3>
+            <p>
+                Applies <code>f</code>, which must return a collection, to
+                each element of the original collection(s) and concatenates
+                the results into a single sequence.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = mori.seq("abc");
+var b = mori.seq("123");
+var f = function(x, y) { return mori.list(x, x + y); };
+
+mori.mapcat(f, a, b); // => ("a", "a1", "b", "b2", "c", "c3")
+mori.reduce(mori.concat, mori.map(f, a, b)); // => ("a", "a1", "b", "b2", "c", "c3")
                 </pre>
             </div>
 
@@ -917,6 +1123,26 @@ mori.reduce(mori.sum, 0, r); // => 45
                 </pre>
             </div>
 
+            <h3 id="reduce_kv">
+                reduce_kv
+                <span class="sig">mori.reduce_kv(f, [initial], map)</span>
+            </h3>
+            <p>
+                A variant of <code>reduce</code> for map-like collections,
+                specifically hash maps and vectors.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var f = function(acc, key, val) { return acc + "(" + key + ":" + val + ")"; };
+
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.reduce_kv(f, "", m); // => "(foo:1)(bar:2)"
+
+var v = mori.vector(5, 7);
+mori.reduce_kv(f, "", v); // => "(0:5)(1:7)"
+                </pre>
+            </div>
+
             <h3 id="take">
                 take
                 <span class="sig">mori.take(n, coll)</span>
@@ -939,8 +1165,10 @@ mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
                 <span class="sig">mori.take_while(pred, coll)</span>
             </h3>
             <p>
-                Takes elements from a collection while the pred returns
-                true. Returns a lazy sequence.
+                Takes elements from a collection as long as the
+                function <code>pred</code> returns a value other
+                than <code>false</code>, <code>null</code>
+                or <code>undefined</code>. Returns a lazy sequence.
             </p>
             <p>
                 The following example is in CoffeeScript:
@@ -973,8 +1201,10 @@ mori.drop(5, a); // => (5 6 7 8 9)
                 <span class="sig">mori.interleave(pred, coll)</span>
             </h3>
             <p>
-                Drop elements from a collection as long as <code>pred</code>
-                return true. Returns a lazy sequence.
+                Drops elements from a collection as long as the
+                function <code>pred</code> returns a value other
+                than <code>false</code>, <code>null</code>
+                or <code>undefined</code>. Returns a lazy sequence.
             </p>
             <p>
                 The following example is in CoffeeScript:
@@ -987,6 +1217,86 @@ mori.drop_while ((n) -> n<5), a // => (5 6 7 8 9)
                 </pre>
             </div>
 
+            <h3 id="some">
+                some
+                <span class="sig">mori.some(pred, coll)</span>
+            </h3>
+            <p>
+                Applies the function <code>pred</code> to the elements of the
+                collection in order and returns the first result which is
+                not <code>false</code>, <code>null</code>
+                or <code>undefined</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [1,2,3,4,5,6,7,8,9];
+var f = function(x) { return x % 5 == 0 && x * x; };
+
+mori.some(f, a); // => 25
+                </pre>
+            </div>
+            
+            <h3 id="every">
+                every
+                <span class="sig">mori.every(pred, coll)</span>
+            </h3>
+            <p>
+                Returns true if the result of applying the
+                function <code>pred</code> to an element of the collection is 
+                never <code>false</code>, <code>null</code>
+                or <code>undefined</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [1,2,3,4,5,6,7,8,9];
+var f = function(x) { return mori.is_even(x); };
+var g = function(x) { return mori.is_even(x) || mori.is_odd(x); };
+
+mori.every(f, a); // => false
+mori.every(g, a); // => true
+                </pre>
+            </div>
+            
+            <h3 id="sort">
+                sort
+                <span class="sig">mori.sort([cmp], coll)</span>
+            </h3>
+            <p>
+              Sorts the collection and returns a sequence. The comparison
+              function to be used can be given as the first argument.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [4,6,2,7,1,0,9,5,8,3]
+var f = function(a, b) { return b - a; };
+
+mori.sort(a); // => (0 1 2 3 4 5 6 7 8 9)
+mori.sort(f, a); // => (9 8 7 6 5 4 3 2 1 0)
+                </pre>
+            </div>
+            
+            <h3 id="sort_by">
+                sort_by
+                <span class="sig">mori.sort_by(keyfn, [cmp], coll)</span>
+            </h3>
+            <p>
+              Sorts the collection by the values of <code>keyfn</code> on the
+              elements and returns a sequence. The comparison function to be
+              used can be given as the first argument.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var a = [0,1,2,3,4,5,6]
+var kf = function(x) { return x * 5 % 7; };
+var f = function(a, b) { return b - a; };
+
+mori.map(kf, a); // => (0 5 3 1 6 4 2)
+
+mori.sort_by(kf, a); // => (0 3 6 2 5 1 4)
+mori.sort_by(kf, f, a); // => (4 1 5 2 3 6 0)
+                </pre>
+            </div>
+            
             <h3 id="interpose">
                 interpose
                 <span class="sig">mori.interpose(x, coll)</span>
@@ -1095,7 +1405,24 @@ m.into_array(m.map(m.into_array, ps));
                 </pre>
             </div>
 
-            <h3 id="group_by">
+             <h3 id="partition_by">
+                partition_by
+                <span class="sig">mori.partition_by(f, coll)</span>
+            </h3>
+            <p>
+                Partition a seqable collection with a new group being started
+                whenever the value of the function <code>f</code> changes.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector("foo", "bar", "baz", "grapefruit");
+var f = function(s) { return s[0]; }
+
+mori.partition_by(f, v); // => (("foo") ("bar" "baz") ("grapefruit"))
+                </pre>
+            </div>
+
+           <h3 id="group_by">
                 group_by
                 <span class="sig">mori.group_by(f, coll)</span>
             </h3>
@@ -1156,6 +1483,18 @@ mori.identity(5); // => 5
                 </pre>
             </div>
 
+            <h3 id="constantly">
+                constantly
+                <span class="sig">mori.constantly(x)</span>
+            </h3>
+            <p>Makes a function that takes any number of arguments and
+            simply returns <code>x</code>.</p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.map(mori.constantly("foo"), mori.range(4)); // => ("foo" "foo" "foo" "foo")
+                </pre>
+            </div>
+
             <h3 id="inc">
                 inc
                 <span class="sig">mori.inc(n)</span>
@@ -1210,6 +1549,20 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
                 Returns true if the argument is not divisible by 2.
             </p>
 
+            <h3 id="comp">
+                comp
+                <span class="sig">mori.comp(f, g)</span>
+            </h3>
+            <p>
+                Function composition. The result of <code>mori.comp(f,
+                g)(x)</code> is the same as <code>f(g(x))</code>.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+mori.map(mori.comp(mori.is_odd, mori.inc), [1, 2, 3]); // => (false true false)
+                </pre>
+            </div>
+
             <h3 id="juxt">
                 juxt
                 <span class="sig">mori.juxt(f0, f1, ...)</span>
@@ -1256,7 +1609,7 @@ f(["FoO", "bAr"]); // => ["foo", "BAR"]
 
             <h3 id="pipeline">
                 pipeline
-                <span class="sig">mori.knit(x, f0, f1, ...)</span>
+                <span class="sig">mori.pipeline(x, f0, f1, ...)</span>
             </h3>
             <p>
                 Allows threading a value through a series of functions.
