@@ -1,6 +1,6 @@
 {
   "name": "mori",
-  "version": "0.2.2-SNAPSHOT",
+  "version": "0.2.2",
   "description": "Persistent Data Structures for JavaScript",
   "homepage": "https://github.com/swannodette/mori",
   "author": "David Nolen (https://github.com/swannodette)",
