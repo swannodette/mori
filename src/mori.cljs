@@ -84,13 +84,32 @@
 (def ^:export rdrop reducers/drop)
 (def ^:export rflatten reducers/flatten)
 
+;; constructors
+
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
 (def ^:export array-map cljs.core/array-map)
 (def ^:export hash-map cljs.core/hash-map)
-(def ^:export zipmap cljs.core/zipmap)
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
+
+(def ^:export zipmap cljs.core/zipmap)
+
+;; Predicates
+(def ^:export is-list cljs.core/list?)
+(def ^:export is-seq cljs.core/seq?)
+(def ^:export is-vector cljs.core/vector?)
+(def ^:export is-map cljs.core/map?)
+(def ^:export is-set cljs.core/set?)
+
+(def ^:export is-collection cljs.core/coll?)
+(def ^:export is-sequential cljs.core/sequential?)
+(def ^:export is-associative cljs.core/associative?)
+(def ^:export is-counted cljs.core/counted?)
+(def ^:export is-indexed cljs.core/indexed?)
+(def ^:export is-reduceable cljs.core/reduceable?)
+(def ^:export is-seqable cljs.core/seqable?)
+(def ^:export is-reversible cljs.core/reversible?)
 
 ;; Set ops
 (def ^:export union set/union)
