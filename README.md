@@ -116,6 +116,31 @@ You can find extensive [documentation and examples](http://swannodette.github.io
 
 ## More Examples
 
+### Efficient Freeze/Thaw
+
+For vectors and maps we provide an efficient thaw and freeze
+operations:
+
+```
+var m = require("./mori.js");
+
+// ~500ms MBA 1.7ghz Node v0.10.11
+var s = new Date();
+var arr = [];
+for(var i = 0; i < 10000000; i++) {
+  arr.push(i);
+}
+
+// ~600ms
+s = new Date();
+var mv = m.mutable.thaw(m.vector());
+for(var i = 0; i < 10000000; i++) {
+  mv = m.mutable.conj(mv, i);
+}
+var v = m.mutable.freeze(mv);
+console.log("Mutable vector conj " + m.count(v) + " items", (new Date())-s);
+```
+
 ### Reducers
 
 Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
