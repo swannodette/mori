@@ -56,7 +56,15 @@
 (def ^:export interpose cljs.core/interpose)
 (def ^:export interleave cljs.core/interleave)
 (def ^:export concat cljs.core/concat)
-(def ^:export flatten cljs.core/flatten)
+
+(defn sequential-or-array? [x]
+  (or (array? x)
+      (sequential? x)))
+
+(defn ^:export flatten [x]
+  (cljs.core/filter #(not (sequential-or-array? %))
+    (cljs.core/rest (tree-seq sequential-or-array? seq x))))
+
 (def ^:export keys cljs.core/keys)
 (def ^:export vals cljs.core/vals)
 (def ^:export prim-seq cljs.core/prim-seq)
