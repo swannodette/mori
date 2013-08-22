@@ -13,7 +13,8 @@
     partial comp juxt
     identity constantly
     list vector array-map hash-map zipmap set sorted-set
-    sum inc dec even? odd?])
+    sorted-set-by sorted-map sorted-map-by
+    sum inc dec even? odd? subseq])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
             [clojure.core.reducers :as reducers]))
@@ -74,6 +75,7 @@
 (def ^:export sort cljs.core/sort)
 (def ^:export sort-by cljs.core/sort-by)
 (def ^:export into-array cljs.core/into-array)
+(def ^:export subseq cljs.core/subseq)
 
 ;; Reducers
 (def ^:export rmap reducers/map)
@@ -92,6 +94,9 @@
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
 (def ^:export sorted-set cljs.core/sorted-set)
+(def ^:export sorted-set-by cljs.core/sorted-set-by)
+(def ^:export sorted-map cljs.core/sorted-map)
+(def ^:export sorted-map-by cljs.core/sorted-map-by)
 
 (def ^:export zipmap cljs.core/zipmap)
 
