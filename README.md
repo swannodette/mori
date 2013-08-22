@@ -121,7 +121,7 @@ You can find extensive [documentation and examples](http://swannodette.github.io
 For vectors and maps we provide an efficient thaw and freeze
 operations:
 
-```
+```javascript
 var m = require("./mori.js");
 
 // ~500ms MBA 1.7ghz Node v0.10.11
