@@ -32,6 +32,23 @@
                 <li><a href="#hash">- hash</a></li>
             </ul>
 
+            <a href="#predicates" class="toc-title">Type Predicates</a>
+            <ul>
+                <li><a href="#is_list">is_list</a></li>
+                <li><a href="#is_seq">is_seq</a></li>
+                <li><a href="#is_vector">is_vector</a></li>
+                <li><a href="#is_map">is_map</a></li>
+                <li><a href="#is_set">is_set</a></li>
+                <li><a href="#is_collection">is_collection</a></li>
+                <li><a href="#is_sequential">is_sequential</a></li>
+                <li><a href="#is_associative">is_associative</a></li>
+                <li><a href="#is_counted">is_counted</a></li>
+                <li><a href="#is_indexed">is_indexed</a></li>
+                <li><a href="#is_reduceable">is_reduceable</a></li>
+                <li><a href="#is_seqable">is_seqable</a></li>
+                <li><a href="#is_reversible">is_reversible</a></li>
+            </ul>
+
             <a href="#collections" class="toc-title">Collections</a>
             <ul>
                 <li><a href="#list">- list</a></li>
@@ -287,6 +304,110 @@ var v = mori.vector(1, 2, 3);
 mori.hash(l) == mori.hash(v); // => true
                 </pre>
             </div>
+
+            <h2 id="predicates">Type Predicates</h2>
+
+            <h3 id="is_list">
+                is_list
+                <span class="sig">mori.is_list(coll)</span>
+            </h3>
+            <p>
+                Test if something is a list like collection. Lists support afficient adding to the head.
+            </p>
+
+            <h3 id="is_seq">
+                is_seq
+                <span class="sig">mori.is_seq(coll)</span>
+            </h3>
+            <p>Test if something is a sequence (i.e. iterable)</p>
+
+            <h3 id="is_vector">
+                is_vector
+                <span class="sig">mori.is_vector(coll)</span>
+            </h3>
+            <p>
+                Test if something is vector like collection. Vectors support random access. It is efficient
+                to add to the end of a vector.
+            </p>
+
+            <h3 id="is_map">
+                is_map
+                <span class="sig">mori.is_map(coll)</span>
+            </h3>
+            <p>
+                Test if something is a map like collection. Map support random access and arbitrary keys.
+            </p>
+
+            <h3 id="is_set">
+                is_set
+                <span class="sig">mori.is_set(coll)</span>
+            </h3>
+            <p>
+                Test if something is hash set.
+            </p>
+
+            <h3 id="is_collection">
+                is_collection
+                <span class="sig">mori.is_collection(coll)</span>
+            </h3>
+            <p>Test if something is a collection - lists, maps, sets, vectors are all collections.</p>
+
+            <h3 id="is_sequential">
+                is_sequential
+                <span class="sig">mori.is_sequential(coll)</span>
+            </h3>
+            <p>
+                Test if something is sequential. For example vectors are sequential but are not sequences.
+                They can however be converted into something iterable by calling seq on them.
+            </p>
+
+            <h3 id="is_associative">
+                is_associative
+                <span class="sig">mori.is_associative(coll)</span>
+            </h3>
+            <p>
+                Test if something is associative - i.e. vectors, maps, and sets.
+            </p>
+
+            <h3 id="is_counted">
+                is_counted
+                <span class="sig">mori.is_counted(coll)</span>
+            </h3>
+            <p>
+                Test if something can give its count it O(1) time.
+            </p>
+
+            <h3 id="is_indexed">
+                is_indexed
+                <span class="sig">mori.is_indexed(coll)</span>
+            </h3>
+            <p>
+                Test if something is indexed - i.e. vectors.
+            </p>
+
+            <h3 id="is_reduceable">
+                is_reduceable
+                <span class="sig">mori.is_reduceable(coll)</span>
+            </h3>
+            <p>
+                Test if something is reduceable.
+            </p>
+
+            <h3 id="is_seqable">
+                is_seqable
+                <span class="sig">mori.is_seqable(coll)</span>
+            </h3>
+            <p>
+                Test if something can be coerced into something iterable.
+            </p>
+
+            <h3 id="is_reversible">
+                is_reversible
+                <span class="sig">mori.is_reversible(coll)</span>
+            </h3>
+            <p>
+                Test if something can be reversed in O(1) time.
+            </p>
 
             <h2 id="collections">Collections</h2>
 
