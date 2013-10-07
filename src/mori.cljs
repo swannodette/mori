@@ -1,7 +1,7 @@
 (ns mori
   (:refer-clojure :exclude
    [count empty first rest seq conj cons find nth last assoc dissoc
-    get-in update-in assoc-in fnil disj pop peek hash get contains? empty? reverse
+    get-in update-in assoc-in fnil disj pop peek hash get empty? reverse
     take drop partition partition-by iterate into subvec
     take-while drop-while group-by
     interpose interleave concat flatten
@@ -168,6 +168,33 @@
 
 (def ^:export clj-to-js cljs.core/clj->js)
 (def ^:export js-to-clj cljs.core/js->clj)
+
+(defn ^:export proxy [coll]
+  (if (exists? js/Proxy)
+    (let [handler (js-obj
+                    "has" (fn [k] (contains? coll k))
+                    "hasOwn" (fn [k] (contains? coll k))
+                    "get" (fn [target k]
+                            (let [v (get coll k ::not-found)]
+                              (cond
+                                (keyword-identical? v ::not-found)
+                                (when (and (counted? coll)
+                                           (identical? k "length"))
+                                  (count coll))
+                                :else v)))
+                    "set" (fn [target k v])
+                    "enumerate" (fn [] (into-array (keys coll)))
+                    "keys" (fn []
+                             (cond
+                               (map? coll)
+                               (into-array (keys coll))
+
+                               (vector? coll)
+                               (into-array (range (count coll)))
+
+                               :else nil)))]
+      (js/Proxy.create handler))
+    (throw (js/Error. "ES6 Proxy not supported!"))))
 
 ;; =============================================================================
 ;; Node.js Inspection support
