@@ -122,23 +122,30 @@ For vectors and maps we provide an efficient thaw and freeze
 operations:
 
 ```javascript
-var m = require("./mori.js");
+var m = mori;
 
-// ~500ms MBA 1.7ghz Node v0.10.11
-var s = new Date();
-var arr = [];
-for(var i = 0; i < 10000000; i++) {
-  arr.push(i);
+// ~280ms with v8 3.22.11 MBA 1.7ghz
+for(var j = 0; j < 10; j++) {
+  var s = new Date();
+  var arr = [];
+  for(var i = 0; i < 10000000; i++) {
+    arr.push(i);
+  }
+  print("Array push " + arr.length + " items " + ((new Date())-s));
+  gc();
 }
 
-// ~600ms
-s = new Date();
-var mv = m.mutable.thaw(m.vector());
-for(var i = 0; i < 10000000; i++) {
-  mv = m.mutable.conj(mv, i);
+// ~480ms
+for(var j = 0; j < 10; j++) {
+  s = new Date();
+  var mv = m.mutable.thaw(m.vector());
+  for(var i = 0; i < 10000000; i++) {
+    mv = m.mutable.conj(mv, i);
+  }
+  var v = m.mutable.freeze(mv);
+  print("Mutable vector conj " + m.count(v) + " items " + ((new Date())-s));
+  gc();
 }
-var v = m.mutable.freeze(mv);
-console.log("Mutable vector conj " + m.count(v) + " items", (new Date())-s);
 ```
 
 ### Reducers
