@@ -10,10 +10,12 @@
       :compiler
       {:output-to "mori.dev.js",
        :optimizations :simple
+       :output-wrapper false
        :pretty-print true}}
      {:source-paths ["src"],
       :id "release",
       :compiler
       {:output-to "mori.bare.js",
        :optimizations :advanced
+       :output-wrapper false
        :pretty-print false}}]})
