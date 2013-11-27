@@ -1,8 +1,8 @@
 (defproject mori "0.2.5-SNAPSHOT"
   :description "Persistent Data Structures for JavaScript"
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2030"]]
-  :plugins [[lein-cljsbuild "1.0.0-alpha2"]]
+                 [org.clojure/clojurescript "0.0-2080"]]
+  :plugins [[lein-cljsbuild "1.0.0"]]
   :cljsbuild
   {:builds
     [{:source-paths ["src"],
