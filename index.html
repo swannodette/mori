@@ -682,8 +682,8 @@ mori.has_key(m, "foo"); // => true
 mori.has_key(m, "quux"); // => false
 
 var s = mori.set(["foo", "bar", "baz"]);
-mori.has_key(s, 1); // => true
-mori.has_key(s, 9); // => false
+mori.has_key(s, "foo"); // => true
+mori.has_key(s, "quux"); // => false
                 </pre>
             </div>
 
