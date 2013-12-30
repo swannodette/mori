@@ -154,6 +154,8 @@
                 <li><a href="#partial">- partial</a></li>
                 <li><a href="#curry">- curry</a></li>
                 <li><a href="#curry">- fnil</a></li>
+                <li><a href="#js_to_clj">- js_to_clj</a></li>
+                <li><a href="#clj_to_js">- clj_to_js</a></li>
             </ul>
         </div>
 
@@ -1775,7 +1777,7 @@ f(5); // => [1,2,3,5]
             <div class="example">
                 <pre class="brush: javascript">
 var _ = mori;
-    f = _.curry(_.conj, 4);
+var f = _.curry(_.conj, 4);
 
 f(_.vector(1,2,3)); // => [1,2,3,4]
                 </pre>
@@ -1801,6 +1803,37 @@ f(_.hash_map()); // => {"count", 1}
                 </pre>
             </div>
 
+            <h3 id="js_to_clj">
+                js_to_clj
+                <span class="sig">mori.js_to_clj(x)</span>
+            </h3>
+            <p>
+                Recursively transforms JavaScript arrays into Mori
+                vectors, and JavaScript objects into Mori maps.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var data = {foo: "bar"};
+mori.js_to_clj(data); // => {"foo", "bar"}
+                </pre>
+            </div>
+
+            <h3 id="clj_to_js">
+                clj_to_js
+                <span class="sig">mori.clj_to_js(x)</span>
+            </h3>
+            <p>
+                Recursively transforms Mori values to JavaScript.
+                sets/vectors/lists become Arrays, Keywords and Symbol become
+                Strings, Maps become Objects. Arbitrary keys are encoded to by
+                key->js.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var data = mori.hash_map("foo", "bar");
+mori.clj_to_js(data); // => {"foo", "bar"} of type js/Object
+                </pre>
+            </div>
         </div>
         <script>
             SyntaxHighlighter.defaults["gutter"] = false;
