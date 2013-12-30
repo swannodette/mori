@@ -312,7 +312,7 @@ mori.hash(l) == mori.hash(v); // => true
                 <span class="sig">mori.is_list(coll)</span>
             </h3>
             <p>
-                Test if something is a list like collection. Lists support afficient adding to the head.
+                Test if something is a list-like collection. Lists support afficient adding to the head.
             </p>
 
             <h3 id="is_seq">
@@ -326,7 +326,7 @@ mori.hash(l) == mori.hash(v); // => true
                 <span class="sig">mori.is_vector(coll)</span>
             </h3>
             <p>
-                Test if something is vector like collection. Vectors support random access. It is efficient
+                Test if something is a vector-like collection. Vectors support random access. It is efficient
                 to add to the end of a vector.
             </p>
 
@@ -335,7 +335,7 @@ mori.hash(l) == mori.hash(v); // => true
                 <span class="sig">mori.is_map(coll)</span>
             </h3>
             <p>
-                Test if something is a map like collection. Map support random access and arbitrary keys.
+                Test if something is a map-like collection. Maps support random access and arbitrary keys.
             </p>
 
             <h3 id="is_set">
@@ -343,7 +343,7 @@ mori.hash(l) == mori.hash(v); // => true
                 <span class="sig">mori.is_set(coll)</span>
             </h3>
             <p>
-                Test if something is hash set.
+                Test if something is a hash set.
             </p>
 
             <h3 id="is_collection">
@@ -374,7 +374,7 @@ mori.hash(l) == mori.hash(v); // => true
                 <span class="sig">mori.is_counted(coll)</span>
             </h3>
             <p>
-                Test if something can give its count it O(1) time.
+                Test if something can give its count in O(1) time.
             </p>
 
             <h3 id="is_indexed">
@@ -524,8 +524,8 @@ mori.seq(mori.set([3,2,1,3])); // (1 2 3)
                 <span class="sig">mori.range(start, [end], [step])</span>
             </h3>
             <p>
-                Construct a lazy range of values. If not given a end
-                will produce an infinite lazy sequences. A step may
+                Construct a lazy range of values. If not given an end
+                will produce an infinite lazy sequence. A step may
                 be specified.
             </p>
             <div class="example">
@@ -585,7 +585,7 @@ mori.into(v, v); // => [1 2 1 2]
                 <span class="sig">mori.assoc(coll, key0, val0, key1, val1, ...)</span>
             </h3>
             <p>
-                Associate an new key-value pair in an associative collection. Works
+                Associate a new key-value pair in an associative collection. Works
                 on vectors and maps.
             </p>
             <div class="example">
@@ -634,7 +634,7 @@ mori.empty(v); // => []
                 get
                 <span class="sig">mori.get(coll, key, [not-found])</span>
             </h3>
-            <p>Retrieve a value from a collection </p>
+            <p>Retrieve a value from a collection.</p>
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector("foo", "bar", "baz");
@@ -670,7 +670,7 @@ mori.get_in(m2, ["quux", "bar"]); // => 2
                 has_key
                 <span class="sig">mori.has_key(coll, key)</span>
             </h3>
-            <p> Returns true if the collection has the given key/index. Otherwise, returns false </p>
+            <p> Returns true if the collection has the given key/index. Otherwise, returns false.</p>
             <div class="example">
                 <pre class="brush: javascript">
 var v = mori.vector("foo", "bar", "baz");
@@ -692,7 +692,7 @@ mori.has_key(s, "quux"); // => false
                 <span class="sig">mori.find(coll, key)</span>
             </h3>
             <p>
-                Returns the key value pair as an array for a given key. Return's null if that key isn't present.
+                Returns the key value pair as an array for a given key. Returns null if that key isn't present.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -768,7 +768,7 @@ mori.update_in(h, ["foo", 1], mori.inc); // => {"foo" [1 3 3]}
                 count
                 <span class="sig">mori.count(coll)</span>
             </h3>
-            <p> Returns the length of the collection </p>
+            <p> Returns the length of the collection.</p>
             <div class="example">
                 <pre class="brush: javascript">
 var l = mori.list("foo", "bar", "baz")
@@ -804,7 +804,7 @@ mori.is_empty(v); // => true
                 peek
                 <span class="sig">mori.peek(coll)</span>
             </h3>
-            <p> Returns either the first item of a list or the last item of a vector </p>
+            <p> Returns either the first item of a list or the last item of a vector.</p>
             <div class="example">
                 <pre class="brush: javascript">
 var l = mori.list("foo", "bar", "baz")
@@ -819,7 +819,7 @@ mori.peek(v) // "baz"
                 pop
                 <span class="sig">mori.pop(coll)</span>
             </h3>
-            <p> Returns either a list with the first item removed or a vector with the last item removed </p>
+            <p> Returns either a list with the first item removed or a vector with the last item removed.</p>
             <div class="example">
                 <pre class="brush: javascript">
 var l = mori.list("foo", "bar", "baz")
@@ -835,7 +835,7 @@ mori.pop(v) // ["foo" "bar"]
                 <span class="sig">mori.zipmap(seqable0, seqable1)</span>
             </h3>
             <p>
-                Takes two seqable objects and constructs a hash map. The first seqable provides the keys
+                Takes two seqable objects and constructs a hash map. The first seqable provides the keys,
                 the second seqable the values.
             </p>
             <div class="example">
@@ -962,7 +962,7 @@ mori.intersection(s0, s1); // => #{"cat" "dog"}
                 <span class="sig">mori.difference(set0, set1, ...)</span>
             </h3>
             <p>
-                Returns the difference of two sets.
+                Returns the difference between two sets.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -994,7 +994,7 @@ mori.is_subset(s0, s1); // => true
                 <span class="sig">mori.is_superset(seta, setb)</span>
             </h3>
             <p>
-                Returns true if <code>seta</code> is a supset of <code>setb</code>.
+                Returns true if <code>seta</code> is a superset of <code>setb</code>.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -1129,7 +1129,7 @@ mori.into_array(lazy); // => [2,3,4]
 
             <h3 id="each">
                 each
-                <span class="sig">mori.each(coll)</span>
+                <span class="sig">mori.each(coll, f)</span>
             </h3>
             <p>
                 Iterate over a collection. For side effects.
@@ -1141,7 +1141,7 @@ mori.each(xs, function(n) {
   console.log(n);
 });
 
-// will print 1 then 2 then 3 at your JS console
+// will print 2 then 3 then 4 at your JS console
                 </pre>
             </div>
 
@@ -1193,7 +1193,7 @@ mori.reduce(mori.concat, mori.map(f, a, b)); // => ("a", "a1", "b", "b2", "c", "
                 <span class="sig">mori.filter(pred, coll)</span>
             </h3>
             <p>
-                Return a lazy sequence representing with the original
+                Return a lazy sequence representing the original
                 collection filtered of elements which did not return a truthy
                 value for <code>pred</code>. Note that Mori has a stricter
                 notion of truth than JavaScript. Only false, undefined, and null
@@ -1212,7 +1212,7 @@ mori.filter(mori.is_even, a0); // => (0 2 4 6 8)
                 <span class="sig">mori.remove(pred, coll)</span>
             </h3>
             <p>
-                The inverse of filter. Return a lazy sequence representing with the original
+                The inverse of filter. Return a lazy sequence representing the original
                 collction filtered of elements which returned a truthy
                 value for <code>pred</code>. Note that Mori has a stricter
                 notion of truth than JavaScript. Only false, undefined, and null
@@ -1234,7 +1234,7 @@ mori.remove(mori.is_even, a0); // => (1 3 5 7 9)
             <p>
                 Accumulate a collection into a single value. <code>f</code>
                 should be a function of two arguments, the first will be the
-                accumulator the second will be next value in the sequence.
+                accumulator, the second will be next value in the sequence.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -1438,8 +1438,8 @@ mori.interpose("foo", a) // => (1 "foo" 2 "foo" 3)
                 <span class="sig">mori.interleave(coll0, coll1, ...)</span>
             </h3>
             <p>
-                Interleave two or more collections. The size the resulting
-                lazy sequence is determined by the smalled collection.
+                Interleave two or more collections. The size of the resulting
+                lazy sequence is determined by the smallest collection.
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -1455,7 +1455,7 @@ mori.interleave(ns, as); // => (1 "a" 2 "b" 3 "c")
                 <span class="sig">mori.iterate(f, x)</span>
             </h3>
             <p>
-                Creats a lazy sequences of x, f(x), f(f(x)), ...
+                Creates a lazy sequences of x, f(x), f(f(x)), ...
             </p>
             <div class="example">
                 <pre class="brush: javascript">
@@ -1507,8 +1507,8 @@ mori.repeatedly(5, #(.random js/Math));
                 <span class="sig">mori.partition(n, [step], [pad], coll)</span>
             </h3>
             <p>
-                Partition a seqable collection into a groups of n items. An optional step
-                parameter may be provided to specify the amount of overlap. Additional a pad
+                Partition a seqable collection into groups of <code>n</code> items. An optional step
+                parameter may be provided to specify the amount of overlap. An additional pad
                 element can be provided when the final group of items is too small.
             </p>
             <div class="example">
