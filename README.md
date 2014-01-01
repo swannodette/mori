@@ -124,7 +124,7 @@ operations:
 ```javascript
 var m = mori;
 
-// ~280ms with v8 3.22.11 MBA 1.7ghz
+// ~350ms with v8 3.22.11 MBA 1.7ghz
 for(var j = 0; j < 10; j++) {
   var s = new Date();
   var arr = [];
@@ -135,7 +135,7 @@ for(var j = 0; j < 10; j++) {
   gc();
 }
 
-// ~480ms
+// ~320ms
 for(var j = 0; j < 10; j++) {
   s = new Date();
   var mv = m.mutable.thaw(m.vector());
