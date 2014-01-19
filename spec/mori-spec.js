@@ -172,10 +172,12 @@ describe("Conversion utilities", function () {
         var js_obj  = { a: 1, b: "two" },
             js_arr  = [1, 2, 3],
             clj_map = mori.hash_map("a", 1, "b", "two"),
+            clj_map_keywordized = mori.hash_map(mori.keyword("a"), 1, mori.keyword("b"), "two"),
             clj_vec = mori.vector(1, 2, 3);
 
 
         expect(mori.equals(mori.js_to_clj(js_obj), clj_map)).toBe(true);
+        expect(mori.equals(mori.js_to_clj(js_obj,true), clj_map_keywordized)).toBe(true);
 
         expect(mori.equals(mori.js_to_clj(js_arr), clj_vec)).toBe(true);
 

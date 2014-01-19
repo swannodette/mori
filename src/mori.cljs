@@ -12,7 +12,7 @@
     into-array
     partial comp juxt
     identity constantly
-    list vector array-map hash-map zipmap set sorted-set
+    list vector array-map hash-map zipmap set sorted-set keyword
     sorted-set-by sorted-map sorted-map-by
     sum inc dec even? odd? subseq])
   (:use-macros [mori.macros :only [make-inspectable]])
@@ -106,6 +106,8 @@
 (def ^:export sorted-map cljs.core/sorted-map)
 (def ^:export sorted-map-by cljs.core/sorted-map-by)
 
+(def ^:export keyword cljs.core/keyword)
+
 (def ^:export zipmap cljs.core/zipmap)
 
 ;; Predicates
@@ -114,6 +116,8 @@
 (def ^:export is-vector cljs.core/vector?)
 (def ^:export is-map cljs.core/map?)
 (def ^:export is-set cljs.core/set?)
+
+(def ^:export is-keyword cljs.core/keyword?)
 
 (def ^:export is-collection cljs.core/coll?)
 (def ^:export is-sequential cljs.core/sequential?)
@@ -167,7 +171,9 @@
 (def ^:export constantly cljs.core/constantly)
 
 (def ^:export clj-to-js cljs.core/clj->js)
-(def ^:export js-to-clj cljs.core/js->clj)
+(defn ^:export js-to-clj 
+  ([x] (cljs.core/js->clj x))
+  ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
 
 (defn ^:export proxy [coll]
   (if (exists? js/Proxy)
