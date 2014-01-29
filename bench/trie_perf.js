@@ -1,5 +1,5 @@
 var p = require("persistent-hash-trie"),
-    m = require("../mori.bare.js").mori;
+    m = require("../mori.js");
 
 var s = new Date();
 var trie = p.Trie();
