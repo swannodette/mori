@@ -124,7 +124,7 @@ operations:
 ```javascript
 var m = mori;
 
-// ~350ms with v8 3.22.11 MBA 1.7ghz
+// ~330ms with v8 3.22.11 MBA 1.7ghz
 for(var j = 0; j < 10; j++) {
   var s = new Date();
   var arr = [];
@@ -135,12 +135,12 @@ for(var j = 0; j < 10; j++) {
   gc();
 }
 
-// ~320ms
+// ~360ms
 for(var j = 0; j < 10; j++) {
   s = new Date();
   var mv = m.mutable.thaw(m.vector());
   for(var i = 0; i < 10000000; i++) {
-    mv = m.mutable.conj(mv, i);
+    mv = m.mutable.conj1(mv, i);
   }
   var v = m.mutable.freeze(mv);
   print("Mutable vector conj " + m.count(v) + " items " + ((new Date())-s));
