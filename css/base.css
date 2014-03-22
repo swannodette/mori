@@ -32,6 +32,7 @@ a:hover {
     overflow-y: scroll;
     width: 220px;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
     padding: 35px 10px 10px 20px;
 }
 
@@ -40,6 +41,7 @@ a:hover {
     left: 220px;
     top: 0px;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
     padding-left: 25px;
 }
 
