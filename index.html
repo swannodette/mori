@@ -874,8 +874,8 @@ mori.reverse(v); // => ["baz", "bar", "foo"]
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var s = mori.vector("cat", "dog", "bird", "zebra");
-s.subvec(1,2); // => ["dog", "bird"]
+var v = mori.vector("cat", "dog", "bird", "zebra");
+mori.subvec(v,1,2); // => ["dog", "bird"]
                 </pre>
             </div>
 
