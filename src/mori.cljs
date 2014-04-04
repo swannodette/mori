@@ -14,11 +14,13 @@
     identity constantly
     list vector array-map hash-map zipmap set sorted-set keyword
     sorted-set-by sorted-map sorted-map-by
-    sum inc dec even? odd? subseq])
+    sum inc dec even? odd? subseq
+    apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
             [clojure.core.reducers :as reducers]))
 
+(def ^:export apply cljs.core/apply)
 (def ^:export count cljs.core/count)
 (def ^:export empty cljs.core/empty)
 (def ^:export first cljs.core/first)
@@ -146,11 +148,11 @@
 
 (defn ^:export curry [fun & args]
   (fn [arg]
-    (apply fun (cons arg args))))
+    (cljs.core/apply fun (cons arg args))))
 
 (defn ^:export juxt [& fns]
   (fn [& args]
-    (into-array (map #(apply % args) fns))))
+    (into-array (map #(cljs.core/apply % args) fns))))
 
 (defn ^:export knit [& fns]
   (fn [args]
