@@ -750,7 +750,7 @@ mori.last(v); // => "baz"
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var h = mori.hash_map("foo", mori.hash_map("bar", 1)]);
+var h = mori.hash_map("foo", mori.hash_map("bar", 1));
 mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
                 </pre>
             </div>
@@ -761,7 +761,7 @@ mori.assoc_in(h, ["foo", "baz"], 2); // => {"foo" {"bar" 1, "baz" 2}}
             </h3>
             <div class="example">
                 <pre class="brush: javascript">
-var h = mori.hash_map("foo", mori.vector(1, 2, 3)]);
+var h = mori.hash_map("foo", mori.vector(1, 2, 3));
 mori.update_in(h, ["foo", 1], mori.inc); // => {"foo" [1 3 3]}
                 </pre>
             </div>
@@ -773,16 +773,16 @@ mori.update_in(h, ["foo", 1], mori.inc); // => {"foo" [1 3 3]}
             <p> Returns the length of the collection.</p>
             <div class="example">
                 <pre class="brush: javascript">
-var l = mori.list("foo", "bar", "baz")
+var l = mori.list("foo", "bar", "baz");
 mori.count(l) // 3
 
-var v = mori.vector("foo", "bar", "baz")
+var v = mori.vector("foo", "bar", "baz");
 mori.count(v) // 3
 
-var s = mori.set(["foo", "bar", "baz"])
+var s = mori.set(["foo", "bar", "baz"]);
 mori.count(s) // 3
 
-var m = mori.hash_map("foo", 1, "bar", 2)
+var m = mori.hash_map("foo", 1, "bar", 2);
 mori.count(m) // 2
                 </pre>
             </div>
@@ -809,10 +809,10 @@ mori.is_empty(v); // => true
             <p> Returns either the first item of a list or the last item of a vector.</p>
             <div class="example">
                 <pre class="brush: javascript">
-var l = mori.list("foo", "bar", "baz")
+var l = mori.list("foo", "bar", "baz");
 mori.peek(l) // "foo"
 
-var v = mori.vector("foo", "bar", "baz")
+var v = mori.vector("foo", "bar", "baz");
 mori.peek(v) // "baz"
                 </pre>
             </div>
@@ -824,10 +824,10 @@ mori.peek(v) // "baz"
             <p> Returns either a list with the first item removed or a vector with the last item removed.</p>
             <div class="example">
                 <pre class="brush: javascript">
-var l = mori.list("foo", "bar", "baz")
+var l = mori.list("foo", "bar", "baz");
 mori.pop(l) // ("bar" "baz")
 
-var v = mori.vector("foo", "bar", "baz")
+var v = mori.vector("foo", "bar", "baz");
 mori.pop(v) // ["foo" "bar"]
                 </pre>
             </div>
@@ -844,7 +844,6 @@ mori.pop(v) // ["foo" "bar"]
                 <pre class="brush: javascript">
 var keys = ["foo", "bar", "baz"];
 var vals = [1, 2, 3];
-
 var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
                 </pre>
             </div>
@@ -858,7 +857,7 @@ var h = mori.zipmap(keys, vals); // => {"foo" 1, "bar" 2, "baz" 3}
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var v = mori.vecotr("foo", "bar", "baz");
+var v = mori.vector("foo", "bar", "baz");
 mori.reverse(v); // => ["baz", "bar", "foo"]
                 </pre>
             </div>
