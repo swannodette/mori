@@ -65,6 +65,7 @@
                 <li><a href="#into">- into</a></li>
                 <li><a href="#assoc">- assoc</a></li>
                 <li><a href="#dissoc">- dissoc</a></li>
+                <li><a href="#distinct">- distinct</a></li>
                 <li><a href="#empty">- empty</a></li>
                 <li><a href="#get">- get</a></li>
                 <li><a href="#get_in">- get_in</a></li>
@@ -612,6 +613,20 @@ mori.assoc(m, "foo", 6); // => {"foo" 6}
                 <pre class="brush: javascript">
 var m = mori.hash_map("foo", 1, "bar", 2, "baz", 3);
 mori.dissoc(m, "bar", "baz"); // => {"foo" 1}
+                </pre>
+            </div>
+
+            <h3 id="distinct">
+                distinct
+                <span class="sig">mori.distinct(coll)</span>
+            </h3>
+            <p>
+               Returns a sequence of the elements of coll with duplicates removed.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var v = mori.vector(1, 1, 2, 3, 3, 4, 5);
+mori.distinct(v); // => (1 2 3 4 5)
                 </pre>
             </div>
 
