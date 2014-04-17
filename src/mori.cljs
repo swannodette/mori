@@ -109,6 +109,7 @@
 (def ^:export sorted-set-by cljs.core/sorted-set-by)
 (def ^:export sorted-map cljs.core/sorted-map)
 (def ^:export sorted-map-by cljs.core/sorted-map-by)
+(def ^:export queue (fn [& args] (into cljs.core.PersistentQueue.EMPTY args)))
 
 (def ^:export keyword cljs.core/keyword)
 
@@ -231,5 +232,6 @@
   cljs.core.PersistentTreeMap
   cljs.core.PersistentHashSet
   cljs.core.PersistentTreeSet
-  cljs.core.Range)
+  cljs.core.Range
+  cljs.core.PersistentQueue)
 
