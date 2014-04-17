@@ -175,7 +175,6 @@ describe("Conversion utilities", function () {
             clj_map_keywordized = mori.hash_map(mori.keyword("a"), 1, mori.keyword("b"), "two"),
             clj_vec = mori.vector(1, 2, 3);
 
-
         expect(mori.equals(mori.js_to_clj(js_obj), clj_map)).toBe(true);
         expect(mori.equals(mori.js_to_clj(js_obj,true), clj_map_keywordized)).toBe(true);
 
@@ -185,6 +184,20 @@ describe("Conversion utilities", function () {
 
         expect(mori.clj_to_js(clj_vec)).toEqual(js_arr);
 
+        expect(mori.is_vector(mori.js_to_clj(js_arr))).toBe(true);
+
     });
 
+});
+
+describe("Distinct", function() {
+  it("demonstrates function `distinct`", function() {
+
+    var vec = mori.vector(1,1,1,1,2,2,3,4,5,6,6);
+
+    var distinct_vector = mori.distinct(vec);
+
+    expect(mori.clj_to_js(distinct_vector)).toEqual([1,2,3,4,5,6]);
+
+  });
 });
