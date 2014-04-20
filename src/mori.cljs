@@ -60,6 +60,9 @@
 (def ^:export interleave cljs.core/interleave)
 (def ^:export concat cljs.core/concat)
 
+(defn ^:export conj1 [^not-native coll x]
+  (cljs.core/-conj coll x))
+
 (defn sequential-or-array? [x]
   (or (array? x)
       (sequential? x)))
