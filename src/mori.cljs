@@ -237,5 +237,6 @@
   cljs.core.PersistentTreeSet
   cljs.core.Range
   cljs.core.Keyword
-  cljs.core.PersistentQueue)
+  cljs.core.PersistentQueue
+  cljs.core.PersistentQueueSeq)
 
