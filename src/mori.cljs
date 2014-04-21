@@ -233,5 +233,6 @@
   cljs.core.PersistentHashSet
   cljs.core.PersistentTreeSet
   cljs.core.Range
-  cljs.core.PersistentQueue)
+  cljs.core.PersistentQueue
+  cljs.core.PersistentQueueSeq)
 
