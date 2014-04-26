@@ -12,7 +12,7 @@
     into-array
     partial comp juxt
     identity constantly
-    list vector array-map hash-map zipmap set sorted-set keyword
+    list vector array-map hash-map zipmap set sorted-set keyword symbol
     sorted-set-by sorted-map sorted-map-by
     sum inc dec even? odd? subseq
     apply])
@@ -115,6 +115,7 @@
 (def ^:export queue (fn [& args] (into cljs.core.PersistentQueue.EMPTY args)))
 
 (def ^:export keyword cljs.core/keyword)
+(def ^:export symbol cljs.core/symbol)
 
 (def ^:export zipmap cljs.core/zipmap)
 
@@ -126,6 +127,7 @@
 (def ^:export is-set cljs.core/set?)
 
 (def ^:export is-keyword cljs.core/keyword?)
+(def ^:export is-symbol cljs.core/symbol?)
 
 (def ^:export is-collection cljs.core/coll?)
 (def ^:export is-sequential cljs.core/sequential?)
@@ -237,6 +239,7 @@
   cljs.core.PersistentTreeSet
   cljs.core.Range
   cljs.core.Keyword
+  cljs.core.Symbol
   cljs.core.PersistentQueue
   cljs.core.PersistentQueueSeq)
 
