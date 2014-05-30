@@ -1,5 +1,3 @@
-[![Build Status](https://secure.travis-ci.org/swannodette/mori.png?branch=master)](https://travis-ci.org/swannodette/mori)
-
 # mori
 
 <img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
