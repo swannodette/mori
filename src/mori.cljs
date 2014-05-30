@@ -234,5 +234,6 @@
   cljs.core.PersistentTreeMap
   cljs.core.PersistentHashSet
   cljs.core.PersistentTreeSet
-  cljs.core.Range)
+  cljs.core.Range
+  cljs.core.Keyword)
 
