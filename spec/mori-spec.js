@@ -1,4 +1,4 @@
-var mori = require("../");
+var mori = require("../mori");
 
 describe("Map", function () {
 

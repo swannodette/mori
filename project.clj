@@ -20,6 +20,5 @@
       :compiler
       {:output-to "mori.bare.js",
        :optimizations :advanced
-       :source-map "mori.bare.js.map"
        :output-wrapper false
        :pretty-print false}}]})
