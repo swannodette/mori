@@ -1,5 +1,7 @@
 var mori = require("../mori");
 
+console.log(mori);
+
 describe("Map", function () {
 
     it("demonstrates mapping a function over a vector", function () {
