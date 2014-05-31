@@ -200,4 +200,26 @@ describe("Distinct", function() {
     expect(mori.clj_to_js(distinct_vector)).toEqual([1,2,3,4,5,6]);
 
   });
+
+});
+
+describe("Queue", function() {
+
+    it("can be initialized empty", function() {
+
+        var q = mori.queue();
+
+        expect(mori.is_empty(q)).toBeTruthy();
+
+    });
+
+    it("can be initialized with values", function() {
+
+        var q = mori.queue('a', 'b');
+
+        expect(mori.is_empty(q)).toBeFalsy();
+        expect(mori.peek(q)).toEqual('a');
+
+    });
+
 });
