@@ -93,6 +93,7 @@
             <ul>
                 <li><a href="#keys">- keys</a></li>
                 <li><a href="#vals">- vals</a></li>
+                <li><a href="#merge">- merge</a></li>
             </ul>
 
             <a class="toc-title">Set Operations</a>
@@ -941,6 +942,22 @@ mori.into_array(mori.keys(m)); // => [ "foo", "bar" ]
                 <pre class="brush: javascript">
 var m = mori.hash_map("foo", 1, "bar", 2);
 mori.into_array(mori.vals(m)); // => [ 1, 2 ]
+                </pre>
+            </div>
+
+
+            <h3 id="merge">
+                merge
+                <span class="sig">mori.merge(map, m0, m1, ...)</span>
+            </h3>
+            <p>
+                Returns te result of conj-ing the rest of the maps into the first map.  If any of the keys
+                exist in the previous map, they will be overridden.
+            </p>
+            <div class="example">
+                <pre class="brush: javascript">
+var m = mori.hash_map("foo", 1, "bar", 2);
+mori.merge(m, mori.hash_map("bar", 3, "baz", 4)); // => {foo 1, bar 3, baz 4}
                 </pre>
             </div>
 
