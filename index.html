@@ -10,12 +10,13 @@
         <link rel="stylesheet" type="text/css" href="css/shThemeMarginalia.css" />
         <script type="text/javascript" src="http://use.typekit.com/rvk4jgw.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mori/0.2.6/mori.js"></script>
     </head>
     <body>
 
         <div id="mori-nav">
 
-            <a href="#mori" class="toc-title">Mori</a>
+            <a href="#title" class="toc-title">Mori</a>
             <br/>
 
             <a href="#rationale" class="toc-title">Rationale</a>
@@ -163,7 +164,7 @@
         </div>
 
         <div id="mori-content">
-            <h1 id="mori" class="tk-anisette-petite">mori</h1>
+            <h1 id="title" class="tk-anisette-petite">mori</h1>
 
             <p>
                 A library for using ClojureScript's persistent data
@@ -287,7 +288,7 @@ var v = mori.vector(1,2,3);
 mori.equals(v, l0); // => true
 
 var m0 = mori.js_to_clj({foo: 1});
-var m1 = mori.js_to_clj({foo: 1}); 
+var m1 = mori.js_to_clj({foo: 1});
 mori.equals(m0, m1); // => true
                 </pre>
             </div>
@@ -434,7 +435,7 @@ var l = mori.list(2,3);
 mori.cons(1, l); // => (1 2 3)
                 </pre>
             </div>
-                
+
             <h3 id="vector">
                 vector
                 <span class="sig">mori.vector(arg0, arg1, ...)</span>
@@ -451,7 +452,7 @@ var v = mori.vector(1,2,3,4);
 mori.nth(v, 0); // => 1
                 </pre>
             </div>
-            
+
             <h3 id="hash_map">
                 hash_map
                 <span class="sig">mori.hash_map(key0, val0, key1, val1, ...)</span>
@@ -495,7 +496,7 @@ s.conj("dog"); // => #{"bird" "cat" "dog"}
 s.conj("zebra"); // => #{"bird" "cat" "dog" "zebra"}
                 </pre>
             </div>
-            
+
             <h3 id="sorted_set">
                 sorted_set
                 <span class="sig">mori.sorted_set(arg0, arg1, ...)</span>
@@ -1045,7 +1046,7 @@ mori.is_superset(s0, s1); // => true
 
 
             <h2 id="sequences">Sequences</h2>
-            
+
             <h3 id="first">
                 first
                 <span class="sig">mori.first(coll)</span>
@@ -1087,7 +1088,7 @@ var m = mori.hash_map("foo", 1, "bar", 2);
 mori.rest(m); // remaining key-value pairs
                 </pre>
             </div>
-            
+
             <h3 id="seq">
                 seq
                 <span class="sig">mori.seq(coll)</span>
@@ -1318,7 +1319,7 @@ var a = mori.range(); // infinite sequence
 mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
                 </pre>
             </div>
-            
+
             <h3 id="take_while">
                 take_while
                 <span class="sig">mori.take_while(pred, coll)</span>
@@ -1394,14 +1395,14 @@ var f = function(x) { return x % 5 == 0 && x * x; };
 mori.some(f, a); // => 25
                 </pre>
             </div>
-            
+
             <h3 id="every">
                 every
                 <span class="sig">mori.every(pred, coll)</span>
             </h3>
             <p>
                 Returns true if the result of applying the
-                function <code>pred</code> to an element of the collection is 
+                function <code>pred</code> to an element of the collection is
                 never <code>false</code>, <code>null</code>
                 or <code>undefined</code>.
             </p>
@@ -1415,7 +1416,7 @@ mori.every(f, a); // => false
 mori.every(g, a); // => true
                 </pre>
             </div>
-            
+
             <h3 id="sort">
                 sort
                 <span class="sig">mori.sort([cmp], coll)</span>
@@ -1433,7 +1434,7 @@ mori.sort(a); // => (0 1 2 3 4 5 6 7 8 9)
 mori.sort(f, a); // => (9 8 7 6 5 4 3 2 1 0)
                 </pre>
             </div>
-            
+
             <h3 id="sort_by">
                 sort_by
                 <span class="sig">mori.sort_by(keyfn, [cmp], coll)</span>
@@ -1455,7 +1456,7 @@ mori.sort_by(kf, a); // => (0 3 6 2 5 1 4)
 mori.sort_by(kf, f, a); // => (4 1 5 2 3 6 0)
                 </pre>
             </div>
-            
+
             <h3 id="interpose">
                 interpose
                 <span class="sig">mori.interpose(x, coll)</span>
@@ -1470,7 +1471,7 @@ var a = [1,2,3]
 mori.interpose("foo", a) // => (1 "foo" 2 "foo" 3)
                 </pre>
             </div>
-            
+
             <h3 id="interleave">
                 interleave
                 <span class="sig">mori.interleave(coll0, coll1, ...)</span>
@@ -1487,7 +1488,7 @@ var as = ["a", "b", "c"];
 mori.interleave(ns, as); // => (1 "a" 2 "b" 3 "c")
                 </pre>
             </div>
-            
+
             <h3 id="iterate">
                 iterate
                 <span class="sig">mori.iterate(f, x)</span>
@@ -1500,7 +1501,7 @@ mori.interleave(ns, as); // => (1 "a" 2 "b" 3 "c")
 mori.iterate(mor.inc, 0); // => (0 1 2 3 4 5 ...)
                 </pre>
             </div>
-            
+
             <h3 id="repeat">
                 repeat
                 <span class="sig">mori.repeat([n], x)</span>
@@ -1521,7 +1522,7 @@ foos = m.repeat("foo")
 m.zipmap [1,2,3], foos // => {1 "foo", 2 "foo", 3 "foo"}
                 </pre>
             </div>
-            
+
             <h3 id="repeatedly">
                 repeatedly
                 <span class="sig">mori.repeatedly([n], f)</span>
@@ -1538,8 +1539,8 @@ mori.repeatedly(5, Math.random);
 // => (... 5 random floating point numbers ...)
                 </pre>
             </div>
-            
-            
+
+
             <h3 id="partition">
                 partition
                 <span class="sig">mori.partition(n, [step], [pad], coll)</span>
@@ -1691,7 +1692,7 @@ mori.sum(1,2); // => 3
 
 mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
             </div>
-            
+
             <h3 id="is_even">
                 is_even
                 <span class="sig">mori.is_even(n)</span>
@@ -1699,7 +1700,7 @@ mori.reduce(mori.sum, 0, mori.range(10)); // 45</pre>
             <p>
                 Returns true if the argument is divisible by 2.
             </p>
-            
+
             <h3 id="is_odd">
                 is_odd
                 <span class="sig">mori.is_odd(n)</span>
@@ -1745,7 +1746,7 @@ f(p).join ", " // => "Smith, Bob"
             </div>
 
             <h3 id="knit">
-                knit 
+                knit
                 <span class="sig">mori.knit(f0, f1, ...)</span>
             </h3>
             <p>
@@ -1760,7 +1761,7 @@ f(p).join ", " // => "Smith, Bob"
             </p>
             <div class="example">
                 <pre class="brush: javascript">
-var f = mori.knit(function (s) { return s.toLowerCase(); }, 
+var f = mori.knit(function (s) { return s.toLowerCase(); },
                   function (s) { return s.toUpperCase(); });
 f(["FoO", "bAr"]); // => ["foo", "BAR"]
                 </pre>
