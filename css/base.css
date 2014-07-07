@@ -32,27 +32,29 @@ a:hover {
     color: #003300;
     margin: 0 0 0 -0.1em;
     font-size: 5em;
+    flex: 1;
 }
 
 .mori-nav {
-    min-width: 14em;
+    min-width: 10em;
     overflow: auto;
     margin: 0;
     background-color: #efffef;
     border-right: 1px solid #ccc;
     box-sizing: border-box;
-    padding: 2em 1em 1.5em;
+    padding: 1.5em 1em 1.5em;
 }
 
 .mori-content {
     box-sizing: border-box;
-    padding: 3em;
+    padding: 1.5em 3em;
     overflow: auto;
     width: 100%;
+    flex: 3;
 }
 
 .mori-nav > ul > li {
-    margin: 1em 0;
+    padding: 0 0 1em;
 }
 
 .mori-nav ul {
@@ -111,8 +113,49 @@ h3 .sig {
     margin-left: 0.6rem;
 }
 
+/* increase font size on huge displays */
 @media all and (min-width: 79rem) {
   .wrapper {
     font-size: 20px;
+  }
+}
+
+/* change layout on small displays */
+@media all and (max-width: 50rem) {
+  .wrapper {
+    flex-flow: column;
+    position: static;
+    top: auto;
+    bottom: auto;
+  }
+
+  .mori-nav, .mori-content {
+    flex: 1;
+    width: 100%;
+    padding: 1em;
+  }
+
+  .mori-nav {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    -moz-columns: 2;
+    -webkit-columns: 2;
+    columns: 2;
+  }
+
+  .mori-nav ul {
+    margin: 0;
+  }
+
+  .mori-nav ul ul {
+    display: none;
+  }
+
+  .mori-nav li {
+    padding: 0;
+  }
+
+  .mori-nav .main {
+    display: none;
   }
 }
