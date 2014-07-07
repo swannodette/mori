@@ -17,6 +17,10 @@ a:hover {
     color: #333;
 }
 
+h2, h3 {
+    padding-top: 1.5em;
+}
+
 .wrapper {
     position: absolute;
     top: 0;
@@ -84,7 +88,7 @@ a:hover {
 }
 
 main {
-    max-width: 40em;
+    max-width: 35em;
 }
 
 .mori-content p,
@@ -120,7 +124,7 @@ h3 .sig {
 }
 
 /* increase font size on huge displays */
-@media all and (min-width: 79rem) {
+@media all and (min-width: 80rem) {
   .wrapper {
     font-size: 20px;
   }
