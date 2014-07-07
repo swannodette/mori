@@ -24,6 +24,8 @@ a:hover {
     bottom: 0;
     right: 0;
     width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
     display: flex;
     overflow: hidden;
 }
@@ -32,6 +34,8 @@ a:hover {
     color: #003300;
     margin: 0 0 0 -0.1em;
     font-size: 5em;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
@@ -50,6 +54,8 @@ a:hover {
     padding: 1.5em 3em;
     overflow: auto;
     width: 100%;
+    -webkit-flex: 3;
+    -ms-flex: 3;
     flex: 3;
 }
 
@@ -123,23 +129,28 @@ h3 .sig {
 /* change layout on small displays */
 @media all and (max-width: 50rem) {
   .wrapper {
-    flex-flow: column;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
     position: static;
-    top: auto;
-    bottom: auto;
+    height: auto;
+    width: 100%;
   }
 
   .mori-nav, .mori-content {
-    flex: 1;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    ms-flex: 0 1 auto;
     width: 100%;
     padding: 1em;
+    height: auto;
   }
 
   .mori-nav {
     border-right: none;
     border-bottom: 1px solid #ccc;
-    -moz-columns: 2;
     -webkit-columns: 2;
+    -moz-columns: 2;
     columns: 2;
   }
 
