@@ -88,7 +88,8 @@ h2, h3 {
 }
 
 main {
-    max-width: 35em;
+    width: 100%;
+    max-width: 38em;
 }
 
 .mori-content p,
@@ -144,7 +145,7 @@ h3 .sig {
   .mori-nav, .mori-content {
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
-    ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     width: 100%;
     padding: 1em;
     height: auto;
@@ -172,5 +173,9 @@ h3 .sig {
 
   .mori-nav .main {
     display: none;
+  }
+
+  main {
+    margin: 0 auto;
   }
 }
