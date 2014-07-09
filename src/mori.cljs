@@ -5,7 +5,7 @@
     take drop partition partition-by iterate into merge subvec
     take-while drop-while group-by
     interpose interleave concat flatten
-    keys vals
+    keys select-keys vals
     prim-seq
     map mapcat reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
@@ -73,6 +73,7 @@
     (cljs.core/rest (tree-seq sequential-or-array? seq x))))
 
 (def ^:export keys cljs.core/keys)
+(def ^:export select-keys cljs.core/select-keys)
 (def ^:export vals cljs.core/vals)
 (def ^:export prim-seq cljs.core/prim-seq)
 (def ^:export map cljs.core/map)
