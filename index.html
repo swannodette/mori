@@ -539,18 +539,48 @@ mori.seq(mori.sorted_set(3,2,1,3)); // #{1 2 3}
 
         <h3 id="range">
           range
-          <span class="sig">mori.range(start, [end], [step])</span>
+          <span class="sig">mori.range([start], [end], [step])</span>
         </h3>
         <p>
-          Construct a lazy range of values. If not given an end
-          will produce an infinite lazy sequence. A step may
-          be specified.
+          Construct a potentially infinite lazy range of values.
+        </p>
+        <p>
+          With no parameters, a infinite lazy sequence starting
+          at 0 will be returned.
+        </p>
+        <div class="example">
+          <pre class="brush: javascript">
+var r = mori.range(); // => (0 1 2 3 …)
+          </pre>
+        </div>
+        <p>
+          A single parameter serves as the <code>end</code> 
+          (exclusive) argument.
         </p>
         <div class="example">
           <pre class="brush: clojure">
-var r = mori.range(1, 10); // => (1 2 3 4 5 6 7 8 9)
+var r = mori.range(10); // => (0 1 2 3 4 5 6 7 8 9)
           </pre>
         </div>
+        <p>
+          Two parameters serve as <code>start</code> and 
+          <code>end</code>.
+        </p>
+        <div class="example">
+          <pre class="brush: clojure">
+var r = mori.range(1,5); // => (1 2 3 4)
+          </pre>
+        </div>
+        <p>
+          If three parameters are specified, the third serves 
+          as a <code>step</code> argument.
+        </p>
+        <div class="example">
+          <pre class="brush: clojure">
+var r = mori.range(1,9,2); // => (1 3 5 7)
+          </pre>
+        </div>
+
 
         <h3 id="queue">
           queue
