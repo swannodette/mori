@@ -183,12 +183,17 @@
 (def ^:export constantly cljs.core/constantly)
 
 (def ^:export clj-to-js cljs.core/clj->js)
-(defn ^:export js-to-clj 
+(defn ^:export js-to-clj
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
 
 (defn ^:export parse [s]
   (reader/read-string s))
+
+(defn ^:export configure [variable value]
+  (case variable
+    "print-length" (set! *print-length* value)
+    "print-level" (set! *print-level* value)))
 
 ;; =============================================================================
 ;; Experimental Proxy support

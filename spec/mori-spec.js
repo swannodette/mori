@@ -203,6 +203,29 @@ describe("Distinct", function() {
 
 });
 
+describe("configure", function() {
+    it("can tune *print-length*", function() {
+        mori.configure("print-length", 5);
+        expect(mori.range(10).toString()).toEqual("(0 1 2 3 4 ...)");
+
+        mori.configure("print-length", 3);
+        expect(mori.range(5).toString()).toEqual("(0 1 2 ...)");
+
+        mori.configure("print-length", null);
+        expect(mori.range(5).toString()).toEqual("(0 1 2 3 4)");
+    });
+    it("can tune *print-level*", function() {
+        mori.configure("print-level", 3);
+        expect(mori.parse("[1 [2 [3 [4 [5]]]]]") + '').toEqual("[1 [2 [3 #]]]");
+
+        mori.configure("print-level", 1);
+        expect(mori.parse("{1 {2 3}}") + '').toEqual("{1 #}");
+
+        mori.configure("print-level", null);
+        expect(mori.parse("[1 [2 [3 [4]]]]") + '').toEqual("[1 [2 [3 [4]]]]");
+    });
+});
+
 describe("Queue", function() {
 
     it("can be initialized empty", function() {
