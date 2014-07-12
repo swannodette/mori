@@ -18,7 +18,8 @@
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
-            [clojure.core.reducers :as reducers]))
+            [clojure.core.reducers :as reducers]
+            [cljs.reader :as reader]))
 
 (def ^:export apply cljs.core/apply)
 (def ^:export count cljs.core/count)
@@ -185,6 +186,12 @@
 (defn ^:export js-to-clj 
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
+
+(defn ^:export parse [s]
+  (reader/read-string s))
+
+;; =============================================================================
+;; Experimental Proxy support
 
 (defn ^:export proxy [coll]
   (if (exists? js/Proxy)
