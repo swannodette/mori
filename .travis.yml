@@ -5,3 +5,9 @@ branches:
 node_js:
   - 0.8
   - 0.10
+  - 0.11
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install openjdk-7-jre
+  - sudo wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /usr/bin/lein
+  - sudo chmod +x /usr/bin/lein

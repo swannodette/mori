@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 ./bin/lein_prefer deps
 ./bin/lein_prefer cljsbuild once release
 
