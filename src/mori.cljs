@@ -2,11 +2,12 @@
   (:refer-clojure :exclude
    [count distinct empty first rest seq conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get empty? reverse
-    take drop partition partition-by iterate into merge subvec
+    take drop take-nth partition partition-all partition-by iterate
+    into merge subvec
     take-while drop-while group-by
     interpose interleave concat flatten
     keys select-keys vals
-    prim-seq
+    prim-seq lazy-seq
     map mapcat reduce reduce-kv filter remove some every? equiv
     range repeat repeatedly sort sort-by
     into-array
@@ -49,7 +50,9 @@
 (def ^:export reverse cljs.core/reverse)
 (def ^:export take cljs.core/take)
 (def ^:export drop cljs.core/drop)
+(def ^:export take-nth cljs.core/take-nth)
 (def ^:export partition cljs.core/partition)
+(def ^:export partition-all cljs.core/partition-all)
 (def ^:export partition-by cljs.core/partition-by)
 (def ^:export iterate cljs.core/iterate)
 (def ^:export into cljs.core/into)
@@ -72,6 +75,10 @@
 (defn ^:export flatten [x]
   (cljs.core/filter #(not (sequential-or-array? %))
     (cljs.core/rest (tree-seq sequential-or-array? seq x))))
+
+; The real lazy-seq is a macro, but it just expands its body into a function
+(defn ^:export lazy-seq [f]
+  (new cljs.core/LazySeq nil f nil nil))
 
 (def ^:export keys cljs.core/keys)
 (def ^:export select-keys cljs.core/select-keys)
