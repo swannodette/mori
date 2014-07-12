@@ -288,7 +288,7 @@ m = mori;
 
 [1 2 3 4]            ;; vector
 
-{"foo" 1, "bar" 2}     ;; hash map
+{"foo" 1, "bar" 2}     ;; hash map / sorted-map
 
 #{"cat" "bird" "dog"}  ;; set / sorted-set
           </pre>
@@ -505,6 +505,19 @@ mori.get(m1, m.vector(1,2)); // => 3
           </pre>
         </div>
 
+        <h3 id="sorted_map">
+          sorted_map
+          <span class="sig">mori.sorted_map(key0, val0, key1, val1, ...)</span>
+        </h3>
+        <p>
+          Like a hash map but keeps its keys ordered.
+        </p>
+        <div class="example">
+          <pre class="brush: clojure">
+mori.sorted_map(2, "two", 3, "three", 1, "one"); // {1 "one", 2 "two", 3 "three"}
+          </pre>
+        </div>
+
         <h3 id="set">
           set
           <span class="sig">mori.set(seqable)</span>
@@ -554,7 +567,7 @@ var r = mori.range(); // => (0 1 2 3 …)
           </pre>
         </div>
         <p>
-          A single parameter serves as the <code>end</code> 
+          A single parameter serves as the <code>end</code>
           (exclusive) argument.
         </p>
         <div class="example">
@@ -563,7 +576,7 @@ var r = mori.range(10); // => (0 1 2 3 4 5 6 7 8 9)
           </pre>
         </div>
         <p>
-          Two parameters serve as <code>start</code> and 
+          Two parameters serve as <code>start</code> and
           <code>end</code>.
         </p>
         <div class="example">
@@ -572,7 +585,7 @@ var r = mori.range(1,5); // => (1 2 3 4)
           </pre>
         </div>
         <p>
-          If three parameters are specified, the third serves 
+          If three parameters are specified, the third serves
           as a <code>step</code> argument.
         </p>
         <div class="example">
@@ -1790,15 +1803,10 @@ mori.map(mori.comp(mori.is_odd, mori.inc), [1, 2, 3]); // => (false true false)
           is called, will return the result of each function applied
           to the arguments in a JavaScript array.
         </p>
-        <p>
-          The following example is in CoffeeScript:
-        </p>
         <div class="example">
           <pre class="brush: javascript">
-f = mori.juxt "last", "first"
-p = mori.hash_map "first", "Bob", "last", "Smith"
-
-f(p).join ", " // => "Smith, Bob"
+f = mori.juxt(mori.first, mori.last);
+f([1, 2, 3, 4, 5, 6]); // => [ 1, 6 ] (a javascript array)
           </pre>
         </div>
 
