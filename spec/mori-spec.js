@@ -110,7 +110,7 @@ describe("Currying", function () {
 
         var cur_res = mori.pipeline(mori.vector(1,2,3),
                                     mori.curry(mori.conj, 4),
-                                    mori.curry(mori.conj, 5));;
+                                    mori.curry(mori.conj, 5));
 
         expect(mori.into_array(cur_res)).toEqual([1,2,3,4,5]);
 
@@ -245,4 +245,23 @@ describe("Queue", function() {
 
     });
 
+});
+
+describe("lazy-seq", function() {
+    it("can be used build non-stack-blowing seq functions", function() {
+        var m = mori;
+        var fib = function(a, b) {
+            return m.cons(a, m.lazy_seq(function() {
+                return fib(b, b + a);
+            }));
+        };
+
+        var fibs = m.take(10, fib(1, 1));
+
+        expect(m.clj_to_js(fibs)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
+
+        // Numbers can only be so big
+        var bigFib = m.last(m.take(2000, fib(1, 1)));
+        expect(bigFib).toEqual(Infinity);
+    });
 });
