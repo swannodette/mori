@@ -41,4 +41,11 @@ chmod +x $LEIN_PREFER
 
 fi
 
+if [[ ! -f $LEIN_PREFER ]]; then
+
+echo "Failed to find or set up Leiningen"
+exit 1
+
+fi
+
 $LEIN_PREFER $@
