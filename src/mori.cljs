@@ -19,6 +19,7 @@
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
+            [clojure.data :as data]
             [clojure.core.reducers :as reducers]
             [cljs.reader :as reader]))
 
@@ -173,6 +174,10 @@
 (defn ^:export knit [& fns]
   (fn [args]
     (into-array (map #(% %2) fns args))))
+
+;; Data fns
+
+(def ^:export diff data/diff)
 
 ;; Useful fns
 
