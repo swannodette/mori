@@ -268,3 +268,30 @@
   cljs.core.PersistentQueue
   cljs.core.PersistentQueueSeq)
 
+;; =============================================================================
+;; Closure hacks so we get exported ES6 Map/Set interface on collections
+;; Following functions are NOT a part of the API
+
+(defn ^:export _equiv [x y]
+  (.equiv x y))
+
+(defn ^:export _keys [x]
+  (.keys x))
+
+(defn ^:export _values [x]
+  (.values x))
+
+(defn ^:export _entries [x]
+  (.entries x))
+
+(defn ^:export _has [x]
+  (.has x))
+
+(defn ^:export _get [x]
+  (.get x))
+
+(defn ^:export _forEach [x]
+  (.forEach x))
+
+(defn ^:export _next [x]
+  (.next x))
