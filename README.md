@@ -146,6 +146,27 @@ for(var j = 0; j < 10; j++) {
 }
 ```
 
+### ES6 Map/Set interfaces
+
+All Mori maps and sets support the proposed ES6
+[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+and
+[Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+interface:
+
+```javascript
+var m = mori;
+var h = m.hash_map("foo", 1, "bar", 2);
+
+h.has("foo"); // => true
+h.get("foo"); // => 1
+
+var iter = h.keys();
+iter.next(); // => {done: false, value: "foo"}
+```
+
+This feature is subject to changes in the ES6 proposal.
+
 ### Reducers
 
 Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
