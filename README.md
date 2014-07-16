@@ -153,7 +153,7 @@ proposed ES6
 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 and
 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-interface. `keys`, `values`, and `entries` methods return the proposed
+interfaces. `keys`, `values`, and `entries` methods return the proposed
 mutating iterators:
 
 ```javascript
