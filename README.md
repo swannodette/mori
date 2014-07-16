@@ -148,11 +148,13 @@ for(var j = 0; j < 10; j++) {
 
 ### ES6 Map/Set interfaces
 
-All Mori maps and sets support the proposed ES6
+All Mori maps and sets support all the non-mutating methods of the
+proposed ES6
 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 and
 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-interface:
+interface. `keys`, `values`, and `entries` methods return the proposed
+mutating iterators:
 
 ```javascript
 var m = mori;
