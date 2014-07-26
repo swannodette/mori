@@ -3,7 +3,7 @@
    [count distinct empty first rest seq conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get empty? reverse
     take drop take-nth partition partition-all partition-by iterate
-    into merge subvec
+    into merge merge-with subvec
     take-while drop-while group-by
     interpose interleave concat flatten
     keys select-keys vals
@@ -58,6 +58,7 @@
 (def ^:export iterate cljs.core/iterate)
 (def ^:export into cljs.core/into)
 (def ^:export merge cljs.core/merge)
+(def ^:export merge-with cljs.core/merge-with)
 (def ^:export subvec cljs.core/subvec)
 (def ^:export take-while cljs.core/take-while)
 (def ^:export drop-while cljs.core/drop-while)
