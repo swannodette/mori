@@ -153,6 +153,12 @@
 (def ^:export union set/union)
 (def ^:export intersection set/intersection)
 (def ^:export difference set/difference)
+(def ^:export join set/join)
+(def ^:export index set/index)
+(def ^:export project set/project)
+(def ^:export map-invert set/map-invert)
+(def ^:export rename set/rename)
+(def ^:export rename-keys set/rename-keys)
 (def ^:export is-subset set/subset?)
 (def ^:export is-superset set/superset?)
 
