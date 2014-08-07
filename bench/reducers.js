@@ -22,17 +22,24 @@
         return n*3;
     }
 
-    function time(f) {
-        var s = new Date();
-        var ret = f();
-        log(ret + " "  + ((new Date())-s)+"ms");
+    function time(f, iters) {
+        var el = 0,
+            ret = null;
+
+        for(var i = 0; i < iters; i++) {
+            var s = new Date();
+            ret = f();
+            el += (new Date())-s;
+        }
+        
+        log(ret + " " + (el/iters) +"ms");
     }
 
     time(function() {
         return m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
-    });
+    }, 10);
 
     time(function() {
         return a.map(m.inc).map(m.inc).map(m.inc).reduce(function(a,b){return a+b;}, 0);
-    })
+    }, 10);
 })();
