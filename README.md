@@ -194,14 +194,14 @@ function time(f) {
   console.log(((new Date())-s)+"ms");
 }
 
-// 250ms on 1.7ghz Macbook Air
+// 87ms 3.5ghz iMac recent V8 build
 time(function() {
   m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
 });
 
-// 630ms
+// 365ms
 time(function() {
-  a.map(mul3).map(m.inc).map(m.inc).map(m.inc)
+  a.map(m.inc).map(m.inc).map(m.inc).reduce(function(a,b){return a+b;}, 0);
 })
 ```
 
