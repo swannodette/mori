@@ -1,6 +1,6 @@
 (ns mori
   (:refer-clojure :exclude
-   [count distinct empty first second next rest seq conj cons find nth last assoc dissoc
+   [extend count distinct empty first second next rest seq conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get empty? reverse
     take drop take-nth partition partition-all partition-by iterate
     into merge merge-with subvec
@@ -285,6 +285,94 @@
   cljs.core.Symbol
   cljs.core.PersistentQueue
   cljs.core.PersistentQueueSeq)
+
+;; =============================================================================
+;; JS Protocol support
+
+(defn extend-to-iassociative [obj methods]
+  (specify! obj
+    IAssociative
+    (-contains-key? [this k] (.call (aget methods "contains_key") this k))
+    (-assoc [this k v] (.call (aget methods "assoc") this k v))))
+
+(defn extend-to-icloneable [obj methods]
+  (specify! obj
+    ICloneable
+    (-clone [this] (.call (aget methods "clone") this))))
+
+(defn extend-to-icollection [obj methods]
+  (specify! obj
+    ICollection
+    (-conj [this o] (.call (aget methods "conj") this o))))
+
+(defn extend-to-icounted [obj methods]
+  (specify! obj
+    ICounted
+    (-count [this] (.call (aget methods "count") this))))
+
+(defn extend-to-iencodeclojure [obj methods]
+  (specify! obj
+    IEncodeClojure
+    (-js->clj [this options] (.call (aget methods "toClj") this options))))
+
+(defn extend-to-iencodejs [obj methods]
+  (specify! obj
+    IEncodeJS
+    (-clj->js [this] (.call (aget methods "toJS") this))))
+
+(defn extend-to-iequiv [obj methods]
+  (specify! obj
+    IEquiv
+    (-equiv [this obj] (.call (aget methods "equiv") this obj))))
+
+(defn extend-to-ihash [obj methods]
+  (specify! obj
+    IHash
+    (-hash [this] (.call (aget methods "hash") this))))
+
+(defn extend-to-ikvreduce [obj methods]
+  (specify! obj
+    IKVReduce
+    (-kv-reduce [this f init] (.call (aget methods "reduce_kv") this f init))))
+
+(defn extend-to-ilookup [obj methods]
+  (specify! obj
+    ILookup
+    (-lookup [this k] (-lookup this k nil))
+    (-lookup [this k not-found] (.call (aget methods "lookup") this k not-found))))
+
+(defn extend-to-imap [obj methods]
+  (specify! obj
+    IMap
+    (-dissoc [this k] (.call (aget methods "dissoc") this k))))
+
+(defn extend-to-iseq [obj methods]
+  (specify! obj
+    ISeq
+    (-first [this] (.call (aget methods "first") this))
+    (-rest [this] (.call (aget methods "rest") this))))
+
+(defn extend-to-iseqable [obj methods]
+  (specify! obj
+    ISeqable
+    (-seq [this] (.call (aget methods "seq") this))))
+
+(defn ^:export extend [protocol-name obj methods]
+  (case protocol-name
+    "IAssociative" (extend-to-iassociative obj methods)
+    "ICloneable" (extend-to-icloneable obj methods)
+    "ICollection" (extend-to-icollection obj methods)
+    "ICounted" (extend-to-icounted obj methods)
+    "IEncodeClojure" (extend-to-iencodeclojure obj methods)
+    "IEncodeJS" (extend-to-iencodejs obj methods)
+    "IEquiv" (extend-to-iequiv obj methods)
+    "IHash" (extend-to-ihash obj methods)
+    "IKVReduce" (extend-to-ikvreduce obj methods)
+    "ILookup" (extend-to-ilookup obj methods)
+    "IMap" (extend-to-imap obj methods)
+    "ISeq" (extend-to-iseq obj methods)
+    "ISeqable" (extend-to-iseqable obj methods)
+    (throw (js/Error. (str "Cannot extend to " protocol-name)))))
 
 ;; =============================================================================
 ;; Closure hacks so we get exported ES6 Map/Set interface on collections
