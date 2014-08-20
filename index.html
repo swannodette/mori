@@ -535,8 +535,8 @@ mori.sorted_map(2, "two", 3, "three", 1, "one"); // {1 "one", 2 "two", 3 "three"
           <pre class="brush: clojure">
 var s = mori.set(["bird", "cat", "dog"]);
 
-mori.conj("dog"); // => #{"bird" "cat" "dog"}
-mori.conj("zebra"); // => #{"bird" "cat" "dog" "zebra"}
+mori.conj(s, "dog"); // => #{"bird" "cat" "dog"}
+mori.conj(s, "zebra"); // => #{"bird" "cat" "dog" "zebra"}
           </pre>
         </div>
 
@@ -1033,7 +1033,7 @@ mori.merge(m, mori.hash_map("bar", 3, "baz", 4)); // => {foo 1, bar 3, baz 4}
         <div class="example">
           <pre class="brush: javascript">
 var s = mori.set(["cat", "dog", "bird"]); // => #{"cat" "bird" "dog"}
-s.disj("bird"); // => #{"dog" "cat"}
+mori.disj(s,"bird"); // => #{"dog" "cat"}
           </pre>
         </div>
 
