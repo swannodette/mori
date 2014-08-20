@@ -1,6 +1,6 @@
 (ns mori
   (:refer-clojure :exclude
-   [count distinct empty first rest seq conj cons find nth last assoc dissoc
+   [count distinct empty first second next rest seq conj cons find nth last assoc dissoc
     get-in update-in assoc-in fnil disj pop peek hash get empty? reverse
     take drop take-nth partition partition-all partition-by iterate
     into merge merge-with subvec
@@ -28,6 +28,8 @@
 (def ^:export distinct cljs.core/distinct)
 (def ^:export empty cljs.core/empty)
 (def ^:export first cljs.core/first)
+(def ^:export second cljs.core/second)
+(def ^:export next cljs.core/next)
 (def ^:export rest cljs.core/rest)
 (def ^:export seq cljs.core/seq)
 (def ^:export conj cljs.core/conj)
