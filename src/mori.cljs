@@ -19,7 +19,8 @@
     sum inc dec even? odd? subseq compare
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
-  (:require [clojure.set :as set]
+  (:require [goog.object]
+            [clojure.set :as set]
             [clojure.data :as data]
             [cljs.reader :as reader]))
 
@@ -357,7 +358,7 @@
     ISeqable
     (-seq [this] (.call (aget methods "seq") this))))
 
-(defn ^:export extend [protocol-name obj methods]
+(defn extend! [protocol-name obj methods]
   (case protocol-name
     "IAssociative" (extend-to-iassociative obj methods)
     "ICloneable" (extend-to-icloneable obj methods)
@@ -373,6 +374,12 @@
     "ISeq" (extend-to-iseq obj methods)
     "ISeqable" (extend-to-iseqable obj methods)
     (throw (js/Error. (str "Cannot extend to " protocol-name)))))
+
+(defn ^:export extend [obj protocols]
+  (goog.object/forEach protocols 
+    (fn [val key o]
+      (extend! key obj val)))
+       obj)
 
 ;; =============================================================================
 ;; Closure hacks so we get exported ES6 Map/Set interface on collections
