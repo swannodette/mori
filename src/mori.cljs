@@ -9,6 +9,7 @@
     keys select-keys vals
     prim-seq lazy-seq
     map mapcat map-indexed reduce reduce-kv filter remove some every? equiv
+    transduce iteration sequence flatmap dedupe
     range repeat repeatedly sort sort-by
     into-array
     partial comp juxt
@@ -20,7 +21,6 @@
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
             [clojure.data :as data]
-            [clojure.core.reducers :as reducers]
             [cljs.reader :as reader]))
 
 (def ^:export apply cljs.core/apply)
@@ -105,15 +105,14 @@
 (def ^:export sort-by cljs.core/sort-by)
 (def ^:export into-array cljs.core/into-array)
 (def ^:export subseq cljs.core/subseq)
+(def ^:export flatmap cljs.core/flatmap)
+(def ^:export dedupe cljs.core/dedupe)
 
-;; Reducers
-(def ^:export rmap reducers/map)
-(def ^:export rfilter reducers/filter)
-(def ^:export rremove reducers/remove)
-(def ^:export rtake reducers/take)
-(def ^:export rtake-while reducers/take-while)
-(def ^:export rdrop reducers/drop)
-(def ^:export rflatten reducers/flatten)
+;; transducers
+
+(def ^:export transduce cljs.core/transduce)
+(def ^:export iteration cljs.core/iteration)
+(def ^:export sequence cljs.core/sequence)
 
 ;; constructors
 
