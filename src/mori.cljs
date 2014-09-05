@@ -15,7 +15,7 @@
     identity constantly
     list vector array-map hash-map zipmap set sorted-set keyword symbol
     sorted-set-by sorted-map sorted-map-by
-    sum inc dec even? odd? subseq
+    sum inc dec even? odd? subseq compare
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
@@ -164,6 +164,15 @@
 (def ^:export rename-keys set/rename-keys)
 (def ^:export is-subset set/subset?)
 (def ^:export is-superset set/superset?)
+
+;; Comparisons
+
+(def ^:export not-equals cljs.core/not=)
+(def ^:export gt cljs.core/>)
+(def ^:export gte cljs.core/>=)
+(def ^:export lt cljs.core/<)
+(def ^:export lte cljs.core/<=)
+(def ^:export compare cljs.core/compare)
 
 ;; HOFs
 
