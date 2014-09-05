@@ -80,7 +80,7 @@ describe("Reducers", function () {
         //     console.log(((new Date())-s)+"ms");
         // }
 
-        var res1 = m.reduce(m.sum, 0, m.rmap(m.inc, m.rfilter(m.is_even, m.rmap(mul3, v)))),
+        var res1 = m.reduce(m.sum, 0, m.reducers.map(m.inc, m.reducers.filter(m.is_even, m.reducers.map(mul3, v)))),
             res2 = a.map(mul3).filter(m.is_even).map(m.inc).reduce(m.sum);
 
         expect(res1).toEqual(7499900000);
