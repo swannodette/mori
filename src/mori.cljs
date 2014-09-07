@@ -331,6 +331,12 @@
     IHash
     (-hash [this] (.call (aget methods "hash") this))))
 
+(defn extend-to-iindexed [obj methods]
+  (specify! obj
+    IIndexed
+    (-nth [this k] (.call (aget methods "nth") this))
+    (-nth [this k not-found] (.call (aget methods "nth") this))))
+
 (defn extend-to-ikvreduce [obj methods]
   (specify! obj
     IKVReduce
@@ -368,6 +374,7 @@
     "IEncodeJS" (extend-to-iencodejs obj methods)
     "IEquiv" (extend-to-iequiv obj methods)
     "IHash" (extend-to-ihash obj methods)
+    "IIndexed" (extend-to-iindexed obj methods)
     "IKVReduce" (extend-to-ikvreduce obj methods)
     "ILookup" (extend-to-ilookup obj methods)
     "IMap" (extend-to-imap obj methods)
