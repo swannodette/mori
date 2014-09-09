@@ -353,6 +353,11 @@
     IMap
     (-dissoc [this k] (.call (aget methods "dissoc") this k))))
 
+(defn extend-to-imeta [obj methods]
+  (specify! obj
+    IMeta
+    (-meta [this] (.call (aget methods "meta") this))))
+
 (defn extend-to-iseq [obj methods]
   (specify! obj
     ISeq
@@ -363,6 +368,11 @@
   (specify! obj
     ISeqable
     (-seq [this] (.call (aget methods "seq") this))))
+
+(defn extend-to-iwithmeta [obj methods]
+  (specify! obj
+    IWithMeta
+    (-with-meta [this new-meta] (.call (aget methods "withMeta") this new-meta))))
 
 (defn extend! [protocol-name obj methods]
   (case protocol-name
@@ -378,8 +388,10 @@
     "IKVReduce" (extend-to-ikvreduce obj methods)
     "ILookup" (extend-to-ilookup obj methods)
     "IMap" (extend-to-imap obj methods)
+    "IMeta" (extend-to-imeta obj methods)
     "ISeq" (extend-to-iseq obj methods)
     "ISeqable" (extend-to-iseqable obj methods)
+    "IWithMeta" (extend-to-iwithmeta obj methods)
     (throw (js/Error. (str "Cannot extend to " protocol-name)))))
 
 (defn ^:export extend [obj protocols]
