@@ -7,7 +7,7 @@
     take-while drop-while group-by
     interpose interleave concat flatten
     keys select-keys vals
-    prim-seq lazy-seq
+    prim-seq lazy-seq keep keep-indexed
     map mapcat map-indexed reduce reduce-kv filter remove some every? equiv
     transduce iteration sequence flatmap dedupe
     range repeat repeatedly sort sort-by
@@ -93,6 +93,8 @@
 (def ^:export mapcat cljs.core/mapcat)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export reduce-kv cljs.core/reduce-kv)
+(def ^:export keep cljs.core/keep)
+(def ^:export keep-indexed cljs.core/keep-indexed)
 (def ^:export filter cljs.core/filter)
 (def ^:export remove cljs.core/remove)
 (def ^:export some cljs.core/some)
