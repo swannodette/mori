@@ -17,6 +17,7 @@
     list vector array-map hash-map zipmap set sorted-set keyword symbol
     sorted-set-by sorted-map sorted-map-by
     sum inc dec even? odd? subseq compare
+    meta with-meta vary-meta
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
@@ -226,6 +227,12 @@
   (case variable
     "print-length" (set! *print-length* value)
     "print-level" (set! *print-level* value)))
+
+(def ^:export meta cljs.core/meta)
+(def ^:export with-meta cljs.core/with-meta)
+(def ^:export vary-meta cljs.core/vary-meta)
+(def ^:export alter-meta cljs.core/alter-meta!)
+(def ^:export reset-meta cljs.core/reset-meta!)
 
 ;; =============================================================================
 ;; Experimental Proxy support
