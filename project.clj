@@ -2,7 +2,7 @@
   :description "Persistent Data Structures for JavaScript"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2307"]]
+                 [org.clojure/clojurescript "0.0-2371"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
 
