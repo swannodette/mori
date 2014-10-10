@@ -1,4 +1,4 @@
-(defproject mori "0.2.9"
+(defproject mori "0.3.0-SNAPSHOT"
   :description "Persistent Data Structures for JavaScript"
 
   :dependencies [[org.clojure/clojure "1.6.0"]

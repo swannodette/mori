@@ -7,20 +7,21 @@
     take-while drop-while group-by
     interpose interleave concat flatten
     keys select-keys vals
-    prim-seq lazy-seq
-    map mapcat reduce reduce-kv filter remove some every? equiv
+    prim-seq lazy-seq keep keep-indexed
+    map mapcat map-indexed reduce reduce-kv filter remove some every? equiv
+    transduce iteration sequence flatmap dedupe
     range repeat repeatedly sort sort-by
     into-array
     partial comp juxt
     identity constantly
     list vector array-map hash-map zipmap set sorted-set keyword symbol
     sorted-set-by sorted-map sorted-map-by
-    sum inc dec even? odd? subseq
+    sum inc dec even? odd? subseq compare
+    meta with-meta vary-meta
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
   (:require [clojure.set :as set]
             [clojure.data :as data]
-            [clojure.core.reducers :as reducers]
             [cljs.reader :as reader]))
 
 (def ^:export apply cljs.core/apply)
@@ -89,9 +90,12 @@
 (def ^:export vals cljs.core/vals)
 (def ^:export prim-seq cljs.core/prim-seq)
 (def ^:export map cljs.core/map)
+(def ^:export map-indexed cljs.core/map-indexed)
 (def ^:export mapcat cljs.core/mapcat)
 (def ^:export reduce cljs.core/reduce)
 (def ^:export reduce-kv cljs.core/reduce-kv)
+(def ^:export keep cljs.core/keep)
+(def ^:export keep-indexed cljs.core/keep-indexed)
 (def ^:export filter cljs.core/filter)
 (def ^:export remove cljs.core/remove)
 (def ^:export some cljs.core/some)
@@ -104,15 +108,14 @@
 (def ^:export sort-by cljs.core/sort-by)
 (def ^:export into-array cljs.core/into-array)
 (def ^:export subseq cljs.core/subseq)
+(def ^:export flatmap cljs.core/flatmap)
+(def ^:export dedupe cljs.core/dedupe)
 
-;; Reducers
-(def ^:export rmap reducers/map)
-(def ^:export rfilter reducers/filter)
-(def ^:export rremove reducers/remove)
-(def ^:export rtake reducers/take)
-(def ^:export rtake-while reducers/take-while)
-(def ^:export rdrop reducers/drop)
-(def ^:export rflatten reducers/flatten)
+;; transducers
+
+(def ^:export transduce cljs.core/transduce)
+(def ^:export iteration cljs.core/iteration)
+(def ^:export sequence cljs.core/sequence)
 
 ;; constructors
 
@@ -163,6 +166,15 @@
 (def ^:export rename-keys set/rename-keys)
 (def ^:export is-subset set/subset?)
 (def ^:export is-superset set/superset?)
+
+;; Comparisons
+
+(def ^:export not-equals cljs.core/not=)
+(def ^:export gt cljs.core/>)
+(def ^:export gte cljs.core/>=)
+(def ^:export lt cljs.core/<)
+(def ^:export lte cljs.core/<=)
+(def ^:export compare cljs.core/compare)
 
 ;; HOFs
 
@@ -215,6 +227,12 @@
   (case variable
     "print-length" (set! *print-length* value)
     "print-level" (set! *print-level* value)))
+
+(def ^:export meta cljs.core/meta)
+(def ^:export with-meta cljs.core/with-meta)
+(def ^:export vary-meta cljs.core/vary-meta)
+(def ^:export alter-meta cljs.core/alter-meta!)
+(def ^:export reset-meta cljs.core/reset-meta!)
 
 ;; =============================================================================
 ;; Experimental Proxy support
