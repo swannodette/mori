@@ -40,32 +40,32 @@
 (def ^:export last cljs.core/last)
 (def ^:export assoc cljs.core/assoc)
 (def ^:export dissoc cljs.core/dissoc)
-(def ^:export get-in cljs.core/get-in)
-(def ^:export update-in cljs.core/update-in)
-(def ^:export assoc-in cljs.core/assoc-in)
+(def ^:export getIn cljs.core/get-in)
+(def ^:export updateIn cljs.core/update-in)
+(def ^:export assocIn cljs.core/assoc-in)
 (def ^:export fnil cljs.core/fnil)
 (def ^:export disj cljs.core/disj)
 (def ^:export pop cljs.core/pop)
 (def ^:export peek cljs.core/peek)
 (def ^:export hash cljs.core/hash)
 (def ^:export get cljs.core/get)
-(def ^:export has-key cljs.core/contains?)
-(def ^:export is-empty cljs.core/empty?)
+(def ^:export hasKey cljs.core/contains?)
+(def ^:export isEmpty cljs.core/empty?)
 (def ^:export reverse cljs.core/reverse)
 (def ^:export take cljs.core/take)
 (def ^:export drop cljs.core/drop)
-(def ^:export take-nth cljs.core/take-nth)
+(def ^:export takeNth cljs.core/take-nth)
 (def ^:export partition cljs.core/partition)
-(def ^:export partition-all cljs.core/partition-all)
-(def ^:export partition-by cljs.core/partition-by)
+(def ^:export partitionAall cljs.core/partition-all)
+(def ^:export partitionBy cljs.core/partition-by)
 (def ^:export iterate cljs.core/iterate)
 (def ^:export into cljs.core/into)
 (def ^:export merge cljs.core/merge)
-(def ^:export merge-with cljs.core/merge-with)
+(def ^:export mergeWith cljs.core/merge-with)
 (def ^:export subvec cljs.core/subvec)
-(def ^:export take-while cljs.core/take-while)
-(def ^:export drop-while cljs.core/drop-while)
-(def ^:export group-by cljs.core/group-by)
+(def ^:export takeWhile cljs.core/take-while)
+(def ^:export dropWhile cljs.core/drop-while)
+(def ^:export groupBy cljs.core/group-by)
 (def ^:export interpose cljs.core/interpose)
 (def ^:export interleave cljs.core/interleave)
 (def ^:export concat cljs.core/concat)
@@ -82,20 +82,20 @@
     (cljs.core/rest (tree-seq sequential-or-array? seq x))))
 
 ; The real lazy-seq is a macro, but it just expands its body into a function
-(defn ^:export lazy-seq [f]
+(defn ^:export lazySeq [f]
   (new cljs.core/LazySeq nil f nil nil))
 
 (def ^:export keys cljs.core/keys)
-(def ^:export select-keys cljs.core/select-keys)
+(def ^:export selectKeys cljs.core/select-keys)
 (def ^:export vals cljs.core/vals)
-(def ^:export prim-seq cljs.core/prim-seq)
+(def ^:export primSeq cljs.core/prim-seq)
 (def ^:export map cljs.core/map)
-(def ^:export map-indexed cljs.core/map-indexed)
+(def ^:export mapIndexed cljs.core/map-indexed)
 (def ^:export mapcat cljs.core/mapcat)
 (def ^:export reduce cljs.core/reduce)
-(def ^:export reduce-kv cljs.core/reduce-kv)
+(def ^:export reduceKV cljs.core/reduce-kv)
 (def ^:export keep cljs.core/keep)
-(def ^:export keep-indexed cljs.core/keep-indexed)
+(def ^:export keepIndexed cljs.core/keep-indexed)
 (def ^:export filter cljs.core/filter)
 (def ^:export remove cljs.core/remove)
 (def ^:export some cljs.core/some)
@@ -105,8 +105,8 @@
 (def ^:export repeat cljs.core/repeat)
 (def ^:export repeatedly cljs.core/repeatedly)
 (def ^:export sort cljs.core/sort)
-(def ^:export sort-by cljs.core/sort-by)
-(def ^:export into-array cljs.core/into-array)
+(def ^:export sortBy cljs.core/sort-by)
+(def ^:export intoArray cljs.core/into-array)
 (def ^:export subseq cljs.core/subseq)
 (def ^:export flatmap cljs.core/flatmap)
 (def ^:export dedupe cljs.core/dedupe)
@@ -121,13 +121,13 @@
 
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
-(def ^:export array-map cljs.core/array-map)
-(def ^:export hash-map cljs.core/hash-map)
+(def ^:export arrayMap cljs.core/array-map)
+(def ^:export hashMap cljs.core/hash-map)
 (def ^:export set cljs.core/set)
-(def ^:export sorted-set cljs.core/sorted-set)
-(def ^:export sorted-set-by cljs.core/sorted-set-by)
-(def ^:export sorted-map cljs.core/sorted-map)
-(def ^:export sorted-map-by cljs.core/sorted-map-by)
+(def ^:export sortedSet cljs.core/sorted-set)
+(def ^:export sortedSetBy cljs.core/sorted-set-by)
+(def ^:export sortedMap cljs.core/sorted-map)
+(def ^:export sortedMapBy cljs.core/sorted-map-by)
 (def ^:export queue (fn [& args] (into cljs.core.PersistentQueue.EMPTY args)))
 
 (def ^:export keyword cljs.core/keyword)
@@ -136,23 +136,23 @@
 (def ^:export zipmap cljs.core/zipmap)
 
 ;; Predicates
-(def ^:export is-list cljs.core/list?)
-(def ^:export is-seq cljs.core/seq?)
-(def ^:export is-vector cljs.core/vector?)
-(def ^:export is-map cljs.core/map?)
-(def ^:export is-set cljs.core/set?)
+(def ^:export isList cljs.core/list?)
+(def ^:export isSeq cljs.core/seq?)
+(def ^:export isVector cljs.core/vector?)
+(def ^:export isMap cljs.core/map?)
+(def ^:export isSet cljs.core/set?)
 
-(def ^:export is-keyword cljs.core/keyword?)
-(def ^:export is-symbol cljs.core/symbol?)
+(def ^:export isKeyword cljs.core/keyword?)
+(def ^:export isSymbol cljs.core/symbol?)
 
-(def ^:export is-collection cljs.core/coll?)
-(def ^:export is-sequential cljs.core/sequential?)
-(def ^:export is-associative cljs.core/associative?)
-(def ^:export is-counted cljs.core/counted?)
-(def ^:export is-indexed cljs.core/indexed?)
-(def ^:export is-reduceable cljs.core/reduceable?)
-(def ^:export is-seqable cljs.core/seqable?)
-(def ^:export is-reversible cljs.core/reversible?)
+(def ^:export isCollection cljs.core/coll?)
+(def ^:export isSequential cljs.core/sequential?)
+(def ^:export isAssociative cljs.core/associative?)
+(def ^:export isCounted cljs.core/counted?)
+(def ^:export isIndexed cljs.core/indexed?)
+(def ^:export isReduceable cljs.core/reduceable?)
+(def ^:export isSeqable cljs.core/seqable?)
+(def ^:export isReversible cljs.core/reversible?)
 
 ;; Set ops
 (def ^:export union set/union)
@@ -161,15 +161,15 @@
 (def ^:export join set/join)
 (def ^:export index set/index)
 (def ^:export project set/project)
-(def ^:export map-invert set/map-invert)
+(def ^:export mapInvert set/map-invert)
 (def ^:export rename set/rename)
-(def ^:export rename-keys set/rename-keys)
-(def ^:export is-subset set/subset?)
-(def ^:export is-superset set/superset?)
+(def ^:export renameKeys set/rename-keys)
+(def ^:export isSubset set/subset?)
+(def ^:export isSuperset set/superset?)
 
 ;; Comparisons
 
-(def ^:export not-equals cljs.core/not=)
+(def ^:export notEquals cljs.core/not=)
 (def ^:export gt cljs.core/>)
 (def ^:export gte cljs.core/>=)
 (def ^:export lt cljs.core/<)
@@ -190,11 +190,11 @@
 
 (defn ^:export juxt [& fns]
   (fn [& args]
-    (into-array (map #(cljs.core/apply % args) fns))))
+    (intoArray (map #(cljs.core/apply % args) fns))))
 
 (defn ^:export knit [& fns]
   (fn [args]
-    (into-array (map #(% %2) fns args))))
+    (intoArray (map #(% %2) fns args))))
 
 ;; Data fns
 
@@ -205,8 +205,8 @@
 (def ^:export sum (fn [s n] (+ s n)))
 (def ^:export inc (fn [n] (+ n 1)))
 (def ^:export dec (fn [n] (- n 1)))
-(def ^:export is-even (fn [n] (zero? (mod n 2))))
-(def ^:export is-odd (fn [n] (== (mod n 2) 1)))
+(def ^:export isEven (fn [n] (zero? (mod n 2))))
+(def ^:export isOdd (fn [n] (== (mod n 2) 1)))
 
 (defn ^:export each [xs f]
   (doseq [x xs]
@@ -215,8 +215,8 @@
 (def ^:export identity cljs.core/identity)
 (def ^:export constantly cljs.core/constantly)
 
-(def ^:export clj-to-js cljs.core/clj->js)
-(defn ^:export js-to-clj
+(def ^:export cljToJs cljs.core/clj->js)
+(defn ^:export jsToClj
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
 
@@ -229,10 +229,10 @@
     "print-level" (set! *print-level* value)))
 
 (def ^:export meta cljs.core/meta)
-(def ^:export with-meta cljs.core/with-meta)
-(def ^:export vary-meta cljs.core/vary-meta)
-(def ^:export alter-meta cljs.core/alter-meta!)
-(def ^:export reset-meta cljs.core/reset-meta!)
+(def ^:export withMeta cljs.core/with-meta)
+(def ^:export varyMeta cljs.core/vary-meta)
+(def ^:export alterMeta cljs.core/alter-meta!)
+(def ^:export resetMeta cljs.core/reset-meta!)
 
 ;; =============================================================================
 ;; Experimental Proxy support
@@ -251,14 +251,14 @@
                                   (count coll))
                                 :else v)))
                     "set" (fn [target k v])
-                    "enumerate" (fn [] (into-array (keys coll)))
+                    "enumerate" (fn [] (intoArray (keys coll)))
                     "keys" (fn []
                              (cond
                                (map? coll)
-                               (into-array (keys coll))
+                               (intoArray (keys coll))
 
                                (vector? coll)
-                               (into-array (range (count coll)))
+                               (intoArray (range (count coll)))
 
                                :else nil)))]
       (js/Proxy.create handler))
