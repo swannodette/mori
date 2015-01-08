@@ -56,7 +56,7 @@
 (def ^:export drop cljs.core/drop)
 (def ^:export takeNth cljs.core/take-nth)
 (def ^:export partition cljs.core/partition)
-(def ^:export partitionAall cljs.core/partition-all)
+(def ^:export partitionAll cljs.core/partition-all)
 (def ^:export partitionBy cljs.core/partition-by)
 (def ^:export iterate cljs.core/iterate)
 (def ^:export into cljs.core/into)
@@ -215,8 +215,8 @@
 (def ^:export identity cljs.core/identity)
 (def ^:export constantly cljs.core/constantly)
 
-(def ^:export cljToJs cljs.core/clj->js)
-(defn ^:export jsToClj
+(def ^:export toJs cljs.core/clj->js)
+(defn ^:export toClj
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
 
