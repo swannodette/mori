@@ -19,3 +19,5 @@ node_modules
 npm-debug.log
 out-adv
 out-dev
+*init.clj
+.DS_Store
