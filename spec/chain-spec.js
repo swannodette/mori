@@ -1,5 +1,5 @@
-var mbq = require("../mori")
-  , c = mbq.chain
+var mori = require("../mori")
+  , c = mori.chain
   , _ = c._;
 
 describe("ChainedMap", function () {
@@ -67,7 +67,7 @@ describe("Conversion utilities", function () {
         var jsObj  = { a: 1, b: "two" },
             jsArr  = [1, 2, 3],
             cljMap = _({a: 1, b: "two"}),
-            cljMapKeywordized = mbq.hashMap(mbq.keyword("a"), 1, mbq.keyword("b"), "two"),
+            cljMapKeywordized = mori.hashMap(mori.keyword("a"), 1, mori.keyword("b"), "two"),
             cljVec = _([1, 2, 3]);
       
         expect(_(jsObj).is(cljMap)).toBe(true);
@@ -126,13 +126,13 @@ describe("Predicates", function() {
     expect(_(1).isSequential()).toBe(false);
 
     expect(_([1,2]).isAssociative()).toBe(true);
-    expect(_([]).map(mbq.identity).isAssociative()).toBe(false);
+    expect(_([]).map(mori.identity).isAssociative()).toBe(false);
 
     expect(_([]).isCounted()).toBe(true);
     expect(_(1).isCounted()).toBe(false);
 
     expect(_([]).isIndexed()).toBe(true);
-    expect(_([]).map(mbq.identity).isIndexed()).toBe(false);
+    expect(_([]).map(mori.identity).isIndexed()).toBe(false);
 
     expect(_([]).isReduceable()).toBe(true);
     expect(_(1).isReduceable()).toBe(false);
