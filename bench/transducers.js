@@ -36,7 +36,8 @@
     }
 
     time(function() {
-        return m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
+        var xf = m.comp(m.map(m.inc), m.map(m.inc), m.map(m.inc));
+        return m.transduce(xf, m.completing(m.sum), 0, v);
     }, 10);
 
     time(function() {

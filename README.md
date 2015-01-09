@@ -122,7 +122,7 @@ operations:
 ```javascript
 var m = mori;
 
-// ~330ms with v8 3.22.11 MBA 1.7ghz
+// ~220ms with V8 version 3.29.80 MBP 2.26ghz
 for(var j = 0; j < 10; j++) {
   var s = new Date();
   var arr = [];
@@ -133,7 +133,7 @@ for(var j = 0; j < 10; j++) {
   gc();
 }
 
-// ~360ms
+// ~70ms
 for(var j = 0; j < 10; j++) {
   s = new Date();
   var mv = m.mutable.thaw(m.vector());
@@ -170,9 +170,9 @@ iter.next(); // => {done: false, value: "foo"}
 
 This feature is subject to changes in the ES6 proposal.
 
-### Reducers
+### Transducers
 
-Mori includes the new Clojure reducers framework. Zero allocation collection operations FTW:
+Mori includes Transducers. Zero allocation collection operations FTW:
 
 ```javascript
 var m = mori;
@@ -185,25 +185,22 @@ for(var i = 0; i < 1000000; i++) {
 // make it immutable
 var v = m.into(m.vector(), a);
 
-var mul3 = function(n) {
-  return n*3;
-}
-
 function time(f) {
   var s = new Date();
   f();
   console.log(((new Date())-s)+"ms");
 }
 
-// 87ms 3.5ghz iMac recent V8 build
+// ~190ms V8 version 3.29.80 MBP 2.26ghz
 time(function() {
-  m.reduce(m.sum, 0, m.rmap(m.inc, m.rmap(m.inc, m.rmap(m.inc, v))));
-});
+  var xf = m.comp(m.map(m.inc), m.map(m.inc), m.map(m.inc));
+  return m.transduce(xf, m.completing(m.sum), 0, v);
+}, 10);
 
-// 365ms
+// ~440ms
 time(function() {
-  a.map(m.inc).map(m.inc).map(m.inc).reduce(function(a,b){return a+b;}, 0);
-})
+  return a.map(m.inc).map(m.inc).map(m.inc).reduce(function(a,b){return a+b;}, 0);
+}, 10);
 ```
 
 ### Pipelines

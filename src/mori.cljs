@@ -9,7 +9,7 @@
     keys select-keys vals
     prim-seq lazy-seq keep keep-indexed
     map mapcat map-indexed reduce reduce-kv filter remove some every? equiv
-    transduce eduction sequence dedupe
+    transduce eduction sequence dedupe completing
     range repeat repeatedly sort sort-by
     into-array
     partial comp juxt
@@ -115,6 +115,7 @@
 (def ^:export transduce cljs.core/transduce)
 (def ^:export eduction cljs.core/eduction)
 (def ^:export sequence cljs.core/sequence)
+(def ^:export completing cljs.core/completing)
 
 ;; constructors
 
