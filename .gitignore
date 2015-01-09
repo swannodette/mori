@@ -17,3 +17,5 @@ mori*.js
 _site
 node_modules
 npm-debug.log
+out-adv
+out-dev
