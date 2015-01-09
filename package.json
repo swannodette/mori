@@ -34,7 +34,9 @@
   "engines": {
       "node": ">=0.8.22"
   },
-  "dependencies": {},
+  "dependencies": {
+      //"immutable": "3.5.0"
+  },
   "devDependencies": {
     "jasmine-node": "1.7.0"
   },
