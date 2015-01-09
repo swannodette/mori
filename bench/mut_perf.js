@@ -76,7 +76,7 @@
         });
         var el = (new Date())-s;
         runs.push(el);
-        print("Mutable list push " + l.size + " items " + el + " " + l.get(0));
+        print("Mutable list push " + l.size + " items " + el + " " + l.reduce(sum, 0));
     }
     print(runs.reduce(sum,0)/10);
 
