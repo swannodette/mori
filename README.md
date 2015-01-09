@@ -72,7 +72,7 @@ var inc = function(n) {
   return n+1;
 };
 
-mori.into_array(mori.map(inc, mori.vector(1,2,3,4,5)));
+mori.intoArray(mori.map(inc, mori.vector(1,2,3,4,5)));
 // => [2,3,4,5,6]
 ```
 
@@ -96,7 +96,7 @@ Lazy sequences!
 
 ```javascript
 var _ = mori;
-_.into_array(_.interpose("foo", _.vector(1, 2, 3, 4)));
+_.intoArray(_.interpose("foo", _.vector(1, 2, 3, 4)));
 // => [1, "foo", 2, "foo", 3, "foo", 4]
 ```
 
@@ -105,7 +105,7 @@ Or if it's more your speed, use it from CoffeeScript!
 ```coffeescript
 inc = (x) -> x+1  
 r = mori.map inc, mori.vector(1,2,3,4,5)
-mori.into_array r
+mori.intoArray r
 ```
 
 ### Documentation
@@ -159,7 +159,7 @@ return the proposed mutable iterators:
 
 ```javascript
 var m = mori;
-var h = m.hash_map("foo", 1, "bar", 2);
+var h = m.hashMap("foo", 1, "bar", 2);
 
 h.has("foo"); // => true
 h.get("foo"); // => 1
@@ -248,11 +248,11 @@ second(mori.vector(1,2,3));
 ### Juxtaposition
 
 ```javascript
-var pos_and_neg = mori.juxt(mori.identity, function (v) { return -v; });
-pos_and_neg(1);
+var posAndNeg = mori.juxt(mori.identity, function (v) { return -v; });
+posAndNeg(1);
 // => [1 -1]
 
-mori.knit(mori.inc, mori.dec)(pos_and_neg(1));
+mori.knit(mori.inc, mori.dec)(posAndNeg(1));
 // => [2 -2]
 ```
 
