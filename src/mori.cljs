@@ -235,36 +235,6 @@
 (def ^:export resetMeta cljs.core/reset-meta!)
 
 ;; =============================================================================
-;; Experimental Proxy support
-
-(defn ^:export proxy [coll]
-  (if (exists? js/Proxy)
-    (let [handler (js-obj
-                    "has" (fn [k] (contains? coll k))
-                    "hasOwn" (fn [k] (contains? coll k))
-                    "get" (fn [target k]
-                            (let [v (get coll k ::not-found)]
-                              (cond
-                                (keyword-identical? v ::not-found)
-                                (when (and (counted? coll)
-                                           (identical? k "length"))
-                                  (count coll))
-                                :else v)))
-                    "set" (fn [target k v])
-                    "enumerate" (fn [] (intoArray (keys coll)))
-                    "keys" (fn []
-                             (cond
-                               (map? coll)
-                               (intoArray (keys coll))
-
-                               (vector? coll)
-                               (intoArray (range (count coll)))
-
-                               :else nil)))]
-      (js/Proxy.create handler))
-    (throw (js/Error. "ES6 Proxy not supported!"))))
-
-;; =============================================================================
 ;; Node.js Inspection support
 
 (make-inspectable
@@ -294,31 +264,3 @@
   cljs.core.Symbol
   cljs.core.PersistentQueue
   cljs.core.PersistentQueueSeq)
-
-;; =============================================================================
-;; Closure hacks so we get exported ES6 Map/Set interface on collections
-;; Following functions are NOT a part of the API
-
-(defn ^:export _equiv [x y]
-  (.equiv x y))
-
-(defn ^:export _keys [x]
-  (.keys x))
-
-(defn ^:export _values [x]
-  (.values x))
-
-(defn ^:export _entries [x]
-  (.entries x))
-
-(defn ^:export _has [x]
-  (.has x))
-
-(defn ^:export _get [x]
-  (.get x))
-
-(defn ^:export _forEach [x]
-  (.forEach x))
-
-(defn ^:export _next [x]
-  (.next x))
