@@ -43,6 +43,7 @@
     "build-clean": "./scripts/build_clean.sh",
     "clean": "./scripts/clean.sh",
     "prepublish": "npm run-script build-clean",
+    "docs": "./scripts/docs.sh",
     "test": "jasmine-node spec"
   },
   "directories": {
