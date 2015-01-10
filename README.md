@@ -52,7 +52,7 @@ cd mori
 ### Alternatively using npm
 
 ```shell
-npm run-script build
+npm run build
 ```
 
 ### On Windows
