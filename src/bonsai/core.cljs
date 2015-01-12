@@ -3,9 +3,7 @@
    [count empty conj find nth assoc dissoc disj pop peek hash get
     empty? reverse into merge subvec keys select-keys vals
     equiv range sort sort-by into-array
-    list vector array-map hash-map set sorted-set
-    sorted-set-by sorted-map sorted-map-by
-    subseq compare meta with-meta vary-meta]))
+    list vector array-map hash-map set compare]))
 
 (def ^:export count cljs.core/count)
 (def ^:export empty cljs.core/empty)
@@ -34,15 +32,7 @@
 (def ^:export into-array cljs.core/into-array)
 (def ^:export list cljs.core/list)
 (def ^:export vector cljs.core/vector)
-(def ^:export array-map cljs.core/array-map)
 (def ^:export hash-map cljs.core/hash-map)
 (def ^:export set cljs.core/set)
-(def ^:export sorted-set cljs.core/sorted-set)
-(def ^:export sorted-set-by cljs.core/sorted-set-by)
-(def ^:export sorted-map cljs.core/sorted-map)
-(def ^:export sorted-map-by cljs.core/sorted-map-by)
-(def ^:export subseq cljs.core/subseq)
 (def ^:export compare cljs.core/compare)
-(def ^:export meta cljs.core/meta)
-(def ^:export with-meta cljs.core/with-meta)
-(def ^:export vary-meta cljs.core/vary-meta)
+
