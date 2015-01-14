@@ -183,13 +183,14 @@ describe("configure", function() {
     });
     it("can tune *print-level*", function() {
         mori.configure("print-level", 3);
-        expect(mori.parse("[1 [2 [3 [4 [5]]]]]") + '').toEqual("[1 [2 [3 #]]]");
+        var m = mori;
+        expect(m.vector(1, m.vector(2, m.vector(3, m.vector(4, m.vector(5))))).toString()).toEqual("[1 [2 [3 #]]]");
 
         mori.configure("print-level", 1);
-        expect(mori.parse("{1 {2 3}}") + '').toEqual("{1 #}");
+        expect(m.hashMap(1, m.hashMap(2, 3)).toString()).toEqual("{1 #}");
 
         mori.configure("print-level", null);
-        expect(mori.parse("[1 [2 [3 [4]]]]") + '').toEqual("[1 [2 [3 [4]]]]");
+        expect(m.vector(1, m.vector(2, m.vector(3, m.vector(4)))).toString()).toEqual("[1 [2 [3 [4]]]]");
     });
 });
 
