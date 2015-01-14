@@ -57,39 +57,6 @@ describe("Lazy sequences", function () {
 
 });
 
-describe("Reducers", function () {
-
-    it("demonstrates reducer-functions usage", function () {
-
-        var m = mori,
-            a = [];
-
-        for(var i = 0; i < 100000; i++) {
-            a.push(i);
-        }
-
-        var v = m.into(m.vector(), a);
-
-        var mul3 = function(n) {
-            return n*3;
-        };
-
-        // function time(f) {
-        //     var s = new Date();
-        //     f();
-        //     console.log(((new Date())-s)+"ms");
-        // }
-
-        var res1 = m.reduce(m.sum, 0, m.reducers.map(m.inc, m.reducers.filter(m.isEven, m.reducers.map(mul3, v)))),
-            res2 = a.map(mul3).filter(m.isEven).map(m.inc).reduce(m.sum);
-
-        expect(res1).toEqual(7499900000);
-        expect(res2).toEqual(res1);
-
-    });
-
-});
-
 describe("Pipelines", function () {
 
     it("demonstrates function pipelining", function () {

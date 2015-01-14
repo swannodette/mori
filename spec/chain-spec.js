@@ -1,3 +1,4 @@
+/*
 var mori = require("../mori")
   , c = mori.chain
   , _ = c._;
@@ -148,4 +149,4 @@ describe("Predicates", function() {
   });
 
 });
-
+*/
