@@ -20,9 +20,7 @@
     meta with-meta vary-meta
     apply])
   (:use-macros [mori.macros :only [make-inspectable]])
-  (:require [clojure.set :as set]
-            [clojure.data :as data]
-            [cljs.reader :as reader]))
+  (:require [clojure.set :as set]))
 
 (def ^:export apply cljs.core/apply)
 (def ^:export count cljs.core/count)
@@ -196,10 +194,6 @@
   (fn [args]
     (intoArray (map #(% %2) fns args))))
 
-;; Data fns
-
-(def ^:export diff data/diff)
-
 ;; Useful fns
 
 (def ^:export sum (fn [s n] (+ s n)))
@@ -219,9 +213,6 @@
 (defn ^:export toClj
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
-
-(defn ^:export parse [s]
-  (reader/read-string s))
 
 (defn ^:export configure [variable value]
   (case variable
