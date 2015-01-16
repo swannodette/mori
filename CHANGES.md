@@ -1,3 +1,20 @@
+## 0.3.0 to 0.3.1
+
+### Changes
+* Fix broken release build, constants missing
+
+## 0.2.9 to 0.3.0
+
+### Breaking Changes
+* Remove zippers
+* Remove EDN reader
+* Remove data diffing
+* Remove reducers
+* API renaming
+
+### Changes
+* Expose direct invokes
+
 ## 0.2.8 to 0.2.9
 
 ### Enhancements
