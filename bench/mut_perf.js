@@ -50,9 +50,9 @@
         var mv = m.mutable.thaw(m.vector());
         for(var i = 0; i < 1000000; i++) {
             if(i % 32 === 0) {
-                mv = m.mutable.conj1(mv, Math.random());
+                mv = m.mutable.conj.f2(mv, Math.random());
             } else {
-                mv = m.mutable.conj1(mv, i);
+                mv = m.mutable.conj.f2(mv, i);
             }
         }
         var v = m.mutable.freeze(mv);
@@ -62,6 +62,7 @@
     }
     print(runs.reduce(sum,0)/10);
 
+    /*
     runs = [];
     for(var j = 0; j < 10; j++) {
         s = new Date();
@@ -79,6 +80,7 @@
         print("Mutable list push " + l.size + " items " + el + " " + l.reduce(sum, 0));
     }
     print(runs.reduce(sum,0)/10);
+    */
 
 })();
 

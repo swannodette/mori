@@ -21,3 +21,4 @@ npm-debug.log
 out-*
 *init.clj
 .DS_Store
+.idea
