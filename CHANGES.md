@@ -1,3 +1,8 @@
+## 0.3.1 to 0.3.2
+
+### Changes
+* ArrayMap is the default
+
 ## 0.3.0 to 0.3.1
 
 ### Changes
