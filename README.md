@@ -203,57 +203,6 @@ time(function() {
 }, 10);
 ```
 
-### Pipelines
-
-```javascript
-mori.pipeline(mori.vector(1,2,3),
-              function(v) { return mori.conj(v,4) },
-              function(v) { return mori.drop(2, v) });
-
-// => [3 4]
-```
-
-### Currying
-
-```javascript
-mori.pipeline(mori.vector(1,2,3),
-              mori.curry(mori.conj, 4),
-              mori.curry(mori.conj, 5));
-
-// => [1 2 3 4 5]
-```
-
-### Partial Application
-
-```javascript
-mori.pipeline(mori.vector(1,2,3),
-              mori.curry(mori.conj, 4),
-              mori.partial(mori.drop, 2));
-
-// => (3 4)
-```
-
-### Function Composition
-
-```javascript
-var second = mori.comp(mori.first, mori.rest);
-
-second(mori.vector(1,2,3));
-// => 2
-```
-
-### Juxtaposition
-
-```javascript
-var posAndNeg = mori.juxt(mori.identity, function (v) { return -v; });
-posAndNeg(1);
-// => [1 -1]
-
-mori.knit(mori.inc, mori.dec)(posAndNeg(1));
-// => [2 -2]
-```
-
-
-Copyright (C) 2014 David Nolen and contributors
+Copyright (C) 2012-2015 David Nolen and contributors
 
 Distributed under the [Eclipse Public License](https://raw.github.com/swannodette/mori/master/epl-v10.html), the same as Clojure.
