@@ -47,7 +47,7 @@ or `foo["@@iterator"]`.
 * A functional API, data structures do not have public methods
 * Faster, ClojureScript data structures have been subjected to more
   real world usage and continuous benchmarking for 3 1/2 years
-* Larger, Mori is about twice the size of Immutable.js
+* Larger, gzipped Mori is about twice the size of Immutable.js
 
 ## Getting it
 
