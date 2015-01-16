@@ -7,6 +7,12 @@
   :plugins [[lein-cljsbuild "1.0.4"]
             [cider/cider-nrepl "0.8.1"]]
 
+  :clean-targets ["out-mori-dev/"
+                  "out-mori-adv/"
+                  "out-bonsai-adv/"
+                  "mori.js" "mori.bare.js"
+                  "bonsai.js" "bonsai.bare.js"]
+  
   :cljsbuild
   {:builds
     [;; mori
