@@ -8,6 +8,7 @@ A simple bridge to ClojureScript's persistent data structures and [supporting AP
 
 This release includes several breaking changes:
 
+* More idiomatic JavaScript API naming scheme
 * No EDN reader
 * No zippers
 * No data diffing
