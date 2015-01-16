@@ -16,6 +16,21 @@ This release includes several breaking changes:
 These missing options will likely find their way back into Mori when
 Mori builds can leverage Google Closure Modules.
 
+## Improvements to 0.3.0
+
+Mori is considerably faster across the board thanks to recent
+enhancements to the ClojureScript compiler. For users who would like
+to benchmark their immutable data structure implementations, Mori now
+exposes direct arity invokes which eliminates calling overheads from
+arity dispatching.
+
+Mori hash maps now default to ClojureScript `ArrayMap`s that are
+automatically promoted to `PersistentHashMap` as needed. `ArrayMap`s
+deliver considerably better performance at small sizes and when simple
+keys are at play. For example a Mori hash map with less than or equal
+to eight keys can now built nearly an order of magnitude faster than
+Immutable.js 3.6.2 `Map`s.
+
 ## Getting it
 
 You can install the latest release via npm:
