@@ -20,9 +20,11 @@ Mori builds can leverage Google Closure Modules.
 
 Mori is considerably faster across the board thanks to recent
 enhancements to the ClojureScript compiler. For users who would like
-to benchmark their immutable data structure implementations, Mori now
-exposes direct arity invokes which eliminates calling overheads from
-arity dispatching.
+to benchmark their immutable data structure implementations against
+Mori, Mori now exposes direct arity invokes which eliminates previous
+calling overheads from arity dispatching. See
+[Benchmarking](https://github.com/swannodette/mori/wiki/Benchmarking)
+for more information.
 
 Mori hash maps now default to ClojureScript `ArrayMap`s that are
 automatically promoted to `PersistentHashMap` as needed. `ArrayMap`s
