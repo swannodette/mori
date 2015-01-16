@@ -27,10 +27,10 @@ calling overheads from arity dispatching. See
 for more information.
 
 Mori hash maps now default to ClojureScript `ArrayMap`s that are
-automatically promoted to `PersistentHashMap` as needed. `ArrayMap`s
+automatically promoted to `PersistentHashMap`s as needed. `ArrayMap`s
 deliver considerably better performance at small sizes and when simple
 keys are at play. For example a Mori hash map with less than or equal
-to eight keys can now built nearly an order of magnitude faster than
+to eight keys can now be built nearly an order of magnitude faster than
 Immutable.js 3.6.2 `Map`s.
 
 ## Getting it
