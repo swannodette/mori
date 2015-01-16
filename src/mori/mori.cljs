@@ -116,8 +116,8 @@
 
 (mori-export list cljs.core/list)
 (mori-export vector cljs.core/vector)
-(mori-export arrayMap cljs.core/array-map)
-(mori-export hashMap cljs.core/hash-map)
+(mori-export hashMap cljs.core/array-map)
+
 (mori-export set cljs.core/set)
 (mori-export sortedSet cljs.core/sorted-set)
 (mori-export sortedSetBy cljs.core/sorted-set-by)
