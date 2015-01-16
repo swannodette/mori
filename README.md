@@ -4,6 +4,17 @@
 
 A simple bridge to ClojureScript's persistent data structures and [supporting APIs](http://swannodette.github.io/mori/) for vanilla JavaScript. Pull requests welcome.
 
+## Breaking changes in 0.3.0 
+
+This release includes several breaking changes:
+
+* No EDN reader
+* No zippers
+* No data diffing
+
+These missing options will likely find their way back into Mori when
+Mori builds can leverage Google Closure Modules.
+
 ## Getting it
 
 You can install the latest release via npm:
