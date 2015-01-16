@@ -2,7 +2,9 @@
 
 <img src="http://cloud.github.com/downloads/swannodette/mori/mori.png" alt="Mori" title="Mori"/>
 
-A simple bridge to ClojureScript's persistent data structures and [supporting APIs](http://swannodette.github.io/mori/) for vanilla JavaScript. Pull requests welcome.
+A simple bridge to ClojureScript's persistent data structures and
+[supporting APIs](http://swannodette.github.io/mori/) for vanilla
+JavaScript. Pull requests welcome.
 
 ## Breaking changes in 0.3.0 
 
@@ -201,9 +203,15 @@ time(function() {
 
 ### Prerequisites
 
-You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) SDK, if it's not already installed on your system.
+You will first need to install the
+[Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+SDK, if it's not already installed on your system.
 
-On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path or if your `lein` version predates `2.0.0`.
+On Windows, you will need to manually install
+[Leiningen](http://github.com/technomancy/leiningen). On UNIX-like
+systems, Leiningen will be installed within the project automatically
+if the `lein` executable is not found on your path or if your `lein`
+version predates `2.0.0`.
 
 ### Clone the repo
 
@@ -230,8 +238,13 @@ npm run-script build
 ./scripts/build.ps1
 ```
 
-The build process will generate an optimized JavaScript file `mori.js`, which is suitable for use with Node.js, or in a Web browser or other JavaScript environments. You can also load it as an AMD module.
+The build process will generate an optimized JavaScript file
+`mori.js`, which is suitable for use with Node.js, or in a Web browser
+or other JavaScript environments. You can also load it as an AMD
+module.
 
 Copyright (C) 2012-2015 David Nolen and contributors
 
-Distributed under the [Eclipse Public License](https://raw.github.com/swannodette/mori/master/epl-v10.html), the same as Clojure.
+Distributed under the
+[Eclipse Public License](https://raw.github.com/swannodette/mori/master/epl-v10.html),
+the same as Clojure.
