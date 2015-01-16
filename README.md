@@ -35,6 +35,13 @@ keys are at play. For example a Mori hash map with less than or equal
 to eight keys can now be built nearly an order of magnitude faster than
 Immutable.js 3.6.2 `Map`s.
 
+## Differences from Immutable.js
+
+* A functional API, data structures do not have public methods
+* Faster, ClojureScript data structures have been subjected to more
+  real world usage and continuous benchmarking for 3 1/2 years
+* Larger, Mori is about twice the size of Immutable.js
+
 ## Getting it
 
 You can install the latest release via npm:
