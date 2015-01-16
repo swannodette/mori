@@ -20,6 +20,8 @@ Mori builds can leverage Google Closure Modules.
 
 ## Improvements to 0.3.0
 
+### Faster
+
 Mori is considerably faster across the board thanks to recent
 enhancements to the ClojureScript compiler. For users who would like
 to benchmark their immutable data structure implementations against
@@ -34,6 +36,11 @@ deliver considerably better performance at small sizes and when simple
 keys are at play. For example a Mori hash map with less than or equal
 to eight keys can now be built nearly an order of magnitude faster than
 Immutable.js 3.6.2 `Map`s.
+
+### More ES6
+
+All Mori collections support ES6 iteration via `foo[Symbol.iterator]`
+or `foo["@@iterator"]`.
 
 ## Differences from Immutable.js
 
