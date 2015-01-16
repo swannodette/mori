@@ -26,7 +26,6 @@
       {:output-to "mori.bare.js",
        :output-dir "out-mori-adv"
        :optimizations :advanced
-       :cache-analysis true
        :output-wrapper false
        :pretty-print false}}
 
@@ -37,6 +36,5 @@
       {:output-to "bonsai.bare.js",
        :output-dir "out-bonsai-adv"
        :optimizations :advanced
-       :cache-analysis true
        :output-wrapper false
        :pretty-print false}}]})
