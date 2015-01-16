@@ -14,7 +14,7 @@
     into-array
     partial comp juxt
     identity constantly
-    list vector array-map hash-map zipmap set sorted-set keyword symbol
+    list vector vec array-map hash-map zipmap set sorted-set keyword symbol
     sorted-set-by sorted-map sorted-map-by
     sum inc dec even? odd? subseq compare
     meta with-meta vary-meta
@@ -116,6 +116,7 @@
 
 (mori-export list cljs.core/list)
 (mori-export vector cljs.core/vector)
+(mori-export vec cljs.core/vec)
 (mori-export hashMap cljs.core/array-map)
 
 (mori-export set cljs.core/set)
