@@ -40,41 +40,6 @@ In a browser, you can load mori with a script tag, as you would any other JavaSc
 
 You can also load it as an AMD module, e.g. with [RequireJS](http://requirejs.org/).
 
-## Build
-
-### Prerequisites
-
-You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) SDK, if it's not already installed on your system.
-
-On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path or if your `lein` version predates `2.0.0`.
-
-### Clone the repo
-
-```shell
-git clone https://github.com/swannodette/mori.git
-cd mori
-```
-
-### On a UNIX-like system build with
-
-```shell
-./scripts/build.sh
-```
-
-### Alternatively using npm
-
-```shell
-npm run-script build
-```
-
-### On Windows
-
-```shell
-./scripts/build.ps1
-```
-
-The build process will generate an optimized JavaScript file `mori.js`, which is suitable for use with Node.js, or in a Web browser or other JavaScript environments. You can also load it as an AMD module.
-
 ## Usage
 
 You can use it from your projects like so:
@@ -214,6 +179,41 @@ time(function() {
   return a.map(m.inc).map(m.inc).map(m.inc).reduce(function(a,b){return a+b;}, 0);
 }, 10);
 ```
+
+## Build
+
+### Prerequisites
+
+You will first need to install the [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) SDK, if it's not already installed on your system.
+
+On Windows, you will need to manually install [Leiningen](http://github.com/technomancy/leiningen). On UNIX-like systems, Leiningen will be installed within the project automatically if the `lein` executable is not found on your path or if your `lein` version predates `2.0.0`.
+
+### Clone the repo
+
+```shell
+git clone https://github.com/swannodette/mori.git
+cd mori
+```
+
+### On a UNIX-like system build with
+
+```shell
+./scripts/build.sh
+```
+
+### Alternatively using npm
+
+```shell
+npm run-script build
+```
+
+### On Windows
+
+```shell
+./scripts/build.ps1
+```
+
+The build process will generate an optimized JavaScript file `mori.js`, which is suitable for use with Node.js, or in a Web browser or other JavaScript environments. You can also load it as an AMD module.
 
 Copyright (C) 2012-2015 David Nolen and contributors
 
