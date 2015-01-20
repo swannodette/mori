@@ -1,5 +1,5 @@
 lein deps
-lein cljsbuild clean
+lein clean
 lein cljsbuild once release
 $moribarejs = Get-Content mori.bare.js
 $wrapperbeg = Get-Content support/wrapper.beg.txt

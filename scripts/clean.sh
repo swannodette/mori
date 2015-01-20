@@ -2,4 +2,4 @@
 
 rm -f mori.js
 
-./bin/lein_prefer cljsbuild clean
+./bin/lein_prefer clean

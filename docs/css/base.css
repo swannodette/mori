@@ -1,0 +1,181 @@
+body {
+    color: #33333;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: white;
+    font-size: 16px;
+}
+
+a {
+    color: #333;
+}
+a:visited {
+    color: #333;
+}
+a:hover {
+    color: #333;
+}
+
+h2, h3 {
+    padding-top: 1.5em;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    overflow: hidden;
+}
+
+#title {
+    color: #003300;
+    margin: 0 0 0 -0.1em;
+    font-size: 5em;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.mori-nav {
+    min-width: 10em;
+    overflow: auto;
+    margin: 0;
+    background-color: #efffef;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 1.5em 1em 1.5em;
+}
+
+.mori-content {
+    box-sizing: border-box;
+    padding: 1.5em 3em;
+    overflow: auto;
+    width: 100%;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+}
+
+.mori-nav > ul > li {
+    padding: 0 0 1em;
+}
+
+.mori-nav ul {
+    margin: 1em 0;
+    padding: 0;
+}
+
+.mori-nav li {
+    font-size: 0.8rem;
+    padding: 0;
+    list-style: none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.toc-title {
+    font-family: helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    text-decoration: underline;
+}
+
+main {
+    width: 100%;
+    max-width: 38em;
+}
+
+.mori-content p,
+.mori-content ul li {
+    line-height: 1.5em;
+}
+
+.mori-content h2 {
+    color: #030;
+    font-family: helvetica, arial, sans-serif;
+}
+.mori-content h3 {
+    color: #030;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 1.2rem;
+}
+
+.example {
+    padding: 2px 0.6rem;
+    border: 1px solid #bcb;
+    box-sizing: border-box;
+}
+.code {
+    font-size: 0.8rem;
+    overflow-y: hidden;
+}
+h3 .sig {
+    color: #666;
+    font-family: "Inconsolata", courier, monospace;
+    font-weight: normal;
+    font-size: 1rem;
+    margin-left: 0.6rem;
+}
+
+/* increase font size on huge displays */
+@media all and (min-width: 80rem) {
+  .wrapper {
+    font-size: 20px;
+  }
+}
+
+/* change layout on small displays */
+@media all and (max-width: 50rem) {
+  .wrapper {
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    position: static;
+    height: auto;
+    width: 100%;
+  }
+
+  .mori-nav, .mori-content {
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 100%;
+    padding: 1em;
+    height: auto;
+  }
+
+  .mori-nav {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+  }
+
+  .mori-nav ul {
+    margin: 0;
+  }
+
+  .mori-nav ul ul {
+    display: none;
+  }
+
+  .mori-nav li {
+    padding: 0;
+  }
+
+  .mori-nav .main {
+    display: none;
+  }
+
+  main {
+    margin: 0 auto;
+  }
+}

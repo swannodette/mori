@@ -10,6 +10,7 @@
 /.lein-deps-sum
 .lein*
 mori*.js
+bonsai*.js
 !/spec/mori*.js
 !/support/scripts/mori.js
 *.swp
@@ -17,3 +18,7 @@ mori*.js
 _site
 node_modules
 npm-debug.log
+out-*
+*init.clj
+.DS_Store
+.idea

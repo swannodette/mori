@@ -1,6 +1,6 @@
 {
   "name": "mori",
-  "version": "0.3.0-SNAPSHOT",
+  "version": "0.3.2",
   "description": "Persistent Data Structures for JavaScript",
   "homepage": "https://github.com/swannodette/mori",
   "author": "David Nolen (https://github.com/swannodette)",
@@ -36,6 +36,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "immutable": "3.5.0",
     "jasmine-node": "1.7.0"
   },
   "scripts": {
@@ -43,6 +44,7 @@
     "build-clean": "./scripts/build_clean.sh",
     "clean": "./scripts/clean.sh",
     "prepublish": "npm run-script build-clean",
+    "docs": "./scripts/docs.sh",
     "test": "jasmine-node spec"
   },
   "directories": {
