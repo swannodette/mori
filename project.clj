@@ -1,46 +1,40 @@
-(defproject mori "0.3.2"
+(defproject mori "0.5.0-SNAPSHOT"
   :description "Persistent Data Structures for JavaScript"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2665"]]
+                 [org.clojure/clojurescript "0.0-3169"]]
 
-  :plugins [[lein-cljsbuild "1.0.4"]
-            [cider/cider-nrepl "0.8.1"]]
+  :plugins [[lein-cljsbuild "1.0.5"]]
 
-  :clean-targets ["out-mori-dev/"
-                  "out-mori-adv/"
-                  "out-bonsai-adv/"
-                  "mori.js" "mori.bare.js"
-                  "bonsai.js" "bonsai.bare.js"]
+  :clean-targets ["dev" "release" "target"]
   
   :cljsbuild
   {:builds
     [;; mori
-     {:source-paths ["src/mori"],
+     {:source-paths ["src"],
       :id "dev",
       :compiler
-      {:output-to "mori.dev.js",
-       :output-dir "out-mori-dev"
-       :optimizations :simple
+      {:output-to      "dev/mori.dev.js",
+       :output-dir     "dev/"
+       :optimizations  :simple
        :cache-analysis true
        :output-wrapper false
-       :pretty-print true}}
+       :pretty-print   true}}
 
-     {:source-paths ["src/mori"],
-      :id "release",
+     {:source-paths ["src"],
+      :id "release"
       :compiler
-      {:output-to "mori.bare.js",
-       :output-dir "out-mori-adv"
-       :optimizations :advanced
+      {:optimizations  :advanced
+       :output-dir     "release"
        :output-wrapper false
-       :pretty-print false}}
-
-     ;; bonsai
-     {:source-paths ["src/bonsai"],
-      :id "bonsai-release",
-      :compiler
-      {:output-to "bonsai.bare.js",
-       :output-dir "out-bonsai-adv"
-       :optimizations :advanced
-       :output-wrapper false
-       :pretty-print false}}]})
+       :pretty-print   false
+       :modules
+       {:cljs-base {:output-to "release/build/mori.base.js"}
+        :mori      {:entries #{mori}
+                    :output-to "release/build/mori.core.js"}
+        :mutable   {:entries #{mori.mutable}
+                    :depends-on #{:mori}
+                    :output-to "release/build/mori.mutable.js"}
+        :extra     {:entries #{mori.extra}
+                    :depends-on #{:mori}
+                    :output-to "release/build/mori.extra.js"}}}}]})
