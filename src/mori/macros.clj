@@ -18,17 +18,21 @@
 (defmacro mori-export [exportf coref]
   (let [{:keys [ns name methods]} (ana-api/resolve &env coref)]
     `(do
-       (def ~(vary-meta exportf assoc :export true) ~coref)
+       (js/goog.exportSymbol ~(str "mori." (core/name exportf)) ~coref) ~(list 'js* ";")
        ~@(when-not (= 1 (count methods))
            (map
              (fn [{:keys [variadic max-fixed-arity]}]
                (if variadic
-                 `(js/goog.exportSymbol
-                    ~(str ana/*cljs-ns* "." (core/name exportf) ".fn")
-                    ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$variadic")))
-                 `(js/goog.exportSymbol
-                    ~(str ana/*cljs-ns* "." (core/name exportf) ".f" max-fixed-arity)
-                    ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$arity$" max-fixed-arity)))))
+                 `(do
+                    (js/goog.exportSymbol
+                      ~(str "mori." (core/name exportf) ".fn")
+                      ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$variadic")))
+                    ~(list 'js* ";"))
+                 `(do
+                    (js/goog.exportSymbol
+                     ~(str "mori." (core/name exportf) ".f" max-fixed-arity)
+                     ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$arity$" max-fixed-arity)))
+                    ~(list 'js* ";"))))
              methods)))))
 
 (comment

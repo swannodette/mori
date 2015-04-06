@@ -62,7 +62,7 @@
 
 (defn ^:export flatten [x]
   (cljs.core/filter #(not (sequential-or-array? %))
-    (cljs.core/rest (tree-seq sequential-or-array? seq x))))
+    (cljs.core/rest (tree-seq sequential-or-array? cljs.core/seq x))))
 
 ; The real lazy-seq is a macro, but it just expands its body into a function
 (defn ^:export lazySeq [f]
@@ -153,19 +153,19 @@
 (mori-export comp cljs.core/comp)
 
 (defn ^:export pipeline [& args]
-  (reduce #(%2 %1) args))
+  (cljs.core/reduce #(%2 %1) args))
 
 (defn ^:export curry [fun & args]
   (fn [arg]
-    (cljs.core/apply fun (cons arg args))))
+    (cljs.core/apply fun (cljs.core/cons arg args))))
 
 (defn ^:export juxt [& fns]
   (fn [& args]
-    (into-array (map #(cljs.core/apply % args) fns))))
+    (cljs.core/into-array (cljs.core/map #(cljs.core/apply % args) fns))))
 
 (defn ^:export knit [& fns]
   (fn [args]
-    (into-array (map #(% %2) fns args))))
+    (cljs.core/into-array (cljs.core/map #(% %2) fns args))))
 
 ;; Useful fns
 
