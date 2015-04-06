@@ -28,13 +28,11 @@
        :output-dir     "release"
        :output-wrapper false
        :pretty-print   false
+       :verbose        true
        :modules
-       {:cljs-base {:output-to "release/build/mori.base.js"}
-        :mori      {:entries #{mori}
-                    :output-to "release/build/mori.core.js"}
+       {:cljs-base {:entries #{cljs.core mori}
+                    :output-to "release/build/mori.base.js"}
         :mutable   {:entries #{mori.mutable}
-                    :depends-on #{:mori}
                     :output-to "release/build/mori.mutable.js"}
-        :extra     {:entries #{mori.extra}
-                    :depends-on #{:mori}
+        :extra     {:entries #{cljs.reader clojure.set mori.extra}
                     :output-to "release/build/mori.extra.js"}}}}]})

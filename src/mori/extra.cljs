@@ -16,11 +16,17 @@
     sorted-set-by sorted-map sorted-map-by
     sum inc dec even? odd? subseq
     meta with-meta vary-meta
-    apply])
+    apply hash select-keys into-array list range])
   (:require-macros
    [mori.macros :refer [mori-export make-inspectable]])
-  (:require [clojure.set :as set]))
+  (:require [clojure.set :as set]
+            [cljs.reader :as reader]))
 
+(mori-export range cljs.core/range)
+(mori-export list cljs.core/list)
+(mori-export intoArray cljs.core/into-array)
+(mori-export selectKeys cljs.core/select-keys)
+(mori-export hash cljs.core/hash)
 (mori-export apply cljs.core/apply)
 (mori-export distinct cljs.core/distinct)
 (mori-export first cljs.core/first)
@@ -191,6 +197,8 @@
 (mori-export varyMeta cljs.core/vary-meta)
 (mori-export alterMeta cljs.core/alter-meta!)
 (mori-export resetMeta cljs.core/reset-meta!)
+
+(mori-export parse reader/read-string)
 
 ;; =============================================================================
 ;; Node.js Inspection support
