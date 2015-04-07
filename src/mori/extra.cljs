@@ -21,7 +21,8 @@
    [mori.macros :refer [mori-export make-inspectable]])
   (:require [clojure.set :as set]
             [cljs.reader :as reader]
-            [clojure.data :as data]))
+            [clojure.data :as data]
+            [clojure.zip :as zip]))
 
 (mori-export range cljs.core/range)
 (mori-export list cljs.core/list)
@@ -203,6 +204,34 @@
 
 (mori-export parse reader/read-string)
 (mori-export diff data/diff)
+
+(mori-export zipper zip/zipper)		
+(mori-export seqZip zip/seq-zip)		
+(mori-export vectorZip zip/vector-zip)		
+(mori-export node zip/node)		
+(mori-export isBranch zip/branch?)		
+(mori-export children zip/children)		
+(mori-export makeNode zip/make-node)		
+(mori-export path zip/path)		
+(mori-export lefts zip/lefts)		
+(mori-export rights zip/rights)		
+(mori-export down zip/down)		
+(mori-export up zip/up)		
+(mori-export root zip/root)		
+(mori-export right zip/right)		
+(mori-export rightmost zip/rightmost)		
+(mori-export left zip/left)		
+(mori-export leftmost zip/leftmost)		
+(mori-export insertLeft zip/insert-left)		
+(mori-export insertRight zip/insert-right)		
+(mori-export replace zip/replace)		
+(mori-export edit zip/edit)		
+(mori-export insertChild zip/insert-child)		
+(mori-export appendChild zip/append-child)		
+(mori-export next zip/next)		
+(mori-export prev zip/prev)		
+(mori-export isEnd zip/end?)		
+(mori-export remove zip/remove)
 
 ;; =============================================================================
 ;; Node.js Inspection support
