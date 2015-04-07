@@ -27,7 +27,7 @@
                       (str (core/name name) ".cljs$core$IFn$_invoke$arity$" c)))))]
       `(do
          (js/goog.exportSymbol ~(str "mori." (core/name exportf)) ~coref) ~(list 'js* ";")
-         ~@(when (< 1 (count arglists))
+         ~@(when (and arglists (< 1 (count arglists)))
              (map export-method (remove #(some '#{&} %) arglists)))))))
 
 (comment

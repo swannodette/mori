@@ -96,8 +96,10 @@
 ;; constructors
 
 (mori-export sortedSet cljs.core/sorted-set)
+(mori-export SortedSet cljs.core/PersistentTreeSet)
 (mori-export sortedSetBy cljs.core/sorted-set-by)
 (mori-export sortedMap cljs.core/sorted-map)
+(mori-export SortedMap cljs.core/PersistentTreeMap)
 (mori-export sortedMapBy cljs.core/sorted-map-by)
 
 (def ^:export queue (fn [& args] (into cljs.core.PersistentQueue.EMPTY args)))

@@ -29,7 +29,11 @@
 (mori-export sort cljs.core/sort)
 (mori-export sortBy cljs.core/sort-by)
 (mori-export vector cljs.core/vector)
+(mori-export Vector cljs.core/PersistentVector)
 (mori-export hashMap cljs.core/array-map)
+(mori-export ArrayMap cljs.core/PersistentArrayMap)
+(mori-export Map cljs.core/PersistentHashMap)
 (mori-export set cljs.core/set)
+(mori-export Set cljs.core/PersistentHashSet)
 (mori-export compare cljs.core/compare)
 
