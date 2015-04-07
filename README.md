@@ -8,7 +8,7 @@ JavaScript. Pull requests welcome.
 
 ## Breaking changes in 0.3.0 
 
-The API now uses idiomatic JavaScript casing.
+The API now uses idiomatic JavaScript naming conventions.
 
 ## Improvements to 0.3.0
 
@@ -38,8 +38,8 @@ or `foo["@@iterator"]`.
 
 * A functional API, data structures do not have public methods
 * Faster, ClojureScript data structures have been subjected to more
-  real world usage and continuous benchmarking for 3 1/2 years
-* Larger, gzipped Mori is about twice the size of Immutable.js
+  real world usage and continuous benchmarking for nearly 4 years
+* Larger, gzipped the base Mori module is about 6K larger than Immutable.js
 
 ## Getting it
 
