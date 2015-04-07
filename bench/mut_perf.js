@@ -1,5 +1,6 @@
 // lein cljsbuild once release
-// d8 node_modules/immutable/dist/immutable.min.js mori.bare.js ./bench/mut_perf.js
+// d8 mori.base.js mori.mutable.js mori.extra.js ./bench/mut_perf.js
+// d8 node_modules/immutable/dist/immutable.min.js mori.bare.js mori.mutable.js ./bench/mut_perf.js
 // jsc node_modules/immutable/dist/immutable.min.js mori.bare.js ./bench/mut_perf.js
 
 ;(function() {
@@ -47,15 +48,15 @@
     runs = [];
     for(var j = 0; j < 10; j++) {
         s = new Date();
-        var mv = m.mutable.thaw(m.vector());
+        var mv = m._thaw(m.vector());
         for(var i = 0; i < 1000000; i++) {
             if(i % 32 === 0) {
-                mv = m.mutable.conj.f2(mv, Math.random());
+                mv = m._conj.f2(mv, Math.random());
             } else {
-                mv = m.mutable.conj.f2(mv, i);
+                mv = m._conj.f2(mv, i);
             }
         }
-        var v = m.mutable.freeze(mv);
+        var v = m._freeze(mv);
         var el = (new Date())-s;
         runs.push(el);
         print("Mutable vector conj " + m.count(v) + " items " + el + " " + m.reduce(sum,0,v));

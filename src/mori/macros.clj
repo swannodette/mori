@@ -1,6 +1,7 @@
 (ns mori.macros
   (:require [cljs.compiler :as comp]
             [cljs.analyzer :as ana]
+            [cljs.util :as util]
             [cljs.analyzer.api :as ana-api]))
 
 (alias 'core 'clojure.core)
@@ -12,28 +13,22 @@
          (.toString coll#)))))
 
 (defmacro make-inspectable [& xs]
-  `(do
-     ~@(map make-inspectable-1 xs)))
+  `(do ~@(map make-inspectable-1 xs)))
 
 (defmacro mori-export [exportf coref]
-  (let [{:keys [ns name methods]} (ana-api/resolve &env coref)]
-    `(do
-       (js/goog.exportSymbol ~(str "mori." (core/name exportf)) ~coref) ~(list 'js* ";")
-       ~@(when-not (= 1 (count methods))
-           (map
-             (fn [{:keys [variadic max-fixed-arity]}]
-               (if variadic
-                 `(do
-                    (js/goog.exportSymbol
-                      ~(str "mori." (core/name exportf) ".fn")
-                      ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$variadic")))
-                    ~(list 'js* ";"))
-                 `(do
-                    (js/goog.exportSymbol
-                     ~(str "mori." (core/name exportf) ".f" max-fixed-arity)
-                     ~(symbol (str ns) (str (core/name name) ".cljs$core$IFn$_invoke$arity$" max-fixed-arity)))
-                    ~(list 'js* ";"))))
-             methods)))))
+  (let [{:keys [ns name arglists]} (ana-api/resolve &env coref)
+        arglists (cond-> arglists
+                   (= (first arglists) 'quote) rest)]
+    (letfn [(export-method [arglist]
+              (let [c (count arglist)]
+                `(js/goog.exportSymbol
+                   ~(str "mori." (core/name exportf) ".f" c)
+                   ~(symbol (str ns)
+                      (str (core/name name) ".cljs$core$IFn$_invoke$arity$" c)))))]
+      `(do
+         (js/goog.exportSymbol ~(str "mori." (core/name exportf)) ~coref) ~(list 'js* ";")
+         ~@(when (< 1 (count arglists))
+             (map export-method (remove #(some '#{&} %) arglists)))))))
 
 (comment
 
