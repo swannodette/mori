@@ -5,7 +5,7 @@
    [count empty conj find nth assoc dissoc disj pop peek get
     empty? reverse into merge subvec keys vals
     equiv sort sort-by
-    vector array-map hash-map set compare]))
+    vector vec array-map hash-map set compare]))
 
 (mori-export count cljs.core/count)
 (mori-export empty cljs.core/empty)
@@ -29,11 +29,17 @@
 (mori-export sort cljs.core/sort)
 (mori-export sortBy cljs.core/sort-by)
 (mori-export vector cljs.core/vector)
+(mori-export vec cljs.core/vec)
 (mori-export Vector cljs.core/PersistentVector)
 (mori-export hashMap cljs.core/array-map)
 (mori-export ArrayMap cljs.core/PersistentArrayMap)
+(defn ^:export arrayMapFromArray [arr no-clone no-check]
+  (cljs.core/PersistentArrayMap.fromArray arr no-clone no-check))
+(defn ^:export arrayMapUnwrap [m]
+  (if (instance? cljs.core/PersistentArrayMap m)
+    (.-arr m)
+    (throw (js/Error. "Can only unwrap array maps"))))
 (mori-export Map cljs.core/PersistentHashMap)
 (mori-export set cljs.core/set)
 (mori-export Set cljs.core/PersistentHashSet)
 (mori-export compare cljs.core/compare)
-
