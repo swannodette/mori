@@ -34,5 +34,5 @@
                     :output-to "release/build/mori.base.js"}
         :mutable   {:entries #{mori.mutable}
                     :output-to "release/build/mori.mutable.js"}
-        :extra     {:entries #{cljs.reader clojure.set mori.extra}
+        :extra     {:entries #{clojure.data cljs.reader clojure.set mori.extra}
                     :output-to "release/build/mori.extra.js"}}}}]})

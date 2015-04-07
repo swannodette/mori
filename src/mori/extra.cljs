@@ -20,7 +20,8 @@
   (:require-macros
    [mori.macros :refer [mori-export make-inspectable]])
   (:require [clojure.set :as set]
-            [cljs.reader :as reader]))
+            [cljs.reader :as reader]
+            [clojure.data :as data]))
 
 (mori-export range cljs.core/range)
 (mori-export list cljs.core/list)
@@ -201,6 +202,7 @@
 (mori-export resetMeta cljs.core/reset-meta!)
 
 (mori-export parse reader/read-string)
+(mori-export diff data/diff)
 
 ;; =============================================================================
 ;; Node.js Inspection support
