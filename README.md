@@ -138,11 +138,11 @@ for(var j = 0; j < 10; j++) {
 // ~70ms
 for(var j = 0; j < 10; j++) {
   s = new Date();
-  var mv = m.mutable.thaw(m.vector());
+  var mv = m._thaw(m.vector());
   for(var i = 0; i < 10000000; i++) {
-    mv = m.mutable.conj.f2(mv, i);
+    mv = m._conj.f2(mv, i);
   }
-  var v = m.mutable.freeze(mv);
+  var v = m._freeze(mv);
   print("Mutable vector conj " + m.count(v) + " items " + ((new Date())-s));
   gc();
 }
