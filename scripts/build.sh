@@ -7,10 +7,6 @@ set -e
 
 echo "Finalizing mori.js"
 
-(cat support/wrapper.beg.txt; cat mori.bare.js; cat support/wrapper.end.txt) > mori.js
-
-echo "Deleting mori.bare.js"
-
-rm mori.bare.js
+(cat support/wrapper.beg.txt; cat ./release/mori.js; cat support/wrapper.end.txt) > mori.js
 
 echo "Build finished."
