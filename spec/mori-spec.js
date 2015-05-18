@@ -47,6 +47,21 @@ describe("Pipelines", function () {
     });
 });
 
+describe('trampoline', function() {
+    it("keep calling the function for as long as it returns a function", function() {
+
+        expect(mori.trampoline(function fn(n){
+            if(n >= 10000)
+                return n
+            else
+                return function(){
+                    return fn(n+1)
+                }
+        }, 0)).toBe(10000)
+    })
+})
+
+
 describe("Currying", function () {
     it("demonstrates function currying", function () {
         var curRes = mori.pipeline(
