@@ -36,6 +36,13 @@ describe("Lazy sequences", function () {
     });
 });
 
+describe('memoize', function() {
+    it("can memoize function return value", function() {
+        var memoizedFn = mori.memoize(function(){return mori.rand()})
+        expect(memoizedFn()).toBe(memoizedFn())
+    })
+})
+
 describe("Mori Extra", function() {
 
     describe("Pipelines", function () {
