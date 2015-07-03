@@ -130,6 +130,7 @@
 (mori-export isSeqable cljs.core/seqable?)
 (mori-export isReversible cljs.core/reversible?)
 
+(mori-export trampoline cljs.core/trampoline)
 ;; Set ops
 (mori-export union set/union)
 (mori-export intersection set/intersection)
