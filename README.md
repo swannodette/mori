@@ -170,7 +170,6 @@ var iter = h.keys();
 iter.next(); // => {done: false, value: "foo"}
 ```
 
-This feature is subject to changes in the ES6 proposal.
 
 ### Transducers
 
