@@ -1389,7 +1389,7 @@ mori.reduceKV(f, "", v); // => "(0:5)(1:7)"
           <pre class="brush: javascript">
 var a = mori.range(); // infinite sequence
 
-mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
+mori.take(10, a); // => (0 1 2 3 4 5 6 7 8 9)
           </pre>
         </div>
 
@@ -1409,7 +1409,7 @@ mori.take(10, r); // => (0 1 2 3 4 5 6 7 8 9)
         <div class="example">
           <pre class="brush: javascript">
 a = [0,1,2,3,4,5,6,7,8,9]
-mori.takeWhile ((n) -> n &lt; 5), r // => (0 1 2 3 4)
+mori.takeWhile ((n) -> n &lt; 5), a // => (0 1 2 3 4)
           </pre>
         </div>
 
