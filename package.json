@@ -36,6 +36,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "flow-bin": "0.21.0",
     "immutable": "3.5.0",
     "jasmine-node": "1.7.0"
   },

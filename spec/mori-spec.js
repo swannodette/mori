@@ -1,4 +1,10 @@
+/* @flow */
+
 var mori = require("../mori");
+
+/*:: declare var describe: Function */
+/*:: declare var it: Function */
+/*:: declare var expect: Function */
 
 describe("Map", function () {
     it("demonstrates mapping a function over a vector", function () {
