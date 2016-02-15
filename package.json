@@ -32,12 +32,12 @@
     "url": "git://github.com/swannodette/mori.git"
   },
   "engines": {
-      "node": ">=0.8.22"
+    "node": ">=0.8.22"
   },
-  "dependencies": {},
   "devDependencies": {
     "immutable": "3.5.0",
-    "jasmine-node": "1.7.0"
+    "jasmine-node": "1.7.0",
+    "wgetjs": "0.3.6"
   },
   "scripts": {
     "build": "./scripts/build.sh",
@@ -48,6 +48,6 @@
     "test": "jasmine-node spec"
   },
   "directories": {
-      "test": "./spec"
+    "test": "./spec"
   }
 }
