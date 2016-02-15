@@ -1,51 +1,42 @@
 #!/usr/bin/env bash
 
-LEIN_PREFER=`which lein`
-LEIN2=`which lein2`
+set -e
 
-if [[ ! -z $LEIN2 ]]; then
-
-LEIN_PREFER=$LEIN2
-
-fi
-
-if [[ ! -z $LEIN_PREFER ]]; then
-
-LEIN_VER=`$LEIN_PREFER version`
-
-fi
-
+LEIN_PREFER=""
+LEIN_VER=""
 LEIN_VER1_PATTERN="^Leiningen\ 1\."
+BIN=$(cd `dirname $0`; pwd)
 
-if [[ -z $LEIN_PREFER || $LEIN_VER =~ $LEIN_VER1_PATTERN ]]; then
+command_exists () {
+  type "$1" &>/dev/null
+}
 
-export LEIN_HOME=`pwd`"/bin/.lein"
+download_lein () {
+  "$BIN/get_lein.js"
+  chmod +x "$BIN/lein"
+  echo "$BIN/lein"
+}
 
-if [[ ! -d $LEIN_HOME ]]; then
-
-mkdir $LEIN_HOME
-
+if command_exists lein2; then
+  LEIN_PREFER=lein2
+elif command_exists lein; then
+  LEIN_PREFER=lein
+elif [ ! -x "$LEIN_PREFER" ]; then
+  LEIN_PREFER="$BIN/lein"
 fi
 
-LEIN_PREFER=`pwd`"/bin/lein"
-
+if [ -x "$LEIN_PREFER" ]; then
+  LEIN_VER=$("$LEIN_PREFER" version)
 fi
 
-if [[ ! -f $LEIN_PREFER ]]; then
-
-echo "Leiningen v2 not found, downloading..."
-
-./bin/get_lein.js
-
-chmod +x $LEIN_PREFER
-
+if [[ ! -x "$LEIN_PREFER" || "$LEIN_VER" =~ "$LEIN_VER1_PATTERN" ]]; then
+  >&2 echo "Leiningen v2 not found, downloading..."
+  >&2 download_lein
 fi
 
-if [[ ! -f $LEIN_PREFER ]]; then
-
-echo "Failed to find or set up Leiningen"
-exit 1
-
+if [ ! -x "$LEIN_PREFER" ]; then
+  echo "Failed to find or set up Leiningen"
+  exit 1
 fi
 
-$LEIN_PREFER $@
+"$LEIN_PREFER" $@
