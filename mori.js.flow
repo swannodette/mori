@@ -17,11 +17,20 @@ declare function hash(x: any): number
  * Class declarations happen to be a convenient way to make up types that are
  * unique to this module.
  */
-declare export class Collection<A> {}
-declare export class Associative<K,V> {}
-declare export class Seq<A>        extends Collection<A> {}
-declare export class Sequential<A> extends Collection<A> {}
-declare export class Stack<A>      extends Collection<A> {}
+declare class _Collection<A> {}
+declare class _Associative<K,V> {}
+declare class _Seq<A>        extends _Collection<A> {}
+declare class _Sequential<A> extends _Collection<A> {}
+declare class _Stack<A>      extends _Collection<A> {}
+
+/*
+ * Export types, but do not export non-existent class implementations.
+ */
+export type Collection<A>    = _Collection<A>
+export type Associative<K,V> = _Associative<K,V>
+export type Seq<A>           = _Seq<A>
+export type Sequential<A>    = _Sequential<A>
+export type Stack<A>         = _Stack<A>
 
 export type Indexed<A> = Sequential<A> | Iterable<A>
 export type Seqable<A> = Collection<A> | Iterable<A>
