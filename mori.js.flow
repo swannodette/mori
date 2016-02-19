@@ -82,9 +82,25 @@ declare export class Symbol {}
 declare function list<A>(...args: A[]): List<A>
 declare var vector: (<A>(...args: A[]) => Vector<A>)
                   & (<K,V>(k: K, v: V) => Pair<K,V>)
-declare function hashMap<K,V>(...keysAndValues: (K | V)[]): Map<K,V>
-declare function sortedMap<K,V>(...keysAndValues: (K | V)[]): Map<K,V>
-declare function sortedMapBy<K,V>(cmp: (x: K, y: K) => number, ...keysAndValues: (K | V)[]): Map<K,V>
+declare function hashMap<K,V>( key0?: K, val0?: V
+                             , key1?: K, val1?: V
+                             , key2?: K, val2?: V
+                             , key3?: K, val3?: V
+                             , key4?: K, val4?: V
+                             , ...keysAndValues: (K | V)[]): Map<K,V>
+declare function sortedMap<K,V>( key0?: K, val0?: V
+                               , key1?: K, val1?: V
+                               , key2?: K, val2?: V
+                               , key3?: K, val3?: V
+                               , key4?: K, val4?: V
+                               , ...keysAndValues: (K | V)[]): Map<K,V>
+declare function sortedMapBy<K,V>( cmp: (x: K, y: K) => number
+                                 , key0?: K, val0?: V
+                                 , key1?: K, val1?: V
+                                 , key2?: K, val2?: V
+                                 , key3?: K, val3?: V
+                                 , key4?: K, val4?: V
+                                 , ...keysAndValues: (K | V)[]): Map<K,V>
 declare function set<A>(values: Seqable<A>): Set<A>
 declare function sortedSet<A>(values: Seqable<A>): Set<A>
 declare function sortedSetBy<A>(cmp: (x: A, b: A) => number, ...values: A[]): Set<A>
@@ -119,7 +135,13 @@ declare function isSymbol(x: any): boolean
 
 declare function conj<A,S:Collection<A>>(coll: S, ...args: A[]): S
 declare function into<A,T:Collection<A>,S:Seqable<A>>(coll: T, from: S): T
-declare function assoc<K,V,S:Associative<K,V>>(coll: S, ...keysAndValues: (K | V)[]): S
+declare function assoc<K,V,S:Associative<K,V>>( coll: S
+                                              , key0?: K, val0?: V
+                                              , key1?: K, val1?: V
+                                              , key2?: K, val2?: V
+                                              , key3?: K, val3?: V
+                                              , key4?: K, val4?: V
+                                              , ...keysAndValues: (K | V)[]): S
 declare function dissoc<K,V,S:Map<K,V>>(coll: S, ...keys: K[]): S
 declare function distinct<A,S:Indexed<A>>(coll: S): S
 declare function empty<A,S:Collection<A>>(coll: S): S
