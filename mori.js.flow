@@ -145,10 +145,12 @@ declare function assoc<K,V,S:Associative<K,V>>( coll: S
 declare function dissoc<K,V,S:Map<K,V>>(coll: S, ...keys: K[]): S
 declare function distinct<A,S:Indexed<A>>(coll: S): S
 declare function empty<A,S:Collection<A>>(coll: S): S
-declare var get: (<K,V>(coll: Associative<K,V>, key: K, notFound?: V) => ?V)  // TODO: `get` works on A[]
+declare var get: (<K,V>(coll: Associative<K,V>, key: K, notFound: V) => V)  // TODO: `get` works on A[]
+               & (<K,V>(coll: Associative<K,V>, key: K) => ?V)
                & (<K,V>(coll: Pair<K,V>, key: 0) => K)
                & (<K,V>(coll: Pair<K,V>, key: 1) => V)
-declare function getIn<K,V>(coll: Associative<K,any>, keys: Seqable<K>, notFound?: V): ?V
+declare var getIn: (<K,K_,V>(coll: Associative<K,any>, keys: Seqable<K&K_>, notFound: V) => V)
+                 & (<K,K_,V>(coll: Associative<K,any>, keys: Seqable<K&K_>) => ?V)
 declare function hasKey<K,V>(coll: Associative<K,V> | Set<K>, key: K): boolean  // TODO: `hasKey` works on A[]
 declare function find<K,V>(coll: Associative<K,V>, key: K): ?Pair<K,V>
 declare var nth: (<A>(coll: Indexed<A>, index: number) => ?A)

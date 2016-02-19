@@ -25,6 +25,12 @@ describe("type-checking", function () {
     mori.keys(m_);  // operation requires `Map<*,*>` type to be preserved
   });
 
+  it("returns default value when key is not found", function () {
+    var m = mori.hashMap('foo', 1, 'bar', 2);
+    var guaranteed/*: number */ = mori.get(m, 'nao', 3);
+    var not_guaranteed/*: ?number */ = mori.get(m, 'nao');
+  });
+
   it("creates consistently-typed zipmap", function () {
     var strings = mori.vector('foo', 'bar', 'nao');
     var numbers = mori.vector(1, 2, 3);
