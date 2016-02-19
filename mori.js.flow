@@ -192,7 +192,10 @@ declare function isSuperset<A,B>(seta: Set<A>, setb: Set<B>): boolean
 
 declare var first: (<A>(coll: Seqable<A>) => ?A)
                  & (<K,V>(coll: Pair<K,V>) => K)
+declare var second: (<A>(coll: Seqable<A>) => ?A)
+                  & (<K,V>(coll: Pair<K,V>) => V)
 declare function rest<A>(coll: Seqable<A>): Seq<A>
+declare function next<A>(coll: Seqable<A>): Seq<A>
 declare function seq<A>(coll: Seqable<A>): Seq<A>
 declare function cons<A,B>(value: A, coll: Seqable<B>): List<A|B>
 declare function concat<A,B>(coll: Seqable<A>, ...colls: Seqable<B>[]): Seq<A|B>
@@ -560,7 +563,9 @@ export {
   isSuperset,
 
   first,
+  second,
   rest,
+  next,
   seq,
   cons,
   concat,
