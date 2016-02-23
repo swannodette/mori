@@ -145,11 +145,11 @@ declare function assoc<K,V,S:Associative<K,V>>( coll: S
 declare function dissoc<K,V,S:Map<K,V>>(coll: S, ...keys: K[]): S
 declare function distinct<A,S:Indexed<A>>(coll: S): S
 declare function empty<A,S:Collection<A>>(coll: S): S
-declare var get: (<K,V>(coll: Associative<K,V>, key: K, notFound: V) => V)  // TODO: `get` works on A[]
+declare var get: (<K,V,V_>(coll: Associative<K,V>, key: K, notFound: V_) => V|V_)  // TODO: `get` works on A[]
                & (<K,V>(coll: Associative<K,V>, key: K) => ?V)
                & (<K,V>(coll: Pair<K,V>, key: 0) => K)
                & (<K,V>(coll: Pair<K,V>, key: 1) => V)
-declare var getIn: (<K,K_,V>(coll: Associative<K,any>, keys: Seqable<K&K_>, notFound: V) => V)
+declare var getIn: (<K,K_,V,V_>(coll: Associative<K,any>, keys: Seqable<K&K_>, notFound: V_) => V|V_)
                  & (<K,K_,V>(coll: Associative<K,any>, keys: Seqable<K&K_>) => ?V)
 declare function hasKey<K,V>(coll: Associative<K,V> | Set<K>, key: K): boolean  // TODO: `hasKey` works on A[]
 declare function find<K,V>(coll: Associative<K,V>, key: K): ?Pair<K,V>
@@ -209,27 +209,31 @@ declare var map: (<A,B,C,D,E,R>(f: (a: A, b: B, c: C, d: D, e: E) => R,
                                 collb: Seqable<B>,
                                 collc: Seqable<C>,
                                 colld: Seqable<D>,
-                                colle: Seqable<E>
+                                colle: Seqable<E>,
+                                $?: null
                                ) => Seq<R>)
                & (<A,B,C,D,R>(f: (a: A, b: B, c: C, d: D) => R,
                               colla: Seqable<A>,
                               collb: Seqable<B>,
                               collc: Seqable<C>,
-                              colld: Seqable<D>
+                              colld: Seqable<D>,
+                              $?: null
                              ) => Seq<R>)
                & (<A,B,C,R>(f: (a: A, b: B, c: C) => R,
                             colla: Seqable<A>,
                             collb: Seqable<B>,
-                            collc: Seqable<C>
+                            collc: Seqable<C>,
+                            $?: null
                            ) => Seq<R>)
                & (<A,B,R>(f: (a: A, b: B) => R,
                           colla: Seqable<A>,
-                          collb: Seqable<B>
+                          collb: Seqable<B>,
+                          $?: null
                          ) => Seq<R>)
                & (<A,R>(f: (a: A) => R,
-                        colla: Seqable<A>
+                        colla: Seqable<A>,
+                        $?: null
                        ) => Seq<R>)
-
                & (<T,R>(f: (...values: T[]) => R,
                         ...colls: Seqable<T>[]
                         ) => Seq<R>)
@@ -239,25 +243,30 @@ declare var mapcat: (<A,B,C,D,E,R>(f: (a: A, b: B, c: C, d: D, e: E) => Seqable<
                                    collb: Seqable<B>,
                                    collc: Seqable<C>,
                                    colld: Seqable<D>,
-                                   colle: Seqable<E>
+                                   colle: Seqable<E>,
+                                   $?: null
                                   ) => Seq<R>)
                   & (<A,B,C,D,R>(f: (a: A, b: B, c: C, d: D) => Seqable<R>,
                                  colla: Seqable<A>,
                                  collb: Seqable<B>,
                                  collc: Seqable<C>,
-                                 colld: Seqable<D>
+                                 colld: Seqable<D>,
+                                 $?: null
                                 ) => Seq<R>)
                   & (<A,B,C,R>(f: (a: A, b: B, c: C) => Seqable<R>,
                                colla: Seqable<A>,
                                collb: Seqable<B>,
-                               collc: Seqable<C>
+                               collc: Seqable<C>,
+                               $?: null
                               ) => Seq<R>)
                   & (<A,B,R>(f: (a: A, b: B) => Seqable<R>,
                              colla: Seqable<A>,
-                             collb: Seqable<B>
+                             collb: Seqable<B>,
+                             $?: null
                             ) => Seq<R>)
                   & (<A,R>(f: (a: A) => Seqable<R>,
-                           colla: Seqable<A>
+                           colla: Seqable<A>,
+                           $?: null
                           ) => Seq<R>)
                   & (<T,R>(f: (...values: T[]) => Seqable<R>,
                            ...colls: Seqable<T>[]
@@ -271,7 +280,7 @@ declare var reduce: (<A,R>(f: (accum: R, value: A) => R,
                               ) => R)
                   & (<A,R>(f: (accum: R, value: A) => R,
                                coll: Seqable<A>
-                              ) => R)
+                              ) => ?R)
 declare function reduceKV<K,V,R>(f: (accum: R, key: K, value: V) => R,
                                  initial: R,
                                  coll: Associative<K,V>
@@ -315,49 +324,51 @@ declare function sum(...ns: number[]): number
 declare function isEven(n: number): boolean
 declare function isOdd(n: number): boolean
 
-declare var comp: (<A,B,C,D,E,F>(f4: (_: E) => F,
-                                 f3: (_: D) => E,
-                                 f2: (_: C) => D,
-                                 f1: (_: B) => C,
-                                 f0: (_: A) => B,
-                                ) => (_: A) => F)
-                & (<A,B,C,D,E>(f3: (_: D) => E,
-                               f2: (_: C) => D,
-                               f1: (_: B) => C,
-                               f0: (_: A) => B
-                              ) => (_: A) => E)
-                & (<A,B,C,D>(f2: (_: C) => D,
-                             f1: (_: B) => C,
-                             f0: (_: A) => B
-                            ) => (_: A) => D)
-                & (<A,B,C>(f1: (_: B) => C,
-                           f0: (_: A) => B
-                          ) => (_: A) => C)
-                & (<A,B>(f0: (_: A) => B
-                        ) => (_: A) => B)
-                & (<T,R>(...fs: ((_: T) => T)[]) => (_: T) => R)
+declare var comp: (<A,B,C,D,E>( fn3: (d: D) => E
+                              , fn2: (c: C) => D
+                              , fn1: (b: B) => C
+                              , fn0: (a: A) => B
+                              , $?: null
+                              ) => (a: A) => E)
+                & (<A,B,C,D>( fn2: (c: C) => D
+                            , fn1: (b: B) => C
+                            , fn0: (a: A) => B
+                            , $?: null
+                            ) => (a: A) => D)
+                & (<A,B,C>( fn1: (b: B) => C
+                          , fn0: (a: A) => B
+                          , $?: null
+                          ) => (a: A) => C)
+                & (<A,B>( fn0: (a: A) => B
+                        , $?: null
+                        ) => (a: A) => B)
 
 declare var juxt: (<T,A,B,C,D,E>(f0: (_: T) => A,
                                  f1: (_: T) => B,
                                  f2: (_: T) => C,
                                  f3: (_: T) => D,
-                                 f4: (_: T) => E
+                                 f4: (_: T) => E,
+                                 $?: null
                                 ) => (_: T) => [A,B,C,D,E])
                 & (<T,A,B,C,D>(f0: (_: T) => A,
                                f1: (_: T) => B,
                                f2: (_: T) => C,
-                               f3: (_: T) => D
+                               f3: (_: T) => D,
+                               $?: null
                               ) => (_: T) => [A,B,C,D])
                 & (<T,A,B,C>(f0: (_: T) => A,
                              f1: (_: T) => B,
-                             f2: (_: T) => C
+                             f2: (_: T) => C,
+                             $?: null
                             ) => (_: T) => [A,B,C])
                 & (<T,A,B>(f0: (_: T) => A,
-                           f1: (_: T) => B
+                           f1: (_: T) => B,
+                           $?: null
                           ) => (_: T) => [A,B])
-                & (<T,A>(f0: (_: T) => A
+                & (<T,A>(f0: (_: T) => A,
+                         $?: null
                         ) => (_: T) => [A])
-                & (<T>() => (_: T) => void[])
+                & (<T>($?: null) => (_: T) => void[])
                 & (<T,R>(f0: (_: T) => R,
                          f1: (_: T) => R,
                          f2: (_: T) => R,
@@ -371,23 +382,28 @@ declare var knit: (<T,A,B,C,D,E>(f0: (_: T) => A,
                                  f1: (_: T) => B,
                                  f2: (_: T) => C,
                                  f3: (_: T) => D,
-                                 f4: (_: T) => E
+                                 f4: (_: T) => E,
+                                 $?: null
                                 ) => (_: Seqable<T>) => [A,B,C,D,E])
                 & (<T,A,B,C,D>(f0: (_: T) => A,
                                f1: (_: T) => B,
                                f2: (_: T) => C,
-                               f3: (_: T) => D
+                               f3: (_: T) => D,
+                               $?: null
                               ) => (_: Seqable<T>) => [A,B,C,D])
                 & (<T,A,B,C>(f0: (_: T) => A,
                              f1: (_: T) => B,
-                             f2: (_: T) => C
+                             f2: (_: T) => C,
+                             $?: null
                             ) => (_: Seqable<T>) => [A,B,C])
                 & (<T,A,B>(f0: (_: T) => A,
-                           f1: (_: T) => B
+                           f1: (_: T) => B,
+                           $?: null
                           ) => (_: Seqable<T>) => [A,B])
-                & (<T,A>(f0: (_: T) => A
+                & (<T,A>(f0: (_: T) => A,
+                         $?: null
                         ) => (_: Seqable<T>) => [A])
-                & (<T>() => (_: Seqable<T>) => void[])
+                & (<T>($?: null) => (_: Seqable<T>) => void[])
                 & (<T,R>(f0: (_: T) => R,
                          f1: (_: T) => R,
                          f2: (_: T) => R,
@@ -402,50 +418,60 @@ declare var pipeline: (<A,B,C,D,E,R>(x: A,
                                      f1: (_: B) => C,
                                      f2: (_: C) => D,
                                      f3: (_: D) => E,
-                                     f4: (_: E) => R
+                                     f4: (_: E) => R,
+                                     $?: null
                                     ) => R)
                     & (<A,B,C,D,R>(x: A,
                                    f0: (_: A) => B,
                                    f1: (_: B) => C,
                                    f2: (_: C) => D,
                                    f3: (_: D) => R,
+                                   $?: null
                                   ) => R)
                     & (<A,B,C,R>(x: A,
                                  f0: (_: A) => B,
                                  f1: (_: B) => C,
                                  f2: (_: C) => R,
+                                 $?: null
                                 ) => R)
                     & (<A,B,R>(x: A,
                                f0: (_: A) => B,
                                f1: (_: B) => R,
+                               $?: null
                               ) => R)
                     & (<A,R>(x: A,
                              f0: (_: A) => R,
+                             $?: null
                             ) => R)
-                    & (<A>(x: A) => A)
+                    & (<A>(x: A, $?: null) => A)
                     & (<T,R>(x: T,
                              ...fs: ((_: T) => R)[]
                             ) => R)
 
-declare var partial: (<T,R>(f: (...args: T[]) => R
+declare var partial: (<T,R>(f: (...args: T[]) => R,
+                            $?: null
                          ) => (...args: T[]) => R)
                    & (<A,T,R>(f: (a: A, ...args: T[]) => R,
-                              a: A
+                              a: A,
+                              $?: null
                              ) => (...args: T[]) => R)
                    & (<A,B,T,R>(f: (a: A, b: B, ...args: T[]) => R,
                                 a: A,
                                 b: B,
+                                $?: null
                                ) => (...args: T[]) => R)
                    & (<A,B,C,T,R>(f: (a: A, b: B, c: C, ...args: T[]) => R,
                                   a: A,
                                   b: B,
                                   c: C,
+                                  $?: null
                                  ) => (...args: T[]) => R)
                    & (<A,B,C,D,T,R>(f: (a: A, b: B, c: C, d: D, ...args: T[]) => R,
                                     a: A,
                                     b: B,
                                     c: C,
                                     d: D,
+                                    $?: null
                                    ) => (...args: T[]) => R)
                    & (<A,B,C,D,E,T,R>(f: (a: A, b: B, c: C, d: D, e: E, ...args: T[]) => R,
                                       a: A,
@@ -453,34 +479,40 @@ declare var partial: (<T,R>(f: (...args: T[]) => R
                                       c: C,
                                       d: D,
                                       e: E,
+                                      $?: null
                                      ) => (...args: T[]) => R)
 
 declare var curry: typeof partial
 
 declare var fnil: (<A,T,R>(f: (a: ?A, ...args: T[]) => R,
-                           a: A
+                           a: A,
+                           $?: null
                           ) => (a: A, ...args: T[]) => R)
                 & (<A,B,T,R>(f: (a: ?A, b: ?B, ...args: T[]) => R,
                            a: A,
-                           b: B
+                           b: B,
+                           $?: null
                           ) => (a: A, b: B, ...args: T[]) => R)
                 & (<A,B,C,T,R>(f: (a: ?A, b: ?B, c: ?C, ...args: T[]) => R,
                                a: A,
                                b: B,
-                               c: C
+                               c: C,
+                               $?: null
                               ) => (a: A, b: B, c: C, ...args: T[]) => R)
                 & (<A,B,C,D,T,R>(f: (a: ?A, b: ?B, c: ?C, d: ?D, ...args: T[]) => R,
                                  a: A,
                                  b: B,
                                  c: C,
-                                 d: D
+                                 d: D,
+                                 $?: null
                                 ) => (a: A, b: B, c: C, d: D, ...args: T[]) => R)
                 & (<A,B,C,D,E,T,R>(f: (a: ?A, b: ?B, c: ?C, d: ?D, e: ?E, ...args: T[]) => R,
                                    a: A,
                                    b: B,
                                    c: C,
                                    d: D,
-                                   e: E
+                                   e: E,
+                                   $?: null
                                   ) => (a: A, b: B, c: C, d: D, e: E, ...args: T[]) => R)
 
 declare var toClj: (<A,B>(x: A[]) => Vector<B>)
