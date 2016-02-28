@@ -99,6 +99,14 @@ describe("type-checking", function () {
     //var v_/*: Vector<string> */ = f(4);
   });
 
+  it("'curries' functions", function () {
+    var v/*: Vector<number> */ = mori.vector(1,2,3);
+    var f = mori.curry(mori.conj, 4);
+    var v_/*: Vector<number> */ = f(v);
+    // Does not type-check:
+    //var v_/*: Vector<string> */ = f(v);
+  });
+
   it("infers that a pair is guaranteed to have two elements with distinct types", function () {
     var m/*: Map<string,number> */ = mori.hashMap('foo', 1, 'bar', 2);
     var p = mori.first(m);
