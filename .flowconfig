@@ -1,0 +1,9 @@
+[ignore]
+.*/flow-bin/.*
+.*[^e].json
+
+[include]
+
+[libs]
+
+[options]

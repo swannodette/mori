@@ -36,6 +36,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "flow-bin": "0.22.0",
     "immutable": "3.5.0",
     "jasmine-node": "1.7.0"
   },
@@ -45,7 +46,8 @@
     "clean": "./scripts/clean.sh",
     "prepublish": "npm run-script build-clean",
     "docs": "./scripts/docs.sh",
-    "test": "jasmine-node spec"
+    "test": "jasmine-node spec",
+    "typecheck": "flow check"
   },
   "directories": {
       "test": "./spec"
