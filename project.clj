@@ -1,10 +1,10 @@
 (defproject mori "0.5.0-SNAPSHOT"
   :description "Persistent Data Structures for JavaScript"
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "0.0-3308" :classifier "aot"]]
+ :dependencies [[org.clojure/clojure "1.10.0-beta3"]
+                [org.clojure/clojurescript "1.10.339"]]
 
-  :plugins [[lein-cljsbuild "1.0.5"]]
+  :plugins [[lein-cljsbuild "1.1.7"]]
 
   :clean-targets ["dev" "release" "target"]
   
@@ -29,6 +29,7 @@
        :output-wrapper false
        :pretty-print   false
        :verbose        true
+       :language-out :es6
        :modules
        {:cljs-base {:entries #{cljs.core mori}
                     :output-to "release/build/mori.base.js"}

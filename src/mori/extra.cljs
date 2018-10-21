@@ -65,10 +65,11 @@
 (defn ^:export flatten [x]
   (cljs.core/filter #(not (sequential-or-array? %))
     (cljs.core/rest (tree-seq sequential-or-array? cljs.core/seq x))))
-
+(mori-export flatten flatten)
 ; The real lazy-seq is a macro, but it just expands its body into a function
 (defn ^:export lazySeq [f]
   (new cljs.core/LazySeq nil f nil nil))
+(mori-export lazySeq lazySeq)
 
 (mori-export primSeq cljs.core/prim-seq)
 (mori-export map cljs.core/map)
@@ -105,7 +106,7 @@
 (mori-export sortedMapBy cljs.core/sorted-map-by)
 
 (def ^:export queue (fn [& args] (into cljs.core.PersistentQueue.EMPTY args)))
-
+(mori-export queue queue)
 (mori-export keyword cljs.core/keyword)
 (mori-export symbol cljs.core/symbol)
 
@@ -158,18 +159,22 @@
 
 (defn ^:export pipeline [& args]
   (cljs.core/reduce #(%2 %1) args))
+(mori-export pipeline pipeline)
 
 (defn ^:export curry [fun & args]
   (fn [arg]
     (cljs.core/apply fun (cljs.core/cons arg args))))
+(mori-export curry curry)
 
 (defn ^:export juxt [& fns]
   (fn [& args]
     (cljs.core/into-array (cljs.core/map #(cljs.core/apply % args) fns))))
+(mori-export juxt juxt)
 
 (defn ^:export knit [& fns]
   (fn [args]
     (cljs.core/into-array (cljs.core/map #(% %2) fns args))))
+(mori-export knit knit)
 
 ;; Useful fns
 
@@ -190,11 +195,13 @@
 (defn ^:export toClj
   ([x] (cljs.core/js->clj x))
   ([x keywordize-keys] (cljs.core/js->clj x :keywordize-keys keywordize-keys)))
+(mori-export toClj toClj)
 
 (defn ^:export configure [variable value]
   (case variable
     "print-length" (set! *print-length* value)
     "print-level" (set! *print-level* value)))
+(mori-export configure configure)
 
 (mori-export meta cljs.core/meta)
 (mori-export withMeta cljs.core/with-meta)
@@ -205,33 +212,33 @@
 (mori-export parse reader/read-string)
 (mori-export diff data/diff)
 
-(mori-export zipper zip/zipper)		
-(mori-export seqZip zip/seq-zip)		
-(mori-export vectorZip zip/vector-zip)		
-(mori-export node zip/node)		
-(mori-export isBranch zip/branch?)		
-(mori-export children zip/children)		
-(mori-export makeNode zip/make-node)		
-(mori-export path zip/path)		
-(mori-export lefts zip/lefts)		
-(mori-export rights zip/rights)		
-(mori-export down zip/down)		
-(mori-export up zip/up)		
-(mori-export root zip/root)		
-(mori-export right zip/right)		
-(mori-export rightmost zip/rightmost)		
-(mori-export left zip/left)		
-(mori-export leftmost zip/leftmost)		
-(mori-export insertLeft zip/insert-left)		
-(mori-export insertRight zip/insert-right)		
-(mori-export replace zip/replace)		
-(mori-export edit zip/edit)		
-(mori-export insertChild zip/insert-child)		
-(mori-export appendChild zip/append-child)		
-(mori-export next zip/next)		
-(mori-export prev zip/prev)		
-(mori-export isEnd zip/end?)		
-(mori-export remove zip/remove)
+; (mori-export zipper zip/zipper)		
+; (mori-export seqZip zip/seq-zip)		
+; (mori-export vectorZip zip/vector-zip)		
+; (mori-export node zip/node)		
+; (mori-export isBranch zip/branch?)		
+; (mori-export children zip/children)		
+; (mori-export makeNode zip/make-node)		
+; (mori-export path zip/path)		
+; (mori-export lefts zip/lefts)		
+; (mori-export rights zip/rights)		
+; (mori-export down zip/down)		
+; (mori-export up zip/up)		
+; (mori-export root zip/root)		
+; (mori-export right zip/right)		
+; (mori-export rightmost zip/rightmost)		
+; (mori-export left zip/left)		
+; (mori-export leftmost zip/leftmost)		
+; (mori-export insertLeft zip/insert-left)		
+; (mori-export insertRight zip/insert-right)		
+; (mori-export replace zip/replace)		
+; (mori-export edit zip/edit)		
+; (mori-export insertChild zip/insert-child)		
+; (mori-export appendChild zip/append-child)		
+; (mori-export next zip/next)		
+; (mori-export prev zip/prev)		
+; (mori-export isEnd zip/end?)		
+; (mori-export remove zip/remove)
 
 ;; =============================================================================
 ;; Node.js Inspection support
