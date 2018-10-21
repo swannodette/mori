@@ -187,7 +187,7 @@
 (defn ^:export each [xs f]
   (doseq [x xs]
     (f x)))
-
+(mori-export each each)
 (mori-export identity cljs.core/identity)
 (mori-export constantly cljs.core/constantly)
 
