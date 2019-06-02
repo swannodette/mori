@@ -1,5 +1,5 @@
 {
-  "name": "mori",
+  "name": "mori-es6",
   "version": "0.4.0-uport-1",
   "description": "Persistent Data Structures for JavaScript",
   "homepage": "https://github.com/swannodette/mori",
@@ -32,7 +32,7 @@
     "url": "git://github.com/swannodette/mori.git"
   },
   "engines": {
-      "node": ">=0.8.22"
+    "node": ">=0.8.22"
   },
   "dependencies": {},
   "devDependencies": {
@@ -48,6 +48,6 @@
     "test": "jasmine-node spec"
   },
   "directories": {
-      "test": "./spec"
+    "test": "./spec"
   }
 }
