@@ -24,7 +24,7 @@
      {:source-paths ["src"],
       :id "release"
       :compiler
-      {:optimizations  :advanced
+      {:optimizations  :simple
        :output-dir     "release"
        :output-wrapper false
        :pretty-print   true
