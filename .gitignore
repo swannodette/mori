@@ -9,7 +9,6 @@
 /bin/lein
 /.lein-deps-sum
 .lein*
-mori*.js
 bonsai*.js
 !/spec/mori*.js
 !/support/scripts/mori.js
