@@ -1,5 +1,6 @@
 #!/bin/sh
 
-rm -f mori.js
+rm -rf dist
+rm -f mori-es6.js
 
 ./bin/lein_prefer clean

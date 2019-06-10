@@ -24,13 +24,13 @@
      {:source-paths ["src"],
       :id "release"
       :compiler
-      {:optimizations  :simple
+      {:optimizations  :advanced
        :output-dir     "release"
        :output-wrapper false
-       :pretty-print   true
+       :pretty-print   false
        :verbose        false
        :language-in    :es-next
-       :language-out :no-transpile
+       :language-out :es5
        :modules
        {:cljs-base {:entries #{cljs.core mori}
                     :output-to "release/build/mori.base.js"}
