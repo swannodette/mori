@@ -30,7 +30,7 @@
        :pretty-print   true
        :verbose        false
        :language-in    :es-next
-       :language-out :es5
+       :language-out :no-transpile
        :modules
        {:cljs-base {:entries #{cljs.core mori}
                     :output-to "release/build/mori.base.js"}

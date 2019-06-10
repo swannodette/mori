@@ -7,6 +7,6 @@ set -e
 
 echo "Finalizing mori.js"
 
-(cat support/wrapper.beg.txt; cat release/build/mori.base.js; cat release/build/mori.extra.js; cat release/build/mori.mutable.js; cat support/wrapper.end.txt) > mori.js
+(cat support/wrapper.beg.txt; cat release/build/mori.base.js; cat release/build/mori.extra.js; cat release/build/mori.mutable.js; cat support/wrapper.end.txt) > mori-es6.js
 
 echo "Build finished."
