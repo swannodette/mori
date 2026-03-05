@@ -36,7 +36,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "immutable": "3.5.0",
+    "immutable": "4.3.8",
     "jasmine-node": "1.7.0"
   },
   "scripts": {
